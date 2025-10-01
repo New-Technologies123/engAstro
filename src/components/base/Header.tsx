@@ -18,8 +18,6 @@ export const Header = ({ pageType }) => {
     setIsActiveMobileMenu((prev) => !prev);
   };
 
-
-
   // Функция для перехода на сайт tech-new
   const redirectToTechNew = () => {
     window.location.href = 'https://tech-new.ru';

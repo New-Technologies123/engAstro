@@ -2,16 +2,16 @@ import Styles from './home.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Title } from '../../ui/title/Title';
 
-import item_1_en from '../../../images/home/ros.jpg';
-import item_2_en from '../../../images/home/gas.png';
-import item_3_en from '../../../images/home/nnk.webp';
-import item_4_en from '../../../images/home/ink.png';
-import item_5_en from '../../../images/home/sur.webp';
-import item_6_en from '../../../images/home/tat.png';
-import item_7_en from '../../../images/home/bel.png';
-import item_8_en from '../../../images/home/cas.webp';
-import item_9_en from '../../../images/home/luc.png';
-import item_10_en from '../../../images/home/luc_ysb.webp';
+import item_1 from '../../../images/home/ros.jpg';
+import item_2 from '../../../images/home/gas.png';
+import item_3 from '../../../images/home/nnk.webp';
+import item_4 from '../../../images/home/ink.png';
+import item_5 from '../../../images/home/sur.webp';
+import item_6 from '../../../images/home/tat.png';
+import item_7 from '../../../images/home/bel.png';
+import item_8 from '../../../images/home/cas.webp';
+import item_9 from '../../../images/home/luc.png';
+import item_10 from '../../../images/home/luc_ysb.webp';
 
 import homeItem from '../../../images/home/geography.webp';
 
@@ -20,8 +20,8 @@ export const HomeRu = () => {
 
   const imagesByLanguage = {
     en: [
-      item_1_en, item_2_en, item_3_en, item_4_en, item_5_en,
-      item_6_en, item_7_en, item_8_en, item_9_en, item_10_en
+      item_1, item_2, item_3, item_4, item_5,
+      item_6, item_7, item_8, item_9, item_10
     ]
   };
 
