@@ -9,7 +9,7 @@ export const About = () => {
       <div className={Styles.layout}>
         <p>Operating since 2005, «New Technologies» Engineering and Production Enterprise LLC is one of the leading manufacturers of block-modular equipment as 
           well as the spare parts for the development of oil and gas fields, also specializing in the well dewaxing services and equipment overhaul repairing in 
-          the different regions of Russia, Kazakhstan, Belarus and Uzbekistan.</p>        
+          the different regions of Russia, Kazakhstan, Belarus and Uzbekistan.</p>         
       </div>
 
       <Title text="Company in Numbers"></Title>
