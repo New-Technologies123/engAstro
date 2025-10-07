@@ -1,5 +1,4 @@
 import Styles from './careers.module.scss';
-import { useTranslation } from 'react-i18next';
 import { Vacancy } from '../../ui/vacancy/Vacancy';
 import { useState } from 'react';
 import { Title } from '../../ui/title/Title';
@@ -12,7 +11,6 @@ type TCareers = 'vacancy1' | 'vacancy2' | 'vacancy3' | 'vacancy4' | 'vacancy5' |
  | 'vacancy21' | 'vacancy22';
 
 export const Careers = () => {
-    const { t, i18n } = useTranslation('careers');
 
     const vacancyLinks: Record<TCareers, string> = {
         vacancy1: "https://ufa.hh.ru/vacancy/126006933?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
@@ -117,7 +115,7 @@ export const Careers = () => {
                             </div>
                         </div>
                         <div className={Styles.vacancies}>
-                            <p>{t('Завод')}</p>
+                            <p>16/2, Blagovarskaya St., Ufa</p>
                             <div className={Styles.team}>
                                 <Vacancy
                                     header='Head of the Design Department'
@@ -205,11 +203,6 @@ export const Careers = () => {
                                 />
                             </div> 
                         </div>
-                        {/* <div className={Styles.vacancies}>
-                            <p>{t('Вахта')}</p>
-                            <div className={Styles.team}>
-                            </div>
-                        </div> */}
                     </div>
                 </>
             )}
