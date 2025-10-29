@@ -20,7 +20,7 @@
 
 .logoContainer {
   img {
-    width: 180px;
+    width: 165px;
   }
 }
 
@@ -123,7 +123,7 @@
   }  
   .logoContainer{
     img{
-      width: 160px;
+      width: 150px;
     }
   }
   .contactInfo{
@@ -138,7 +138,6 @@
     h3{
       font-size: 15px;
       margin-bottom: 6px;
-      padding-bottom: 5px;
       &::after{
         width: 77px;
       }
@@ -152,6 +151,14 @@
       }
     }
   }  
+}
+
+@media (max-width: 1200px){
+  .logoContainer{
+    img{
+      width: 140px;
+    }
+  }
 }
 
 @media (max-width: 1100px){
@@ -177,11 +184,11 @@
   .contactSection{
     gap: 15px;
   }
-  .logoContainer{
-    img{
-      width: 150px;
-    }
-  }
+  // .logoContainer{
+  //   img{
+  //     width: 150px;
+  //   }
+  // }
   .contactInfo{
     p{
       font-size: 13px;
@@ -190,8 +197,7 @@
   .navColumn{
     h3{
       font-size: 14px;
-      margin-bottom: 10px;
-      padding-bottom: 5px;
+      margin-bottom: 6px;
       &::after{
         width: 74px;
       }
@@ -233,7 +239,7 @@
   }
   .logoContainer{
     img{
-      width: 125px;
+      width: 130px;
     }
   }
   .contactInfo{
