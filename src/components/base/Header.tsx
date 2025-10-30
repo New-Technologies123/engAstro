@@ -56,7 +56,7 @@ export const Header = ({ pageType }) => {
             <div className={Styles.contactInfo}>
               <p>
                 <img src={location.src} alt="Адрес" />
-                {t('Адрес')}
+                Address: 32/2, Zeki Velidi St., Ufa, Republic of Bashkortostan
               </p>
               <p>
                 <img src={email.src} alt="Email" />
@@ -64,14 +64,14 @@ export const Header = ({ pageType }) => {
               </p>
               <p>
                 <img src={phone.src} alt="Телефон" />
-                {t('Телефон')}
+                Phone: +7(347) 293-93-33
               </p>
             </div>
 
-            <div className={Styles.languageSwitch}>
-              {/* Кнопка перехода */}
+            {/* Кнопка перехода */}
+            <div className={Styles.languageSwitch}>              
               <a className={Styles.buttonMenu} onClick={redirectToTechNew}>
-                {t('Рус/Eng')}
+                Rus/Eng
               </a>
             </div>
 
@@ -90,42 +90,42 @@ export const Header = ({ pageType }) => {
         <ul id="nav-menu" className={`${Styles.navMenu} ${isActiveMobileMenu ? Styles.active : ''}`}>
           <li>
             <a href={`/home`} className={pageType === 'home' ? Styles.active : ''}>
-              {t('Главная')}
+              Home
             </a>
           </li>
           <li>
             <a href={`/about`} className={pageType === 'about' ? Styles.active : ''}>
-              {t('О компании')}
+              About us
             </a>
           </li>
           <li>
             <a href={`/products`} className={pageType === 'products' ? Styles.active : ''}>
-              {t('Продукция')}
+              Products
             </a>
           </li>
           <li>
             <a href={`/services`} className={pageType === 'services' ? Styles.active : ''}>
-              {t('Сервисные услуги')}
+              Services
             </a>
           </li>
           <li>
             <a href={`/documents`} className={pageType === 'documents' ? Styles.active : ''}>
-              {t('Документы')}
+              Documents
             </a>
           </li>
           <li>
             <a href={`/news`} className={pageType === 'news' ? Styles.active : ''}>
-              {t('Новости')}
+              News
             </a>
           </li>
           <li>
             <a href={`/careers`} className={pageType === 'careers' ? Styles.active : ''}>
-              {t('Карьера')}
+              Career
             </a>
           </li>
           <li>
             <a href={`/contact`} className={pageType === 'contact' ? Styles.active : ''}>
-              {t('Контакты')}
+              Contacts
             </a>
           </li>
         </ul>
