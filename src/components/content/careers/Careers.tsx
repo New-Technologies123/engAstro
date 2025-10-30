@@ -16,9 +16,9 @@ export const Careers = () => {
         vacancy2: "https://ufa.hh.ru/vacancy/126915229?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",        
         vacancy3: "https://ufa.hh.ru/vacancy/126472421?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy4: "https://ufa.hh.ru/vacancy/124368711?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",        
-        vacancy5: "https://ufa.hh.ru/vacancy/126695188?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",        
+        vacancy5: "",        
         vacancy6: "https://ufa.hh.ru/vacancy/126473582?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
-        vacancy7: "https://ufa.hh.ru/vacancy/122969761?hhtmFrom=vacancy_search_list",
+        vacancy7: "",
         vacancy8: "https://ufa.hh.ru/vacancy/127099664?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy9: "https://ufa.hh.ru/vacancy/125148681?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy10: "https://ufa.hh.ru/vacancy/127099692?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
@@ -65,26 +65,13 @@ export const Careers = () => {
                         <div className={Styles.vacancies}>
                             <p>32/2, Zeki Velidi St., Ufa, Republic of Bashkortostan</p>
                             <div className={Styles.team}>
-                                <Vacancy
-                                    header='Chief metrologist'
-                                    title='Work experience: more than 6 years'
-                                    experience="Full employment"
-                                    employmentType='Schedule: 5/2'
-                                    onClick={() => window.open(vacancyLinks.vacancy7, "_blank")}
-                                />                                
+                                                             
                                 <Vacancy
                                     header="Design engineer"
                                     title="Work experience: 1-3 years"
                                     experience="Full employment"
                                     employmentType='Schedule: 5/2'
                                     onClick={() => window.open(vacancyLinks.vacancy6, "_blank")}
-                                />
-                                <Vacancy
-                                    header="Recruitment Specialist"
-                                    title="Work experience: 1-3 years"
-                                    experience="Full employment"
-                                    employmentType='Schedule: 5/2'
-                                    onClick={() => window.open(vacancyLinks.vacancy5, "_blank")}
                                 />
                                 <Vacancy
                                     header="Security specialist"
