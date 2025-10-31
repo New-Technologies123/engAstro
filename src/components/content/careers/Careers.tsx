@@ -16,7 +16,7 @@ export const Careers = () => {
         vacancy2: "https://ufa.hh.ru/vacancy/126915229?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",        
         vacancy3: "https://ufa.hh.ru/vacancy/126472421?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy4: "https://ufa.hh.ru/vacancy/124368711?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",        
-        vacancy5: "",        
+        vacancy5: "https://ufa.hh.ru/vacancy/127175649?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",        
         vacancy6: "https://ufa.hh.ru/vacancy/126473582?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy7: "",
         vacancy8: "https://ufa.hh.ru/vacancy/127099664?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
@@ -86,6 +86,13 @@ export const Careers = () => {
                                     experience="Project or one-time assignment"
                                     employmentType='Schedule: 5/2'
                                     onClick={() => window.open(vacancyLinks.vacancy8, "_blank")}
+                                />
+                                <Vacancy
+                                    header="Tender specialist"
+                                    title="Work experience: 1-3 years"
+                                    experience="Full employment"
+                                    employmentType='Schedule: 5/2'
+                                    onClick={() => window.open(vacancyLinks.vacancy5, "_blank")}
                                 />
                                 <Vacancy
                                     header="Leading Engineer of the Production and Technical Department"
