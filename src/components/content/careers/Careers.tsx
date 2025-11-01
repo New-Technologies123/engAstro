@@ -18,7 +18,7 @@ export const Careers = () => {
         vacancy4: "https://ufa.hh.ru/vacancy/124368711?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",        
         vacancy5: "https://ufa.hh.ru/vacancy/127175649?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",        
         vacancy6: "https://ufa.hh.ru/vacancy/126473582?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
-        vacancy7: "",
+        vacancy7: "https://ufa.hh.ru/vacancy/127184615?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy8: "https://ufa.hh.ru/vacancy/127099664?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy9: "https://ufa.hh.ru/vacancy/125148681?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy10: "https://ufa.hh.ru/vacancy/127099692?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
@@ -93,6 +93,13 @@ export const Careers = () => {
                                     experience="Full employment"
                                     employmentType='Schedule: 5/2'
                                     onClick={() => window.open(vacancyLinks.vacancy5, "_blank")}
+                                />
+                                <Vacancy
+                                    header="Lawyer"
+                                    title="Work experience: 1-3 years"
+                                    experience="Full employment"
+                                    employmentType='Schedule: 5/2'
+                                    onClick={() => window.open(vacancyLinks.vacancy7, "_blank")}
                                 />
                                 <Vacancy
                                     header="Leading Engineer of the Production and Technical Department"
