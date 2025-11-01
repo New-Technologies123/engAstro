@@ -1,5 +1,4 @@
 import Styles from './home.module.scss';
-import { useTranslation } from 'react-i18next';
 import { Title } from '../../ui/title/Title';
 
 import item_1 from '../../../images/home/ros.jpg';
@@ -16,7 +15,6 @@ import item_10 from '../../../images/home/luc_ysb.webp';
 import homeItem from '../../../images/home/geography.webp';
 
 export const HomeRu = () => {
-  const { t, i18n } = useTranslation('home');
 
   const imagesByLanguage = {
     en: [

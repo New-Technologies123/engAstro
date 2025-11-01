@@ -7,10 +7,8 @@ import location from '../../images/location.svg';
 import email from '../../images/email.svg';
 import phone from '../../images/phone.svg';
 import { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 
 export const Header = ({ pageType }) => {
-  const { t, i18n } = useTranslation('header');
 
   const [isActiveMobileMenu, setIsActiveMobileMenu] = useState(false);
 

@@ -27,13 +27,16 @@ export const News = () => {
 
   return (
     <>
-      <Title text={t('Новости')}></Title>
+      <Title text="News"></Title>
       <div className={`${isLoaded ? Styles.loaded : ''}`}>
         <div className={Styles.newsContent}>
           <div className={Styles.newsItem}>
             <img src={news_4.src} className={Styles.thumbnail} onClick={() => { setPhotoTwoIsOpen(true); }}/>
             <p>
-              {t('Грамота')}
+              On the 27th of March,  2025 the CEO of «New Technologies» Engineering and Production Enterprise LLC, 
+              Safarov Yan Raufovich, was awarded with a Certificate of Honor for his achievements in the development 
+              of international, foreign economic and interregional relations of the Republic of Bashkortostan with 
+              the constituent entities of the Russian Federation.
             </p>
           </div>
           <div className={Styles.newsItem}>
@@ -44,14 +47,19 @@ export const News = () => {
               ]}
             />
             <p>
-              {t('Выставка')}
+              «New Technologies» Engineering and Production Enterprise LLC successfully participated in the 29th 
+              Kazakhstan International «Oil and Gas» Exhibition (KIOGE), held from the 25th of September to the 
+              27th of September, 2024. This   event served as a platform to present innovative technologies and 
+              fundamental trends within the global oil and gas industry.
             </p>
           </div>
 
           <div className={Styles.newsItem}>
             <img src={news_3.src} className={Styles.thumbnail} onClick={() => { setPhotoIsOpen(true); }}/>
             <p>
-              {t('Конкурс')}
+              «New Technologies» Engineering and Production Enterprise LLC won 2nd place in the «Exporter of the 
+              Year 2022» competition, in the category of «The breakthrough of the Year among Small and Medium-sized 
+              Enterprises» in the Republic of Bashkortostan during the International Business Week.
             </p>
           </div>
         </div>        
