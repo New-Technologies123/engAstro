@@ -9,7 +9,7 @@ export const Layout = ({ title, description, children }) => {
   return (
     <>
       <section className={Styles.companyInfo}>
-        <Title text={t(title)}></Title>
+        <Title text={title}></Title>
         <p>
           {t(description)}
         </p>

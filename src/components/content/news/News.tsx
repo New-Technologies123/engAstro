@@ -3,7 +3,6 @@ import news_2 from '../../../images/news/news_2.webp';
 import news_3 from '../../../images/news/news_3.webp';
 import news_4 from '../../../images/news/news_4.webp';
 import Styles from './news.module.scss';
-import { useTranslation } from 'react-i18next';
 import { Gallery } from '../../ui/gallery/Gallery';
 import { useState, useEffect } from 'react';
 import { BigPhoto } from '../../ui/big-photo/BigPhoto';
@@ -11,7 +10,6 @@ import { Title } from '../../ui/title/Title';
 import { BackToTop } from '../../ui/back-to-top/BackToTop';
 
 export const News = () => {
-  const { t } = useTranslation('news');
   const [photoIsOpen, setPhotoIsOpen] = useState(false);
   const [photoTwoIsOpen, setPhotoTwoIsOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);

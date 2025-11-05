@@ -14,7 +14,7 @@ import item_10 from '../../../images/home/luc_ysb.webp';
 
 import homeItem from '../../../images/home/geography.webp';
 
-export const HomeRu = () => {
+export const Home = () => {
 
   const imagesByLanguage = {
     en: [

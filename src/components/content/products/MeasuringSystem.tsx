@@ -5,11 +5,9 @@ import product_3_1 from '../../../images/products/product_3_1.webp';
 import product_3_2 from '../../../images/products/product_3_2.webp';
 import { BigPhoto } from '../../ui/big-photo/BigPhoto';
 import { useClickToScroll } from '../../../hooks/useClickToScroll';
-import { useTranslation } from 'react-i18next';
 import { BackToTop } from '../../ui/back-to-top/BackToTop';
 
 export const MeasuringSystem = () => {
-  const { t } = useTranslation('products');
 
   const [oneIsOpen, setOneIsOpen] = useState(false);
   const [twoIsOpen, setTwoIsOpen] = useState(false);
@@ -26,15 +24,15 @@ export const MeasuringSystem = () => {
           <div className={Styles.navMenu}>
             <button onClick={() => handleClick('products-1')} className={`${Styles.navItem}`}>
               <span className={Styles.navIcon}>🛢️</span>
-              <p>{t('СИКН')}</p>
+              <p>Oil quantity and parameters metering system</p>
             </button>
             <button onClick={() => handleClick('products-2')} className={`${Styles.navItem}`}>
               <span className={Styles.navIcon}>💨</span>
-              <p>{t('СИКГ')}</p>
+              <p>Gas Quantity and Quality Parameters Metering System</p>
             </button>
             <button onClick={() => handleClick('products-3')} className={`${Styles.navItem}`}>
               <span className={Styles.navIcon}>💧</span>
-              <p>{t('СИКВ')}</p>
+              <p>Water Quantity and Quality Parameters Metering System</p>
             </button>
             
           </div>
@@ -43,47 +41,47 @@ export const MeasuringSystem = () => {
         <div className={Styles.content}>
           <section id="products-1" ref={el => sectionsRef.current[0] = el} className={Styles.section}>
               <div className={Styles.sectionHeader}>
-              <h2>{t('СИКН')}</h2>
+              <h2>Oil quantity and parameters metering system</h2>
             </div>
             <div className={Styles.mainImageContainer}>
               <div className={Styles.imageCard} onClick={() => setOneIsOpen(true)}>
                 <img src={product_3.src} alt="Мобильная АГЗУ" className={Styles.mainImage} />
                 <div className={Styles.imageOverlay}>
-                  <span className={Styles.zoomText}>{t('Увеличение')}</span>
+                  <span className={Styles.zoomText}>Zoom</span>
                 </div>
               </div>
             </div>
             <div className={Styles.features}>
-              <h3>{t('Назначение')}</h3>
+              <h3>Designed to measure:</h3>
               <ul className={Styles.featuresList}>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>📊</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Измерения')}</p>
+                    <p>Oil Quantity and Quality Parameters Metering System;</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🔍</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Определения')}</p>
+                    <p>For quality evaluation of such indicators as density, viscosity, moisture content, and such oil parameters as pressure and temperature;</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🧪</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Отбор')}</p>
+                    <p>Composite sample acquisition in accordance with GOST 2517</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>💻</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Выдача')}</p>
+                    <p>Issuance of information transmitted by automation facilities and its subsequent archiving and displaying on the operator's automated workstation.</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🏭</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Изготавливаться')}</p>
+                    <p>The system is manufactured on the basis of volumetric, ultrasonic or mass flow transmitters.</p>
                   </div>
                 </li>
               </ul>
@@ -92,88 +90,94 @@ export const MeasuringSystem = () => {
 
           <section id="products-2" ref={el => sectionsRef.current[1] = el} className={Styles.section}>
               <div className={Styles.sectionHeader}>
-              <h2>{t('СИКГ')}</h2>
+              <h2>Gas Quantity and Quality Parameters Metering System</h2>
             </div>
             <div className={Styles.mainImageContainer}>
               <div className={Styles.imageCard} onClick={() => setTwoIsOpen(true)}>
                 <img src={product_3_1.src} alt="Мобильная АГЗУ" className={Styles.mainImage} />
                 <div className={Styles.imageOverlay}>
-                  <span className={Styles.zoomText}>{t('Увеличение')}</span>
+                  <span className={Styles.zoomText}>Zoom</span>
                 </div>
               </div>
             </div>
             <div className={Styles.features}>
-              <h3>{t('Назначение')}</h3>
+              <h3>Designed to measure:</h3>
               <ul className={Styles.featuresList}>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🤖</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Автоматизированного')}</p>
+                    <p>Gas quality control system is designed for an automated (operational or commercial) quantity metering, 
+                      quality evaluation of free petroleum gas and its composition analysis during storage, transportation, 
+                      processing, as well as during clearing and settlement.</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🏗️</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Входит')}</p>
+                    <p>The metering system is a part of oil treatment units of gas producing enterprises (gas producing fields 
+                      and gas-condensate fields) at the border between gas producing enterprise and gas transmission operator, 
+                      at the boundary between gas transmission operator and gas-distribution enterprise.</p>
                   </div>
                 </li>
               </ul>
             </div>
             <div className={Styles.features}>
-              <h3>{t('Типовой')}</h3>
+              <h3>Composition:</h3>
               <ul className={Styles.featuresList}>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🌪️</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Преобразователь')}</p>
+                    <p>Gas flow transmitter;</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🧮</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Вычислитель')}</p>
+                    <p>Flow measuring computer providing execution of all the functions required for flow measuring and control both on a single and on several measuring lines;</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🎛️</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Регуляторы')}</p>
+                    <p>Pressure or flow regulators;</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>💾</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Аппаратно')}</p>
+                    <p>Hardware and software tools for the final element control;</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>📊</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Газовая')}</p>
+                    <p>Gas chromatographic system analyzing the entire gas blend composition or the concentration of components of interest;</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>💧</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Анализатор')}</p>
+                    <p>Dew point analyser;</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🌡️</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Преобразователи')}</p>
+                    <p>Pressure and temperature transmitters;</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🧪</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Система')}</p>
+                    <p>Sample collection system.</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🛠️</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Комплексов')}</p>
+                    <p>Depending on the category and class of the metering system, the following types of flow-measuring 
+                      complexes can be used: vortex, turbine, ultrasonic, thermoanemometric, multiple-parameter, based on 
+                      standard constriction device.</p>
                   </div>
                 </li>
               </ul>
@@ -182,46 +186,47 @@ export const MeasuringSystem = () => {
 
           <section id="products-3" ref={el => sectionsRef.current[2] = el} className={Styles.section}>
               <div className={Styles.sectionHeader}>
-              <h2>{t('СИКВ')}</h2>
+              <h2>Water Quantity and Quality Parameters Metering System</h2>
             </div>
             <div className={Styles.mainImageContainer}>
               <div className={Styles.imageCard} onClick={() => setThreeIsOpen(true)}>
                 <img src={product_3_2.src} alt="Мобильная АГЗУ" className={Styles.mainImage} />
                 <div className={Styles.imageOverlay}>
-                  <span className={Styles.zoomText}>{t('Увеличение')}</span>
+                  <span className={Styles.zoomText}>Zoom</span>
                 </div>
               </div>
             </div>
             <div className={Styles.features}>
-              <h3>{t('Назначение')}</h3>
+              <h3>Designed to measure:</h3>
               <ul className={Styles.featuresList}>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>💧</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Количества')}</p>
+                    <p>Water quantity and quality parameters metering system is a special-purpose equipment and measuring 
+                      tools complex intended for measuring mass and volume flow, pressure and temperature.</p>
                   </div>
                 </li>                
               </ul>
             </div>
             <div className={Styles.features}>
-              <h3>{t('Типовой')}</h3>
+              <h3>Composition:</h3>
               <ul className={Styles.featuresList}>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>📊</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Измерительных')}</p>
+                    <p>Meter Run Assembly;</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>💻</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Обработки')}</p>
+                    <p>Data-processing system;</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🛠️</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Технологические')}</p>
+                    <p>Process and drainage pipelines.</p>
                   </div>
                 </li>
               </ul>

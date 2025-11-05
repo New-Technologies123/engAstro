@@ -6,11 +6,11 @@ import product_4_3 from '../../../images/products/product_4_3.webp';
 import product_4_4 from '../../../images/products/product_4_4.webp';
 import { BigPhoto } from '../../ui/big-photo/BigPhoto';
 import { useClickToScroll } from '../../../hooks/useClickToScroll';
-import { useTranslation } from 'react-i18next';
+
 import { BackToTop } from '../../ui/back-to-top/BackToTop';
 
 export const PreparationSystems = () => {
-  const { t } = useTranslation('products');
+
 
   const [oneIsOpen, setOneIsOpen] = useState(false);
   const [twoIsOpen, setTwoIsOpen] = useState(false);
@@ -27,32 +27,32 @@ export const PreparationSystems = () => {
           <div className={Styles.navMenu}>
             <button onClick={() => handleClick('products-1')} className={`${Styles.navItem}`}>
               <span className={Styles.navIcon}>🚀</span>
-              <p>{t('Запуск')}</p>
+              <p>Pig launcher and receiver of intratubal cleaning and diagnostic facilities</p>
             </button>
             <button onClick={() => handleClick('products-2')} className={`${Styles.navItem}`}>
               <span className={Styles.navIcon}>🔘</span>
-              <p>{t('Блок')}</p>
+              <p>Valve Manifold</p>
             </button>
             <button onClick={() => handleClick('products-3')} className={`${Styles.navItem}`}>
               <span className={Styles.navIcon}>🧹</span>
-              <p>{t('Очистка')}</p>
+              <p>Tubing String Clarifier</p>
             </button>
             <button onClick={() => handleClick('products-4')} className={`${Styles.navItem}`}>
               <span className={Styles.navIcon}>🧪</span>
-              <p>{t('БДР')}</p>
+              <p>Chemical Injection Skid</p>
             </button>
           </div>
         </aside>
         <div className={Styles.content}>
           <section id="products-1"  ref={el => sectionsRef.current[0] = el} className={Styles.section}>
             <div className={Styles.sectionHeader}>
-              <h2>{t('Запуск')}</h2>
+              <h2>Pig launcher and receiver of intratubal cleaning and diagnostic facilities</h2>
             </div>
             <div className={Styles.mainImageContainer}>
               <div className={Styles.imageCard} onClick={() => setOneIsOpen(true)}>
                 <img src={product_4.src} alt="#" className={Styles.mainImage} />
                 <div className={Styles.imageOverlay}>
-                  <span className={Styles.zoomText}>{t('Увеличение')}</span>
+                  <span className={Styles.zoomText}>Zoom</span>
                 </div>
               </div>
             </div>
@@ -61,15 +61,16 @@ export const PreparationSystems = () => {
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>⏱️</div>
                   <div className={Styles.featureText}>
-                    <h4>{t('Назначение')}</h4>
-                    <p>{t('Переодического')}</p>
+                    <h4>Designed to measure:</h4>
+                    <p>Periodic launching of intratubal pigs such as inspection pigs, cleaning scrapers 
+                      and other in-line tools into the pipeline and receiving them out of the pipeline</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>⛽</div>
                   <div className={Styles.featureText}>
-                    <h4>{t('Область')}</h4>
-                    <p>{t('Узлы')}</p>
+                    <h4>Scope of application:</h4>
+                    <p>Oil and gas gathering and transportation systems (crude oil pipelines, gas pipeline)</p>
                   </div>
                 </li>
               </ul>
@@ -78,13 +79,13 @@ export const PreparationSystems = () => {
 
           <section id="products-2"  ref={el => sectionsRef.current[1] = el} className={Styles.section}>
             <div className={Styles.sectionHeader}>
-              <h2>{t('Блок')}</h2>
+              <h2>Valve Manifold</h2>
             </div>
             <div className={Styles.mainImageContainer}>
               <div className={Styles.imageCard} onClick={() => setTwoIsOpen(true)}>
                 <img src={product_4_1.src} alt="#" className={Styles.mainImage} />
                 <div className={Styles.imageOverlay}>
-                  <span className={Styles.zoomText}>{t('Увеличение')}</span>
+                  <span className={Styles.zoomText}>Zoom</span>
                 </div>
               </div>
             </div>
@@ -93,8 +94,9 @@ export const PreparationSystems = () => {
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🌊</div>
                   <div className={Styles.featureText}>
-                    <h4>{t('Назначение')}</h4>
-                    <p>{t('Распределение')}</p>
+                    <h4>Designed to measure:</h4>
+                    <p>Distribution of pure or reservoir water flows supplied by the modular cluster pump station 
+                      under high pressure into the injection wells to maintain reservoir pressure.</p>
                   </div>
                 </li>
               </ul>
@@ -103,13 +105,13 @@ export const PreparationSystems = () => {
 
           <section id="products-3"  ref={el => sectionsRef.current[2] = el} className={Styles.section}>
             <div className={Styles.sectionHeader}>
-              <h2>{t('Очистка')}</h2>
+              <h2>Tubing String Clarifier</h2>
             </div>
             <div className={Styles.mainImageContainer}>
               <div className={Styles.imageCard} onClick={() => setThreeIsOpen(true)}>
                 <img src={product_4_3.src} alt="#" className={Styles.mainImage} />
                 <div className={Styles.imageOverlay}>
-                  <span className={Styles.zoomText}>{t('Увеличение')}</span>
+                  <span className={Styles.zoomText}>Zoom</span>
                 </div>
               </div>
             </div>
@@ -118,43 +120,45 @@ export const PreparationSystems = () => {
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🔄</div>
                   <div className={Styles.featureText}>
-                    <h4>{t('Назначение')}</h4>
-                    <p>{t('Поверхности')}</p>
+                    <h4>Designed to measure:</h4>
+                    <p>Continuous cleaning of the entire inner surface of the tubing string by cutting a layer of wax from the walls.</p>
                   </div>
                 </li>
               </ul>
             </div>
             <div className={Styles.features}>
-              <h3>{t('Аналог')}</h3>
+              <h3>Advantages:</h3>
               <ul className={Styles.featuresList}>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🧵</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Сматывание')}</p>
+                    <p>Wire uncoiling is prevented due to the use of a spring-loaded movable roller with a weight sensor;</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>⚙️</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Процесс')}</p>
+                    <p>Fully automated process of clearing blockages;</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>📏</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Положения')}</p>
+                    <p>Calibration of the scraper position with an accuracy up to 40 сm.;</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🔪</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Скребок')}</p>
+                    <p>The scraper has several basic designs: sliding, ring, milling, blade, auger, etc.;</p>
                   </div>
                 </li>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>🧲</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Магниты')}</p>
+                    <p>The magnets are installed on the roller, the speed sensors (reed switches) are installed on the movable 
+                      roller stand, at a distance at which the interaction zone of their magnetic fields overlaps. This arrangement
+                       ensures sequential operation of the reed switches in the direction of rotation of the roller.</p>
                   </div>
                 </li>
               </ul>
@@ -162,23 +166,27 @@ export const PreparationSystems = () => {
           </section>
           <section id="products-4" ref={el => sectionsRef.current[3] = el} className={Styles.section}>
             <div className={Styles.sectionHeader}>
-              <h2>{t('БДР')}</h2>
+              <h2>Chemical Injection Skid</h2>
             </div>
             <div className={Styles.mainImageContainer}>
               <div className={Styles.imageCard} onClick={() => setFourIsOpen(true)}>
                 <img src={product_4_4.src} alt="Мобильная АГЗУ" className={Styles.mainImage} />
                 <div className={Styles.imageOverlay}>
-                  <span className={Styles.zoomText}>{t('Увеличение')}</span>
+                  <span className={Styles.zoomText}>Zoom</span>
                 </div>
               </div>
             </div>
             <div className={Styles.features}>
-              <h3>{t('Назначение')}</h3>
+              <h3>Designed to measure:</h3>
               <ul className={Styles.featuresList}>
                 <li className={Styles.feature}>
                   <div className={Styles.featureIcon}>⚖️</div>
                   <div className={Styles.featureText}>
-                    <p>{t('Установка')}</p>
+                    <p>Chemical injection skid is designed for the metered injection of liquid demulsifiers and corrosion inhibitors 
+                      into the oil transportation and treatment lines to perform oil demulsification and to protect pipelines from 
+                      corrosion and wax deposits etc. Chemical injection skid is used for chemical treatment of oil and gas well products 
+                      in the systems of oil and gas treatment, gathering, and transportation. This equipment can be used at cluster pads, 
+                      booster pump station pads and oil, gas and water complex treatment units.</p>
                   </div>
                 </li>                
               </ul>
