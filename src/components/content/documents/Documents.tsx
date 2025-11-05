@@ -2,12 +2,10 @@ import Styles from './documents.module.scss';
 import { Select } from '../../ui/select/Select';
 import { useState} from 'react';
 import { Cards } from './Cards';
-import { useTranslation } from 'react-i18next';
 import { Title } from '../../ui/title/Title';
 import { BackToTop } from '../../ui/back-to-top/BackToTop';
 
 export const Documents = () => {
-  const { t, i18n } = useTranslation('documents');
   const [selectedId, setSelectedId] = useState<TTitleOptions>('all');
   const [showId, setShowId] = useState<TTitleOptions>('all');
 
@@ -16,27 +14,27 @@ export const Documents = () => {
   const options: { id: TTitleOptions; title: string }[] = [
     {
       id: 'all',
-      title: t('Вся'),
+      title: 'All products',
     },
     {
       id: 'accountingSystem',
-      title: t('Система учета'),
+      title: 'Automated Group Metering Skid',
     },
     {
       id: 'components',
-      title: t('Комплектующие'),
+      title: 'Components for automated group metering skid',
     },
     {
       id: 'measurementSystem',
-      title: t('Система измерения'),
+      title: 'System for measuring quantity and quality indicators',
     },
     { 
       id: 'trainingSystem',
-      title: t('Системы подготовки'),
+      title: 'Oil, gas and water treatment systems',
     },
     {
       id: 'pumpingStations',
-      title: t('Насосные станции'),
+      title: 'Pumping stations for oil, petroleum products and water',
     },
   ];
 
@@ -46,15 +44,15 @@ export const Documents = () => {
 
   return (
     <>
-      <Title text={t('Документы')}></Title>
+      <Title text={'Documents'}></Title>
       
       <div className={Styles.documentList}>
-        <p>{t('Выбор')}</p>
+        <p>Select product type:</p>
         <div className={Styles.list}>
           <Select options={options} selectedId={selectedId} onSelect={(id) => setSelectedId(id as TTitleOptions)}/>
 
           <div className={Styles.documentButton}>
-            <button onClick={onShowClick}>{t('Показать')}</button>
+            <button onClick={onShowClick}>Show</button>
           </div>
         </div>
       </div>
