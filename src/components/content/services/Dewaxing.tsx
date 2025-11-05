@@ -16,13 +16,19 @@ export const Dewaxing = () => {
         <div className={Styles.imageWrapper} onClick={() => setPhotoIsOpen(true)}>
           <img src={serves_5.src} alt="сервис" className={Styles.serviceImage}/>
           <div className={Styles.imageOverlay}>
-            <p>{t('Увеличить')}</p>
+            <p>Zoom</p>
           </div>
         </div>
 
         <div className={Styles.content}>
           <ul>
-            {['Услуги', 'АСПО', 'УЭЦН', 'Глубина', 'Отложения', 'Персонал'].map((item) => (
+            {['Services are provided by crews through the use of high-mobility special vehicles.', 
+              'The main objective of the services is to completely remove asphaltene-resin-paraffin and other deposits in the oil-well tubing string lift by mechanical means (scraping), to determine and to ensure a proper passage in wells with tubing.', 
+              'Scraping is performed using milling and blade scrapers of various diameters to remove asphaltene-resin-paraffin in gusher oil wells and wells equipped with an electrical submersible pump.', 
+              'Scraper running depth is 2000 - 3000 m.', 
+              'To identify and remove deposits from the tubing with an internal coating, we use non-metallic scrapers/cutters and sinker bars with a coating to prevent damage to the tubing coating. The company also provides puncher scrapers and “paraffin cutters” for the removal of asphaltene-resin-paraffin in case of plugging (for both bare and coated tubing).', 
+              'The service is performed by our highly-trained technicians using our own certified equipment. We operate in strict compliance with current safety regulations for the oil and gas industry.']
+              .map((item) => (
               <li key={item}>
                 {t(item)}
               </li>

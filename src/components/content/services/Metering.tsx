@@ -20,14 +20,18 @@ export const Metering = () => {
             className={Styles.serviceImage}
           />
           <div className={Styles.imageOverlay}>
-            <p>{t('Увеличить')}</p>
+            <p>Zoom</p>
           </div>
         </div>
 
         <div className={Styles.content}>
-          <h3>{t('Установки')}</h3>
+          <h3>The service includes the following:</h3>
           <ul>
-            {['Доставку', 'Монтаж', 'Сброс', 'Форматироваие', 'Опрессовку'].map((item) => (
+            {['Delivery of the metering unit to the measurement site;', "Installation/dismantling of the mobile metering unit's piping to the well's shut-off valves and flowline;", 
+              "Pressure relief and fluid drainage from the metering unit's measuring tank and pipelines;", 
+              'Building and maintaining a database of well test results and tracking their dynamics over time;', 
+              "Pressure testing of the metering unit with the measured well's fluid, performing the well flow rate measurement, and recording the results in a 24/7 mode."]
+              .map((item) => (
               <li key={item}>
                 <img src={dot.src}/>
                 {t(item)}

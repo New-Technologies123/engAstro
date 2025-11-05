@@ -17,19 +17,23 @@ export const Service = () => {
         <div className={Styles.imageWrapper} onClick={() => setPhotoIsOpen(true)}>
           <img src={serves_4.src} alt="сервис" className={Styles.serviceImage}/>
           <div className={Styles.imageOverlay}>
-            <p>{t('Увеличить')}</p>
+            <p>Zoom</p>
           </div>        
         </div>
 
         <div className={Styles.content}>
-          <h3>{t('Техническое')}</h3>
+          <h3>Maintenance of the mounted device includes the following periodic types of work:</h3>
           <ul>
-            {['Внешний', 'Проверка', 'Доливка', 'Визуальный', 'Сальников', 
-            'Датчика', 'Калибровки', 'Редуктора', 'Заземления', 'Знаков', 'Шкафа', 
-            'Обогрева', 'Сбои'].map((item) => (
+            {['Exterior inspection of the movable roller stand for signs of bending and the condition of welded joints;', 
+                'Inspection of fasteners;', 'Inspection and oil refill into the gear, if necessary;', 
+                'Visual inspection of the wireline condition. If there is a noticeable decrease in the diameter or corrosion, the wire is to be replaced;', 
+                'Inspection of the stuffing-box seal and lubricator, and their replacement if necessary;', 
+                'Inspection of the minimum weight sensor operation;', 'Device calibration;', 'Inspection of the reducer and the electric motor;', 
+                "Inspection of the device's grounding using a megohmmeter;", "Renewal of the device's grounding signs;", 'Control cabinet maintenance;', 
+                "Performance inspection of the control cabinet's heating system;", 'Software failure inspection.'].map((item) => (
               <li key={item}>
                 <img src={dot.src}/>
-                {t(item)}
+                {item}
               </li>
             ))}
           </ul>

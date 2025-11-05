@@ -19,10 +19,10 @@ export const Services = () => {
   const { t } = useTranslation('services');
 
   const cardTitle: Record<TServices, string> = {
-    repair: t('АГЗУ'),
-    metering: t('Замер'),
-    service: t('Обслуживание'),
-    dewaxing: t('Депарафинизация'),
+    repair: "Overhaul, maintenance and modernization of the automated group metering skid",
+    metering: "Measurement of oil well flow rates by the mobile metering unit",
+    service: "Tubing String Clarifier Maintenance",
+    dewaxing: "Oil Well Dewaxing Services",
   };
 
   const [typeLayoutBackOpen, setTypeLayoutBackOpen] = useState<TServices | null>(null);
@@ -52,7 +52,9 @@ export const Services = () => {
   return (
     <>
       {typeLayoutBackOpen === null && (
-        <Layout title="Сервисные услуги" description="Текст о сервисных услугах">
+        <Layout title="Services" description="Besides equipment manufacturing, «New Technologies» Engineering and Production 
+          Enterprise LLC also specializes on well dewaxing and repairing services, maintenance of automation equipment for 
+           oil production and treatment.">
           <>
             <Card
               imgSrc={serves_12.src}

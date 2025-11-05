@@ -17,31 +17,35 @@ export const Repair = () => {
         <div className={Styles.imageWrapper} onClick={() => setPhotoIsOpen(true)}>
           <img src={serves_1.src} alt="сервис" className={Styles.serviceImage}/>
           <div className={Styles.imageOverlay}>
-            <p>{t('Увеличить')}</p>
+            <p>Zoom</p>
           </div>
         </div>
 
         <div className={Styles.content}>
-          <h3>{t('Капитальный')}</h3>
+          <h3>«Sputnik-Massomer NT.1» Stationary Automated Group Metering Skid Overhaul</h3>
           <ul>
-            {['Сепарационной', 'Переключателя', 'Счетчика', 'Задвижек', 'Технологического', 'Линии', 
-            'Гидравлического', 'Электромонтажная'].map((item) => (
+            {['Separation tank, flanges and pressure safety valves repair;', 'Multi-stream switching manifold repair (shaft, body, rubber protectors);', 
+                 'Repair or replacement of 1-50 TOR;', 'Repair or replacement of valves;', 'Process room renovations and bottom restoration;', 
+                 'Flow rate controller and processing line (of the pipeline) replacement;', 'GP-1M hydraulic drive, stop-gate valve, non-return valve replacement;', 
+                 'Electric installation works.'].map((item) => (
+              <li key={item}>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <h3>Stationary Automated Group Metering Skid Maintenance</h3>
+          <ul>
+            {['Technical maintenance of the metering skid in accordance with the operating manual, sealing elements, other expendable supplies and component parts, if necessary;', 
+            'Test measurements of the well flow rate with the report issuance on the condition of the metering skid.'].map((item) => (
               <li key={item}>
                 {t(item)}
               </li>
             ))}
           </ul>
-          <h3 className={Styles.title}>{t('Обслуживать')}</h3>
+          <h3>Modernization of the Stationary Automated Group Metering Skid</h3>
           <ul>
-            {['Инструкций', 'Замеров'].map((item) => (
-              <li key={item}>
-                {t(item)}
-              </li>
-            ))}
-          </ul>
-          <h3>{t('Модерн')}</h3>
-          <ul>
-            {['Шкафов'].map((item) => (
+            {['Modernization with the purpose of bringing the equipment to conformity with GOST 8.1016-2022 can be handled by changing the measurement instrumentation, control cabinets, incorporating modifications into the working equipment and the software.']
+            .map((item) => (
               <li key={item}>
                 {t(item)}
               </li>
