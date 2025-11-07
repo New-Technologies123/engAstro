@@ -2,12 +2,9 @@ import Styles from './services.module.scss';
 import { BigPhoto } from '../../ui/big-photo/BigPhoto';
 import { useState} from 'react';
 import serves_1 from '../../../images/services/serves_12.png'
-
-import { useTranslation } from 'react-i18next';
 import { BackToTop } from '../../ui/back-to-top/BackToTop';
 
 export const Repair = () => {
-  const { t } = useTranslation('services');
 
   const [photoIsOpen, setPhotoIsOpen] = useState(false);
 
@@ -38,7 +35,7 @@ export const Repair = () => {
             {['Technical maintenance of the metering skid in accordance with the operating manual, sealing elements, other expendable supplies and component parts, if necessary;', 
             'Test measurements of the well flow rate with the report issuance on the condition of the metering skid.'].map((item) => (
               <li key={item}>
-                {t(item)}
+                {item}
               </li>
             ))}
           </ul>
@@ -47,7 +44,7 @@ export const Repair = () => {
             {['Modernization with the purpose of bringing the equipment to conformity with GOST 8.1016-2022 can be handled by changing the measurement instrumentation, control cabinets, incorporating modifications into the working equipment and the software.']
             .map((item) => (
               <li key={item}>
-                {t(item)}
+                {item}
               </li>
             ))}
           </ul>

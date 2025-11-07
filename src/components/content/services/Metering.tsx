@@ -2,12 +2,10 @@ import Styles from './services.module.scss';
 import { BigPhoto } from '../../ui/big-photo/BigPhoto';
 import { useState } from 'react';
 import serves_3 from '../../../images/services/serves_3.png';
-import { useTranslation } from 'react-i18next';
 import dot from '../../../images/dot.svg';
 import { BackToTop } from '../../ui/back-to-top/BackToTop';
 
 export const Metering = () => {
-  const { t } = useTranslation('services');
   const [photoIsOpen, setPhotoIsOpen] = useState(false);
 
   return (
@@ -34,7 +32,7 @@ export const Metering = () => {
               .map((item) => (
               <li key={item}>
                 <img src={dot.src}/>
-                {t(item)}
+                {item}
               </li>
             ))}
           </ul>

@@ -2,12 +2,10 @@ import Styles from './services.module.scss';
 import { BigPhoto } from '../../ui/big-photo/BigPhoto';
 import { useState } from 'react';
 import serves_5 from '../../../images/services/serves_5.webp';
-import { useTranslation } from 'react-i18next';
 import { BackToTop } from '../../ui/back-to-top/BackToTop';
 
 
 export const Dewaxing = () => {
-  const { t } = useTranslation('services');
   const [photoIsOpen, setPhotoIsOpen] = useState(false);
 
   return (
@@ -30,7 +28,7 @@ export const Dewaxing = () => {
               'The service is performed by our highly-trained technicians using our own certified equipment. We operate in strict compliance with current safety regulations for the oil and gas industry.']
               .map((item) => (
               <li key={item}>
-                {t(item)}
+                {item}
               </li>
             ))}
           </ul>

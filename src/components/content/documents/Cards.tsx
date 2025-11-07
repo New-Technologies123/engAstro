@@ -1,13 +1,11 @@
 import Styles from './cards.module.scss';
 import { List } from '../../ui/list/List';
-import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
 
 export const Cards = ({ selectId }) => {
-  const { t, i18n } = useTranslation('documents');
 
   const handleCardClick = (docType: string) => {
-    const openUrl = `${window.location.origin}/doc/${i18n.language}/${docType}.pdf`;
+    const openUrl = `${window.location.origin}/doc/${docType}.pdf`;
     window.open(openUrl, '_blank');
   };
 
@@ -51,7 +49,7 @@ export const Cards = ({ selectId }) => {
     ];
 
     return allCards.filter(card => card.condition);
-  }, [selectId, t]);
+  }, [selectId]);
 
   return (
     <div className={Styles.team}>
