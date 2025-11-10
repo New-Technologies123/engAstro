@@ -7,7 +7,8 @@ import { BackToTop } from '../../ui/back-to-top/BackToTop';
 
 type TCareers = 'vacancy1' | 'vacancy2' | 'vacancy3' | 'vacancy4' | 'vacancy5' | 'vacancy6' 
  | 'vacancy7' | 'vacancy8' | 'vacancy9' | 'vacancy10' | 'vacancy11' | 'vacancy12' | 'vacancy13'
- | 'vacancy14' | 'vacancy15' | 'vacancy16' | 'vacancy17' | 'vacancy18';
+ | 'vacancy14' | 'vacancy15' | 'vacancy16' | 'vacancy17' | 'vacancy18' | 'vacancy19'
+ | 'vacancy20' | 'vacancy21';
 
 export const Careers = () => {
 
@@ -28,8 +29,11 @@ export const Careers = () => {
         vacancy14: "https://ufa.hh.ru/vacancy/126174218?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy15: "https://ufa.hh.ru/vacancy/125460589?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy16: "https://ufa.hh.ru/vacancy/127388660?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
-        vacancy17: "",        
-        vacancy18: "",
+        vacancy17: "https://ufa.hh.ru/vacancy/127392204?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",        
+        vacancy18: "https://ufa.hh.ru/vacancy/127391976?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
+        vacancy19: "https://ufa.hh.ru/vacancy/127392338?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
+        vacancy20: "https://ufa.hh.ru/vacancy/127389162?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
+        vacancy21: "https://ufa.hh.ru/vacancy/125136758?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
     };
 
     const [typeLayoutBackOpen, setTypeLayoutBackOpen] = useState<TCareers | null>(null);
@@ -119,8 +123,7 @@ export const Careers = () => {
                                     experience="Full employment"
                                     employmentType='Schedule: 5/2'
                                     onClick={() => window.open(vacancyLinks.vacancy13, "_blank")}
-                                />
-                                
+                                />                                
                                 <Vacancy
                                     header='Quality Control Inspector'
                                     title='Work experience: 1-3 years'
@@ -185,6 +188,46 @@ export const Careers = () => {
                                     onClick={() => window.open(vacancyLinks.vacancy10, "_blank")}
                                 />
                             </div> 
+                        </div>
+                        <div className={Styles.vacancies}>
+                            <p>Watch</p>
+                            <div className={Styles.team}>
+                                <Vacancy
+                                    header="TT installer"
+                                    title="Work experience: 1-3 years"
+                                    experience="30-shift shift"
+                                    employmentType="Schedule: 6/1"
+                                    onClick={() => window.open(vacancyLinks.vacancy17, "_blank")}
+                                />
+                                <Vacancy
+                                    header="Crane-manipulator operator"
+                                    title="Work experience: 1-3 years"
+                                    experience="30-shift shift"
+                                    employmentType="Schedule: 6/1"
+                                    onClick={() => window.open(vacancyLinks.vacancy18, "_blank")}
+                                />
+                                <Vacancy
+                                    header="Instrumentation and automation fitter (Surgut)"
+                                    title="Work experience: 1-3 years"
+                                    experience="30-shift shift"
+                                    employmentType="Schedule: 6/1"
+                                    onClick={() => window.open(vacancyLinks.vacancy19, "_blank")}
+                                />
+                                <Vacancy
+                                    header="Driver category C"
+                                    title="Work experience: 1-3 years"
+                                    experience="30-shift shift"
+                                    employmentType="Schedule: 6/1"
+                                    onClick={() => window.open(vacancyLinks.vacancy20, "_blank")}
+                                />
+                                <Vacancy
+                                    header="Instrumentation and automation fitter (Kondaneft)"
+                                    title="Work experience: 1-3 years"
+                                    experience="30-shift shift"
+                                    employmentType="Schedule: 5/2"
+                                    onClick={() => window.open(vacancyLinks.vacancy21, "_blank")}
+                                />
+                            </div>
                         </div>
                     </div>
                 </>
