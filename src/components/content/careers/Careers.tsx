@@ -8,7 +8,7 @@ import { BackToTop } from '../../ui/back-to-top/BackToTop';
 type TCareers = 'vacancy1' | 'vacancy2' | 'vacancy3' | 'vacancy4' | 'vacancy5' | 'vacancy6' 
  | 'vacancy7' | 'vacancy8' | 'vacancy9' | 'vacancy10' | 'vacancy11' | 'vacancy12' | 'vacancy13'
  | 'vacancy14' | 'vacancy15' | 'vacancy16' | 'vacancy17' | 'vacancy18' | 'vacancy19'
- | 'vacancy20' | 'vacancy21';
+ | 'vacancy20' | 'vacancy21' | 'vacancy22';
 
 export const Careers = () => {
 
@@ -34,6 +34,7 @@ export const Careers = () => {
         vacancy19: "https://ufa.hh.ru/vacancy/127392338?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy20: "https://ufa.hh.ru/vacancy/127389162?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy21: "https://ufa.hh.ru/vacancy/125136758?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
+        vacancy22: "https://ufa.hh.ru/vacancy/127481178?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
     };
 
     const [typeLayoutBackOpen, setTypeLayoutBackOpen] = useState<TCareers | null>(null);
@@ -187,6 +188,13 @@ export const Careers = () => {
                                     employmentType='Schedule: 5/2'
                                     onClick={() => window.open(vacancyLinks.vacancy10, "_blank")}
                                 />
+                                <Vacancy
+                                    header="Industrial cleaner"
+                                    title="Work experience: not required"
+                                    experience="Part-time"
+                                    employmentType="Schedule: 5/2"
+                                    onClick={() => window.open(vacancyLinks.vacancy22, "_blank")}
+                                />
                             </div> 
                         </div>
                         <div className={Styles.vacancies}>
@@ -226,7 +234,7 @@ export const Careers = () => {
                                     experience="30-shift shift"
                                     employmentType="Schedule: 5/2"
                                     onClick={() => window.open(vacancyLinks.vacancy21, "_blank")}
-                                />
+                                />                                
                             </div>
                         </div>
                     </div>
