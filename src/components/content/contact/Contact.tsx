@@ -33,7 +33,12 @@ export const Contact = () => {
     {
       type: 'details',
       title: 'Company Details',
-      text: 'Taxpayer Identification Number (INN) : 0274106520 | Primary State Registration Number (OGRN): 1050204014651',
+      text: (
+        <>
+          <p>Taxpayer Identification Number (INN) : 0274106520</p>
+          <p>Primary State Registration Number (OGRN): 1050204014651</p>
+        </>
+      ),
       icon: (
         <svg viewBox="0 0 24 24">
           <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
@@ -70,7 +75,10 @@ export const Contact = () => {
                 <div className={Styles.textContainer}>
                   <h3>{contact.title}</h3>
                   {contact.type === 'phone' ? (
-                    <a href={`tel:${contact.text.replace(/\D/g, '')}`} className={Styles.phone}>
+                    <a 
+                      href={`tel:${typeof contact.text === 'string' ? contact.text.replace(/\D/g, '') : ''}`} 
+                      className={Styles.phone}
+                    >
                       {contact.text}
                     </a>
                   ) : (
