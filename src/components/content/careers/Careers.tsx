@@ -8,7 +8,7 @@ import { BackToTop } from '../../ui/back-to-top/BackToTop';
 type TCareers = 'vacancy1' | 'vacancy2' | 'vacancy3' | 'vacancy4' | 'vacancy5' | 'vacancy6' 
  | 'vacancy7' | 'vacancy8' | 'vacancy9' | 'vacancy10' | 'vacancy11' | 'vacancy12' | 'vacancy13'
  | 'vacancy14' | 'vacancy15' | 'vacancy16' | 'vacancy17' | 'vacancy18' | 'vacancy19'
- | 'vacancy20' | 'vacancy21' | 'vacancy22';
+ | 'vacancy20' | 'vacancy21' | 'vacancy22' | 'vacancy23' | 'vacancy24' | 'vacancy25' | 'vacancy26';
 
 export const Careers = () => {
 
@@ -35,6 +35,10 @@ export const Careers = () => {
         vacancy20: "https://ufa.hh.ru/vacancy/127389162?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy21: "https://ufa.hh.ru/vacancy/125136758?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy22: "https://ufa.hh.ru/vacancy/127481178?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
+        vacancy23: "https://ufa.hh.ru/vacancy/127556737?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
+        vacancy24: "https://ufa.hh.ru/vacancy/127526931?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
+        vacancy25: "https://ufa.hh.ru/vacancy/127558100?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
+        vacancy26: "https://ufa.hh.ru/vacancy/127557628?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
     };
 
     const [typeLayoutBackOpen, setTypeLayoutBackOpen] = useState<TCareers | null>(null);
@@ -101,10 +105,31 @@ export const Careers = () => {
                                 />
                                 <Vacancy
                                     header="Lawyer"
-                                    title="Work experience: 1-3 years"
+                                    title="Work experience: 3-6 years"
                                     experience="Full employment"
                                     employmentType='Schedule: 5/2'
                                     onClick={() => window.open(vacancyLinks.vacancy7, "_blank")}
+                                />
+                                <Vacancy
+                                    header="Project Manager"
+                                    title="Work experience: 1-3 years"
+                                    experience="Full employment"
+                                    employmentType='Schedule: 5/2'
+                                    onClick={() => window.open(vacancyLinks.vacancy23, "_blank")}
+                                />
+                                <Vacancy
+                                    header="Supply Engineer"
+                                    title="Work experience: 3-6 years"
+                                    experience="Full employment"
+                                    employmentType='Schedule: 5/2'
+                                    onClick={() => window.open(vacancyLinks.vacancy25, "_blank")}
+                                />
+                                <Vacancy
+                                    header="Deputy Chief Accountant"
+                                    title="Work experience: 3-6 years"
+                                    experience="Full employment"
+                                    employmentType='Schedule: 5/2'
+                                    onClick={() => window.open(vacancyLinks.vacancy26, "_blank")}
                                 />
                             </div>
                         </div>
@@ -173,14 +198,7 @@ export const Careers = () => {
                                     experience="Full employment"
                                     employmentType='Schedule: 5/2'
                                     onClick={() => window.open(vacancyLinks.vacancy4, "_blank")}
-                                />
-                                <Vacancy
-                                    header='Lead engineer of commissioning and instrumentation and control systems'
-                                    title='Work experience: 3-6 years'
-                                    experience="Full employment"
-                                    employmentType='Schedule: 5/2'
-                                    onClick={() => window.open(vacancyLinks.vacancy2, "_blank")}
-                                />
+                                />                                
                                 <Vacancy
                                     header='Turner'
                                     title='Work experience: 1-3 years'
@@ -194,6 +212,20 @@ export const Careers = () => {
                                     experience="Part-time"
                                     employmentType="Schedule: 5/2"
                                     onClick={() => window.open(vacancyLinks.vacancy22, "_blank")}
+                                />
+                                <Vacancy
+                                    header="Metal painter"
+                                    title="Work experience: 1-3 years"
+                                    experience="Full employment"
+                                    employmentType="Schedule: 5/2"
+                                    onClick={() => window.open(vacancyLinks.vacancy24, "_blank")}
+                                />
+                                <Vacancy
+                                    header='Lead engineer of commissioning and instrumentation and control systems'
+                                    title='Work experience: 3-6 years'
+                                    experience="Full employment"
+                                    employmentType='Schedule: 5/2'
+                                    onClick={() => window.open(vacancyLinks.vacancy2, "_blank")}
                                 />
                             </div> 
                         </div>
