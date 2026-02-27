@@ -12,7 +12,7 @@ import item_8 from '../../../images/home/cas.webp';
 import item_9 from '../../../images/home/luc.png';
 import item_10 from '../../../images/home/luc_ysb.webp';
 
-import homeItem from '../../../images/home/geography.webp';
+import homeItem from '../../../images/home/geog.webp';
 
 export const Home = () => {
 
@@ -45,8 +45,9 @@ export const Home = () => {
         </div>
       </section>
 
-      <Title text="Completed projects on the map"></Title>
-      <img src={homeItem.src} alt="Карта поставок" className={Styles.homeImg} />
+      <div className={Styles.Img}>
+        <img src={homeItem.src} alt="Карта поставок" className={Styles.homeImg} />
+      </div>
       <Title text="Our customers"></Title>
 
       <div className={Styles.brandParent}>
