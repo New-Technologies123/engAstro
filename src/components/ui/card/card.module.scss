@@ -5,6 +5,7 @@
   &:nth-child(3) { --delay: 0.7s; }
   &:nth-child(4) { --delay: 0.9s; }
   &:nth-child(5) { --delay: 1.2s; }
+  &:nth-child(6) { --delay: 1.5s; }
 }
 
 .employeeCard {
@@ -24,7 +25,7 @@
   opacity: 0;
   animation: fadeInUp 0.6s var(--delay, 0.3s) ease-out forwards;
   p {
-    min-height: 50px;
+    // min-height: 50px;
     word-break: break-word;
     font-size: 19px;
     margin-top: 20px;
@@ -92,6 +93,8 @@
   opacity: 0;
   animation: fadeIn 0.6s calc(var(--delay, 0.3s) + 0.2s) ease-out forwards;
   transform: scale(1);
+  background-repeat: no-repeat; // не повторять
+  background-size: contain;
 }
 
 @keyframes fadeInUp {
