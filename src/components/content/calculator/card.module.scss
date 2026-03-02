@@ -1,0 +1,145 @@
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Заголовок установки */
+.cardHeader {
+  padding: 15px 20px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 23px;
+  cursor: default;
+}
+
+/* Контент карточки */
+.cardContent {
+  display: flex;
+  padding: 20px 45px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Сетка параметров */
+.paramsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* ровно 4 колонки */
+  gap: 60px;
+  flex: 2;
+}
+
+/* Чекбоксы (компактный вариант) */
+.checkboxListCompact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.checkboxItemCompact {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Правая часть с кнопкой */
+.rightBlock {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.addButton {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #0056b3;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+/* Ошибки */
+.errorBorder {
+  border: 1px solid #d9534f;
+  border-radius: 6px;
+}
+
+.errorSelect {
+  color: #d9534f;
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.errorMessage {
+  color: #fff;
+  background: #d9534f;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 10px 20px;
+  text-align: center;
+}
+
+.checkboxItemCompact {
+  font-size: 15px;
+  /* текст побольше */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* 🔥 подсветка текста при выборе */
+.checkboxItemCompact input:checked+span,
+.checkboxItemCompact input:checked {
+  color: #0b3c5d;
+  font-weight: 600;
+}
+
+@media (max-width: 1410px){
+  .paramsGrid{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px;
+  }
+}
+
+@media (max-width: 1200px){
+  .paramsGrid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+/* Адаптив */
+@media (max-width: 700px) {
+  .cardContent {
+    flex-direction: column;
+  }
+  .paramsGrid{
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+  .rightBlock {
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+}
