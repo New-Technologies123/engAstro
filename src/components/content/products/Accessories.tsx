@@ -16,12 +16,12 @@ type TAccessories = 'ervip' | 'urpd' | 'psm' | 'kmr' | 'gidroprivod' | 'separati
 export const Accessories = () => {
 
   const cardTitle: Record<TAccessories, string> = {
-    ervip: 'Вихревой расходомер ЭРВИП',
-    urpd: 'Устройство регулирования перепада давления (УРПД)',
-    psm: 'Переключатель скважин многоходовой (ПСМ)',
-    kmr: 'Магниторегулируемый клапан (КМР)',
-    gidroprivod: 'Гидропривод (ГП)',
-    separation: 'Сепарационная ёмкость',
+    ervip: 'ERVIP Vortex flowmeter',
+    urpd: 'Differential pressure adjusting device',
+    psm: 'Multi-stream switching manifold',
+    kmr: 'Magnetically adjusted flow control valve',
+    gidroprivod: 'Hydraulic drive',
+    separation: 'Separation tank',
   };
 
   /* открыть карточку */
@@ -35,7 +35,7 @@ export const Accessories = () => {
   };
 
   return (
-    <LayoutBack onBack={onBackProducts} title='Комплектующие для АГЗУ'>
+    <LayoutBack onBack={onBackProducts} title='Stationary automated group metering skid'>
       <div className={Styles.ramca}>
         <Card imgSrc={product_2_1.src} title={cardTitle.ervip} onClick={() => goToAccessory('ervip')} />
         <Card imgSrc={product_2_2.src} title={cardTitle.urpd} onClick={() => goToAccessory('urpd')} />

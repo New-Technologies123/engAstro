@@ -5,24 +5,27 @@
   background-color: #ffffff;
   position: relative;
   z-index: 2;
-  img{
-    width: 205px;
+
+  img {
+    width: 220px;
   }
 }
 
 .contactBloc {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-left: auto;
 }
 
 .contactInfo {
   flex: 1;
   padding-right: 85px;
+
   p {
     font-size: 16px;
     margin: 7px 0;
-    img{
+
+    img {
       height: 18px;
       width: 18px;
       margin-right: 8px;
@@ -30,84 +33,72 @@
   }
 }
 
+//Кнопка переключения языка
 .languageSwitch {
-  font-size: 15px;
+  display: flex;
+  align-items: center;
 }
 
-.buttonMenu {
-  border: none;
-  outline: none;
-  color: #fff;
-  // background: #0051ff;
-  background: rgb(24, 147, 211);
-  cursor: pointer;
+/* контейнер */
+.langToggle {
   position: relative;
-  z-index: 0;
-  border-radius: 10px;
-  padding: 10px 15px;
-  border-top-right-radius: 90px;
-  border-bottom-left-radius: 80px;
+  display: flex;
+  background: rgba(100, 145, 248, 0.192);
+  border-radius: 999px;
+  padding: 4px;
+  border: 1px solid rgba(15, 23, 42, 0.37);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
 }
 
-.buttonMenu:hover {
-  background-color: rgb(8, 106, 179);
-}
-
-.buttonMenu:before {
-  content: '';
-  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+/* sliding pill */
+.langSlider {
   position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
+  top: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  height: calc(100% - 8px);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  box-shadow: 0 6px 18px rgba(59,130,246,.35);
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
 }
 
-.buttonMenu:active:after {
+/* кнопки */
+.langToggle button {
+  position: relative;
+  z-index: 2;
+  border: none;
   background: transparent;
+  padding: 7px 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #334155;
+  cursor: pointer;
+  transition: color .25s ease;
 }
 
-.buttonMenu:hover:before {
-  opacity: 1;
-}
-.buttonMenu:after {
-  z-index: -1;
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
+/* активный текст */
+.langToggle button.active {
+  color: #ffffff;
 }
 
-@keyframes glowing {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 400% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
+/* hover */
+.langToggle:hover {
+  box-shadow: 0 8px 22px rgba(0,0,0,.12);
 }
 
 nav {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   position: relative;
   width: 100%;
   box-shadow: var(--nav-shadow);
   z-index: 5;
   background: linear-gradient(#000000, #086ab3);
   position: sticky;
+  padding: 10px 0;
 }
 
 .navSticky {
@@ -117,18 +108,18 @@ nav {
 
 nav ul {
   list-style: none;
-  display: flex;
   align-items: center;
   font-size: 19px;
-  overflow-y: hidden;
+  overflow: visible !important;
   transition: 1s cubic-bezier(0.68, -0.55, 0.27, 10.55);
   box-shadow: var(--nav-shadow);
   padding: 10px 0;
 }
 
-nav ul li {
-  margin: 0 15px;
-}
+// nav ul li {
+//   margin: 10px 5px;
+//   border-radius: 20px;
+// }
 
 nav ul li a {
   text-decoration: none;
@@ -139,16 +130,16 @@ nav ul li a {
   font-size: 18px;
   transition: all 0.4s ease;
   border-radius: 4px;
-  
+
   &:hover {
     color: white;
     background: rgba(255, 255, 255, 0.1);
-    
+
     &::before {
       width: 100%;
     }
   }
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -166,13 +157,13 @@ nav ul li a.active {
   color: white;
   background: rgba(0, 255, 255, 0.15);
   font-weight: 500;
-  
+
   &::before {
     width: 80%;
     background: #20bbef;
     box-shadow: 0 0 10px #20bbef, 0 0 20px #20bbef;
   }
-  
+
   &:hover::before {
     width: 90%;
   }
@@ -187,130 +178,380 @@ nav ul li a.active {
   justify-content: space-between;
   position: relative;
   margin: 15px;
+
   &.active {
     background: #ffffff;
   }
 }
 
-@media (max-width: 1400px) {
+
+/* ====== ОБЩЕЕ ====== */
+.navSticky {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #0f1f2e;
+}
+
+.navMenu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+
+  margin: 0;
+  padding: 0 24px;
+}
+
+/* ====== SUBMENU ====== */
+.subMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 300px;
+  margin-top: 20px;
+  padding: 12px 0;
+  list-style: none;
+
+  background: #001f75;
+  border-radius: 12px;
+
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: all 0.3s ease;
+
+  z-index: 20;
+}
+
+.subMenu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.subMenu::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 32px;
+
+  width: 22px;
+  height: 22px;
+
+  background: #001f75;
+  border-radius: 6px 6px 0 0;
+
+  transform: rotate(45deg);
+}
+
+/* ====== ПУНКТЫ ====== */
+.subMenu li {
+  position: relative;
+}
+
+.subMenu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none;
+
+  transition: background 0.25s ease, padding-left 0.25s ease;
+}
+
+.subMenu a:hover {
+  background: #163eaa;
+  padding-left: 26px;
+}
+
+
+/* ====== ВЛОЖЕННЫЕ SUBMENU ====== */
+.subMenu .subMenu {
+  top: 0;
+  left: calc(100% + 10px);
+  margin-top: 0;
+}
+
+.subMenu .subMenu::before {
+  display: none;
+}
+
+
+.subMenu .subMenu.open {
+  transform: translateX(0) scale(1);
+}
+
+/* ====== СТРОКА СТРЕЛКИ ====== */
+.menuItem {
+  position: relative;
+}
+
+.menuRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ====== ССЫЛКА ====== */
+.menuLink {
+  flex: 1;
+}
+
+/* ====== СТРЕЛКА ====== */
+.arrow {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  padding: 6px 10px;
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.arrow:hover {
+  color: #ffffff;
+}
+
+.arrowOpen {
+  transform: rotate(90deg);
+}
+
+
+@media (max-width: 1450px) {
   .headerContainer {
     padding: 13px 32px;
-    img{
-      width: 190px;
+
+    img {
+      width: 210px;
     }
   }
+
   .contactInfo {
     padding-right: 75px;
+
     p {
       font-size: 15px;
       margin: 6px 0;
-      img{
+
+      img {
         width: 17px;
         height: 17px;
       }
     }
   }
+  .navMenu{
+    padding: 0 16px;
+  }
+
   nav ul {
     padding: 12px 0;
     font-size: 17px;
+
     li {
-      margin: 0 10px;
+      margin: 0 5px;
+
       a {
-        padding: 5px 20px;
+        padding: 5px 10px;
         font-size: 17px;
+
         &.active {
           font-size: 18px;
         }
       }
     }
   }
+  .open{
+    top: 40px;
+  }
 }
 
-@media (max-width: 1195px) {
-  .headerContainer{
-    img{
-      width: 175px;
-    }
-  }
+@media (max-width: 1285px){
   nav ul {
     font-size: 16px;
+
     li {
-      margin: 0 5px;      
+      margin: 0 5px;
+
       a {
-        padding: 8px 15px;
         font-size: 16px;
+
         &.active {
-          font-size: 17px;          
+          font-size: 17px;
         }
       }
     }
   }
+  .open{
+    top: 39px;
+  }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1195px) {
   .headerContainer {
-    padding: 8px 16px;    
-  }
-  .contactInfo {
-    padding-right: 30px;
-    p{
-      font-size: 15px;
-      img{
-        height: 16px;
-        width: 16px;
-        margin-right: 5px;
-      }
+    img {
+      width: 200px;
     }
   }
+}
+
+@media (max-width: 1070px) {
   nav {
-    background-color: #444;
-    display: flex;
-    justify-content: end;
-    flex-direction: column;
+    justify-content: right;
+    padding: 0;
+  }
+
+  .navSticky {
     position: relative;
+    z-index: 5;
+    overflow: visible; // ❗️бургер не режем
   }
-  .navMenu {
-    --padding: 5px;
-    --font-size: 14px;
-    --max-height: 0px;
-    // padding-bottom: 5px;
-
-    flex-direction: column;
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 46px;
-    max-height: var(--max-height);
-    transition: max-height 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    background: linear-gradient(#086ab3, #03000e);
-    z-index: 100;
-    overflow: hidden; /* Скрываем содержимое до начала анимации */
-
-    &.active {
-      --max-height: 500px;
-      transition: max-height 4.5s ease;
-    }
+  .navMenu{
+    align-items: start;
   }
+
+  /* ---------- BURGER ---------- */
+
   .menuToggle {
     display: flex;
-    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+    margin: 10px;
+
+    cursor: pointer;
+    position: relative;
+    z-index: 1100; // выше меню
   }
-  nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;    
-    margin: 0;
-  }
-  nav ul li a {
-    padding: 4px 15px;
-    font-size: 16px;    
-    &.active {
-      font-size: 18px;
-    }
-  }
-  .menuIcon {
-    height: 22px;
+
+  .menuToggle img {
     width: 22px;
+    height: 22px;
+  }
+
+  /* ---------- MAIN MENU ---------- */
+
+  .navMenu {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    background: linear-gradient(#086ab3, #03000e);
+
+    max-height: 0;
+    overflow: hidden;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    z-index: 1000;
+
+    transition:
+      max-height 0.4s ease,
+      opacity 0.25s ease;
+  }
+
+  .navMenu.active {
+    max-height: 1000px; // большой запас
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* ---------- LIST ---------- */
+
+  .navMenu li {
+    list-style: none;
+  }
+
+  .navMenu a {
+    display: block;
+    padding: 12px 16px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+  }
+
+  /* ---------- MENU ITEM ---------- */
+
+  .menuItem {
+    display: block;
+  }
+
+  .menuRow {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* текст по центру */
+    position: relative;
+  }
+
+  /* Стрелка справа */
+  .menuRow .arrow {
+    position: absolute;
+    right: 16px;       /* отступ от правого края */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Ссылка меню всегда центр */
+  .menuLink {
+    // text-align: center;
+    width: auto;
+    display: block;
+  }
+
+  /* ---------- ARROW ---------- */
+  .arrowOpen {
+    transform: rotate(90deg);
+  }
+
+  /* ---------- SUB MENU (ACCORDION) ---------- */
+
+  .subMenu {
+    margin: 0 !important;      // ❗️
+    padding: 0 !important; 
+    position: static;
+    display: block;
+
+    max-height: 0;
+    overflow: hidden;
+
+    padding-left: 0px;
+    background: #13283d;
+    // padding: 0px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+      max-height 0.35s ease,
+      opacity 0.25s ease;
+  }
+
+  .subMenu.open {
+    max-height: 3000px;
+    padding-left: 16px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .subMenu a {
+    font-size: 14px;
+    padding: 10px 16px;
   }
 }
 
@@ -318,72 +559,87 @@ nav ul li a.active {
   .headerContainer {
     padding: 8px 13px;
     gap: 20px;
-    img{
-      width: 160px;
+
+    img {
+      width: 180px;
     }
   }
+
   .contactInfo {
     padding-right: 15px;
+
     p {
       font-size: 15px;
       margin: 3px 0;
-      img{
+
+      img {
         height: 15px;
         width: 15px;
       }
     }
   }
+
   .languageSwitch {
     font-size: 15px;
+
     a {
       padding: 7px 11px;
     }
   }
-  .navMenu {
-    top: 45px;
-  }
+
+  // .navMenu {
+  //   top: 45px;
+  // }
+
   .menuIcon {
     height: 20px;
     width: 20px;
   }
+
   nav ul li a {
     padding: 3px 12px;
     font-size: 15px;
-    &.active{
+
+    &.active {
       font-size: 16px;
     }
   }
 }
-@media (max-width: 745px){
+
+@media (max-width: 660px) {
   .headerContainer {
     display: grid;
-    img{
+
+    img {
       margin-left: auto;
       margin-right: auto;
+      width: 170px;
     }
   }
+
   .contactBloc {
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 5px;
     padding-top: 4px;
   }
+
   .headerContainer {
     gap: 0px;
     padding: 0px;
   }
-}
 
-@media (max-width: 660px) {
-  .contactInfo{
+  .contactInfo {
     p {
       margin: 2px 0;
-      img{
+
+      img {
         height: 13px;
         width: 13px;
       }
     }
   }
+
   .languageSwitch {
     margin-left: auto;
     font-size: 14px;
@@ -391,73 +647,84 @@ nav ul li a.active {
   }
 }
 
-@media (max-width: 540px){
-  nav ul li{
-    margin: 5px 8px;    
-  }
-  .contactBloc{
-    padding-left: 15px;
-  }
-  .contactInfo{
-    padding-right: 0px;    
+@media (max-width: 500px) {
+  nav {
+    ul {
+      li {
+        margin: 5px 8px;
+      }
+    }
   }
 }
 
-@media (max-width: 440px) {  
+@media (max-width: 440px) {
   .headerContainer {
     padding: 5px;
-    img{
+
+    img {
       width: 160px;
     }
   }
+
   .contactBloc {
     display: grid;
     gap: 0px;
     margin: 0px;
     padding-bottom: 0px;
+    padding-top: 10px;
   }
+
   .contactInfo {
     margin-left: auto;
     margin-right: auto;
     padding-right: 0px;
-    P{
+
+    P {
       margin: 1px 0;
-      img{
+
+      img {
         height: 13px;
         width: 13px;
       }
     }
   }
-  .buttonMenu{
-    &:hover{
+
+  .buttonMenu {
+    &:hover {
       background: #0051ff;
     }
-    &:before{
+
+    &:before {
       background: none;
     }
   }
-  .navMenu {
-    top: 45px;
-  }
+
+  // .navMenu {
+  //   top: 45px;
+  // }
+
   nav ul li a {
     padding: 5px 15px;
     font-size: 16px;
+
     &.active {
       font-size: 17px;
     }
   }
+
   .menuIcon {
     height: 18px;
     width: 18px;
   }
 }
 
-@media (max-width: 375px){
+@media (max-width: 375px) {
   .contactInfo {
-    P{
+    P {
       font-size: 14px;
     }
   }
+
   .languageSwitch {
     font-size: 13px;
   }

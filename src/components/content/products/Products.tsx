@@ -68,36 +68,35 @@ const goBack = () => {
   }
 
   return (
-    <Layout title="Продукция" 
-      description="Качество продукции ООО ИПП «Новые Технологии» соответствует всем стандартам в области 
-      безопасности и качества, что подтверждено соответствующими российскими сертификатами и сертификатами 
-      Таможенного союза. На предприятии разработана, внедрена и успешно работает Интегрированная система 
-      менеджмента качества, сертифицированная на соответствие с требованиями ГОСТ ISO 9001-2015 (ISO 9001:2015), 
-      ГОСТ Р ИСО 14001-2016 (ISO 14001:2016), ГОСТ Р 45001-2020 (ISO 45001-2018), ГОСТ Р ИСО 29001-2023 (ISO 29001:2020).">
+    <Layout title="Products" 
+      description="The quality of products provided by «New Technologies» Engineering and Production Enterprise LLC complies with all 
+        safety and quality standards, confirmed by the relevant Russian and Eurasian Economic Union (EAEU) certificates. The company has 
+        certificates of conformity to the international standards, quality management systems, environmental management systems and occupational 
+        health and safety management systems: ISO 9001:2015, ISO 14001:2016, ISO 45001-2018, ISO 29001:2020.">
       <>
         <Card
           imgSrc={product_1.src} 
-          title="Автоматизированная замерная установка (АГЗУ)"
+          title="Automated group metering skids"
           onClick={() => goTo('/products/accounting-system')}
         />
         <Card
         imgSrc={product_2.src} 
-          title="Комплектующие для автоматизированной групповой замерной установки"
+          title="Component parts for automated group metering skids"
           onClick={() => goTo('/products/accessories')}
         />
         <Card
         imgSrc={product_3.src} 
-          title="Система учёта углеводородов и пластовой жидкости"
+          title="Hydrocarbons and formation fluid metering systems"
           onClick={() => goTo('/products/measuring-system')}
         />
         <Card
         imgSrc={product_4.src} 
-          title="Системы подготовки нефти, газа и воды"
+          title="Oil, gas and water treatment systems"
           onClick={() => goTo('/products/preparation-systems')}
         />
         <Card
         imgSrc={product_5.src} 
-          title="Насосные станции перекачки нефти, нефтепродуктов и воды"
+          title="Oil, water and petroleum products pumping stations"
           onClick={() => goTo('/products/pumping-stations')}
         />
       </>

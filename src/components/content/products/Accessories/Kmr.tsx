@@ -1,72 +1,175 @@
-import Styles from '../products.module.scss'
-import { useState, useRef } from 'react'
+import { useEffect, useRef, useState } from "react";
+import Styles from "../products.module.scss";
+import back from '../../../../images/back.svg'
+import product from "../../../../images/products/product_2_3.webp";
 
-import product_2 from '../../../../images/products/product_2_3.webp'
-
-import { BigPhoto } from '../../../ui/big-photo/BigPhoto'
-import { BackToTop } from '../../../ui/back-to-top/BackToTop'
-import { LayoutBack } from '../../../layout/LayoutBack';
+import { BigPhoto } from "../../../ui/big-photo/BigPhoto";
+import { BackToTop } from "../../../ui/back-to-top/BackToTop";
 
 export const Kmr = () => {
-  const [bigPhoto, setBigPhoto] = useState<string | null>(null)
+  const [bigPhoto, setBigPhoto] = useState<string | null>(null);
+  const heroImageRef = useRef<HTMLDivElement>(null);
 
-  const onBackAccessories = () => {
-    window.location.href = '/products/accessories';
+  const onBack = () => {
+    window.location.href = "/products/accessories";
   };
 
+  const onDoc = () => {
+    window.location.href = "/documents/?type=accessories";
+  };
+
+  /* ---------- 3D TILT EFFECT ---------- */
+
+  useEffect(() => {
+    const el = heroImageRef.current;
+    if (!el) return;
+
+    const move = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = -(y - centerY) / 20;
+      const rotateY = (x - centerX) / 20;
+
+      el.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    };
+
+    const leave = () => {
+      el.style.transform = "rotateX(0) rotateY(0)";
+    };
+
+    el.addEventListener("mousemove", move);
+    el.addEventListener("mouseleave", leave);
+
+    return () => {
+      el.removeEventListener("mousemove", move);
+      el.removeEventListener("mouseleave", leave);
+    };
+  }, []);
+
+  /* ---------- SCROLL REVEAL ---------- */
+
+  useEffect(() => {
+    const elements = document.querySelectorAll(`.${Styles.reveal}`);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(Styles.visible);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <LayoutBack onBack={onBackAccessories} title="Магниторегулируемый клапан (КМР)">
-      <div className={Styles.container}>
-        {/* ===== CONTENT ===== */}
-        <section className={Styles.content}>
+    <>
+      <div className={Styles.page}>
+        <button className={Styles.backButton} onClick={onBack}>
+          <img src={back.src} alt=""/>
+        </button>
 
-          <div className={Styles.card}>
-            {/* Фото */}
-            <div className={Styles.cardImage}>
-              <div className={Styles.imageCard} onClick={() => setBigPhoto(product_2.src)}>
-                <img src={product_2.src} alt="" className={Styles.mainImage} />
-                <div className={Styles.imageOverlay}>
-                  <span className={Styles.zoomText}>
-                    Нажмите для увеличения
-                  </span>
-                </div>
-              </div>
+        <section className={`${Styles.hero} ${Styles.reveal}`}>
+          <div className={Styles.heroText}>
+            <h1>
+              Magnetically adjusted flow control valve <span></span>
+            </h1>
+
+            <p>
+              Designed to regulate fluid flow in "Sputnik" automated group metering skids, serving 
+              as a reliable alternative to standard RR flow regulators.
+            </p>
+
+            <div className={Styles.heroButtons}>
+              <button
+                className={Styles.primaryBtn}
+                onClick={() => setBigPhoto(product.src)}
+              >
+                See images
+              </button>
+
+              <button className={Styles.secondaryBtn} onClick={onDoc}>
+                Files
+              </button>
             </div>
+          </div>
 
-            {/* Текст (НЕСКОЛЬКО БЛОКОВ) */}
-            <div className={Styles.cardContent}>
-              <div className={Styles.features}>
-                <h3>Назначение</h3>
-                <ul className={Styles.featuresList}>
-                  <li className={Styles.feature}>
-                    <div className={Styles.featureText}>
-                      <p>Работа в системе регулирования уровня и перепада давления вместо регуляторов расхода.</p>
-                    </div>
-                  </li>
-                </ul>
+          <div className={Styles.heroImageWrap}>
+            <div
+              className={Styles.imageCard}
+              ref={heroImageRef}
+              onClick={() => setBigPhoto(product.src)}
+            >
+              <div className={Styles.frame}>
+                <img src={product.src} alt="КМР" className={Styles.mainImage} />
+              </div>
+              <div className={Styles.imageOverlay}>
+                <span className={Styles.zoomText}>
+                  Click to enlarge
+                </span>
               </div>
             </div>
           </div>
-          {/* ===== СМОТРИТЕ ТАКЖЕ ===== */}
-          <div className={Styles.related}>
-            <h3>Смотрите также:</h3>
-            <ul className={Styles.relatedList}>
-              <li>
-                <a href="/products/accessories/ervip">ЭРВИП</a>
-              </li>
-              <li>
-                <a href="/products/accessories/urpd">УРПД</a>
-              </li>
-              <li>
-                <a href="/products/accessories/psm">ПСМ</a>
-              </li>
-              <li>
-                <a href="/products/accessories/gidroprivod">Гидропривод</a>
-              </li>
-              <li>
-                <a href="/products/accessories/separation">Сепарационная емкость</a>
-              </li>
-            </ul>
+        </section>
+
+        {/* FEATURES */}
+
+        <section className={`${Styles.features} ${Styles.reveal}`}>
+          <h2>Advantages</h2>
+
+          <div className={Styles.featuresGrid}>
+            {[
+              [ "High Integrity", "Stable performance in fluid flow regulation systems.", ],
+              [ "Mechanical stress resistance", "Reliable performance under industrial operating conditions.", ],
+              [ "Durability", "Robust construction ensures a long service life.", ],
+              [ "Easy Maintenance", "Minimal maintenance requirements.", ],
+              [ "Regulation Accuracy", "Allows precise adjustment of the working fluid flow rate.", ],
+              [ "Compatibility", "Fully compatible with «Sputnik» automated group metering skids.", ],
+            ].map(([title, text], i) => (
+              <div key={i} className={Styles.featureCard}>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* TECHNOLOGY */}
+
+        <section className={`${Styles.tech} ${Styles.reveal}`}>
+          <div className={Styles.techImage}>
+            <img src={product.src} alt="" />
+          </div>
+
+          <div className={Styles.techText}>
+            <h2>Operating Principle</h2>
+
+            <p>
+              The valve regulates fluid flow by changing the position of the regulating element. 
+              This ensures stable flow control within group metering units.
+            </p>
+
+            <section className={`${Styles.related} ${Styles.reveal}`}>
+              <h1>See also</h1>
+              <div className={Styles.relatedGrid}>
+                <a href="/products/accessories/ervip">ERVIP flowmeter</a>
+                <a href="/products/accessories/urpd">Differential pressure adjusting device</a>
+                <a href="/products/accessories/psm">Magnetically adjusted flow control valve</a>
+                <a href="/products/accessories/gidroprivod">Hydraulic drive</a>
+                <a href="/products/accessories/separation">Separation tank</a>
+              </div>
+            </section>
           </div>
         </section>
 
@@ -76,11 +179,6 @@ export const Kmr = () => {
           <BigPhoto src={bigPhoto} onClose={() => setBigPhoto(null)} />
         )}
       </div>
-    </LayoutBack>
-  )
-}
-
-
-
-
-
+    </>
+  );
+};

@@ -45,11 +45,12 @@ export const Home = () => {
         </div>
       </section>
 
+      <Title text="Completed projects on the map"></Title>
       <div className={Styles.Img}>
         <img src={homeItem.src} alt="Карта поставок" className={Styles.homeImg} />
       </div>
-      <Title text="Our customers"></Title>
 
+      <Title text="Our customers"></Title>
       <div className={Styles.brandParent}>
         <div className={Styles.brandsCarousel} id="brandsCarousel">
           {renderBrandsCarousel()}

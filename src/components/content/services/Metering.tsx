@@ -1,45 +1,69 @@
-import Styles from './services.module.scss';
-import { BigPhoto } from '../../ui/big-photo/BigPhoto';
-import { useState } from 'react';
-import serves_3 from '../../../images/services/serves_3.png';
-import dot from '../../../images/dot.svg';
-import { BackToTop } from '../../ui/back-to-top/BackToTop';
+import Styles from './services.module.scss'
+import { useState } from 'react'
+
+import serves_3 from '../../../images/services/serves_3.png'
+import dot from '../../../images/dot.svg'
+
+import { BigPhoto } from '../../ui/big-photo/BigPhoto'
+import { BackToTop } from '../../ui/back-to-top/BackToTop'
+import { LayoutBack } from '../../layout/LayoutBack'
 
 export const Metering = () => {
-  const [photoIsOpen, setPhotoIsOpen] = useState(false);
+  const [bigPhoto, setBigPhoto] = useState<string | null>(null)
+
+  const onBack = () => {
+    window.location.href = '/services'
+  }
 
   return (
-    <>
-      <div className={Styles.card}>
-        <div className={Styles.imageWrapper} onClick={() => setPhotoIsOpen(true)}>
-          <img 
-            src={serves_3.src} 
-            alt="сервис" 
-            className={Styles.serviceImage}
-          />
-          <div className={Styles.imageOverlay}>
-            <p>Zoom</p>
+    <LayoutBack
+      onBack={onBack}
+      title="Замер дебита нефтяных скважин с помощью мобильной замерной установки"
+    >
+      <>
+        <div className={Styles.card}>
+          <div
+            className={Styles.imageWrapper}
+            onClick={() => setBigPhoto(serves_3.src)}
+          >
+            <img
+              src={serves_3.src}
+              alt="замер дебита"
+              className={Styles.serviceImage}
+            />
+            <div className={Styles.imageOverlay}>
+              <p>Увеличить</p>
+            </div>
+          </div>
+
+          <div className={Styles.content}>
+            <h3>Включает в себя следующие виды услуг:</h3>
+            <ul>
+              {[
+                'Доставку измерительной установки к месту проведения замера;',
+                'Монтаж/демонтаж трубной обвязки МЗУ к запорной арматуре скважины и выкидной линии;',
+                'Сброс давления и дренирование жидкости из измерительной ёмкости и трубопроводов МЗУ;',
+                'Формирование и ведение накопительной базы данных по результатам замеров дебита продукции скважин и динамике изменения этих показателей;',
+                'Опрессовку измерительной установки продукцией замеряемой скважины, выполнение замера дебита скважины, оформление результатов замера в круглосуточном режиме.'
+              ].map((item) => (
+                <li key={item}>
+                  <img src={dot.src} alt="" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        <div className={Styles.content}>
-          <h3>The service includes the following:</h3>
-          <ul>
-            {['Delivery of the metering unit to the measurement site;', "Installation/dismantling of the mobile metering unit's piping to the well's shut-off valves and flowline;", 
-              "Pressure relief and fluid drainage from the metering unit's measuring tank and pipelines;", 
-              'Building and maintaining a database of well test results and tracking their dynamics over time;', 
-              "Pressure testing of the metering unit with the measured well's fluid, performing the well flow rate measurement, and recording the results in a 24/7 mode."]
-              .map((item) => (
-              <li key={item}>
-                <img src={dot.src}/>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <BackToTop/>
-      {photoIsOpen && <BigPhoto src={serves_3.src} onClose={() => setPhotoIsOpen(false)} />}
-    </>
-  );
-};
+        <BackToTop />
+
+        {bigPhoto && (
+          <BigPhoto
+            src={bigPhoto}
+            onClose={() => setBigPhoto(null)}
+          />
+        )}
+      </>
+    </LayoutBack>
+  )
+}

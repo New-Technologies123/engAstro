@@ -1,128 +1,237 @@
 import Styles from './header.module.scss';
-import logoEn from '../../images/logo_en.webp';
+import logoRu from '../../images/logo_en.webp';
 
-import menu from '../../images/header/menu.svg';
+import menuIcon from '../../images/header/menu.svg';
 import cross from '../../images/header/cross.svg';
 import location from '../../images/location.svg';
 import email from '../../images/email.svg';
 import phone from '../../images/phone.svg';
+import { menuData } from './menuData';
+
 import { useState, useEffect } from 'react';
 
-export const Header = ({ pageType }) => {
+/* ===== РЕКУРСИВНЫЙ ПУНКТ МЕНЮ ===== */
+const MenuItem = ({ item, pageType }) => {
+  const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
+  const hasChildren = item.children && item.children.length > 0;
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 1000);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // 🔹 активен ли пункт
+  const isActive =
+    item.pageType === pageType ||
+    item.children?.some(child => child.pageType === pageType);
+
+  return (
+    <li
+      className={Styles.menuItem}
+      onMouseEnter={!isMobile && hasChildren ? () => setOpen(true) : undefined}
+      onMouseLeave={!isMobile && hasChildren ? () => setOpen(false) : undefined}
+    >
+      <div className={Styles.menuRow}>
+        <a
+          href={item.url}
+          className={`${Styles.menuLink} ${isActive ? Styles.active : ''}`}
+        >
+          {item.title}
+        </a>
+
+        {hasChildren && (
+          <button
+            type="button"
+            className={`${Styles.arrow} ${open ? Styles.arrowOpen : ''}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              setOpen(prev => !prev);
+            }}
+          >
+            ▸
+          </button>
+        )}
+      </div>
+
+      {hasChildren && (
+        <ul className={`${Styles.subMenu} ${open ? Styles.open : ''}`}>
+          {item.children.map((child, index) => (
+            <MenuItem
+              key={index}
+              item={child}
+              pageType={pageType}
+            />
+          ))}
+        </ul>
+      )}
+    </li>
+  );
+};
+
+
+export default MenuItem;
+
+/* ===== ОСНОВНОЙ ХЭДЕР ===== */
+export const Header = ({ pageType }) => {
   const [isActiveMobileMenu, setIsActiveMobileMenu] = useState(false);
+  const [closeAllSubMenus, setCloseAllSubMenus] = useState(false);
 
   const onToggleMobileMenu = () => {
-    setIsActiveMobileMenu((prev) => !prev);
+     setIsActiveMobileMenu(prev => {
+      const next = !prev;
+
+      // если закрываем бургер → закрываем всё внутри
+      if (!next) {
+        setCloseAllSubMenus(prev => !prev);
+      }
+
+      return next;
+    });
   };
 
-  // Функция для перехода на сайт tech-new
-  const redirectToTechNew = () => {
+ const [lang, setLang] = useState('en');
+
+const changeLanguage = (newLang) => {
+  setLang(newLang);
+
+  if (newLang === 'en') {
+    window.location.href = 'https://eng.tech-new.ru';
+  } else {
     window.location.href = 'https://tech-new.ru';
-  };
+  }
+};
 
-  // Закрытие меню при клике вне его области
+  /* Закрытие меню при клике вне */
   useEffect(() => {
     const handleClickOutside = (event) => {
-      const navElement = document.querySelector(`.${Styles.navMenu}`);
-      const menuToggleElement = document.querySelector(`.${Styles.menuToggle}`);
+      const nav = document.querySelector(`.${Styles.navMenu}`);
+      const toggle = document.querySelector(`.${Styles.menuToggle}`);
 
       if (
         isActiveMobileMenu &&
-        navElement &&
-        !navElement.contains(event.target) &&
-        menuToggleElement &&
-        !menuToggleElement.contains(event.target)
+        nav &&
+        !nav.contains(event.target) &&
+        toggle &&
+        !toggle.contains(event.target)
       ) {
         setIsActiveMobileMenu(false);
       }
     };
 
     document.addEventListener('click', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
+    return () => document.removeEventListener('click', handleClickOutside);
   }, [isActiveMobileMenu]);
 
   return (
     <>
       <header>
         <div className={Styles.headerContainer}>
-          <img src={logoEn.src} alt="Новые Технологии" />
+          <img src={logoRu.src} alt="Новые Технологии" />
+
           <div className={Styles.contactBloc}>
             <div className={Styles.contactInfo}>
               <p>
-                <img src={location.src} alt="Адрес" />
+                <img src={location.src} alt="" />
                 Address: 32/2, Zeki Velidi St., Ufa, Republic of Bashkortostan
               </p>
               <p>
-                <img src={email.src} alt="Email" />
+                <img src={email.src} alt="" />
                 Email: nt@tech-new.ru
               </p>
               <p>
-                <img src={phone.src} alt="Телефон" />
-                Phone: +7(347) 293-93-33
+                <img src={phone.src} alt="" />
+                Phone: +7 (347) 293-93-33
               </p>
             </div>
 
-            {/* Кнопка перехода */}
-            <div className={Styles.languageSwitch}>              
-              <a className={Styles.buttonMenu} onClick={redirectToTechNew}>
-                Rus/Eng
-              </a>
-            </div>
+            <div className={Styles.languageSwitch}>
+              <div className={Styles.langToggle}>
+                
+                {/* sliding background */}
+                <div
+                  className={Styles.langSlider}
+                  style={{
+                    transform:
+                      lang === 'ru'
+                        ? 'translateX(0%)'
+                        : 'translateX(100%)'
+                  }}
+                />
 
+                <button
+                  onClick={() => changeLanguage('ru')}
+                  className={lang === 'ru' ? Styles.active : ''}
+                >
+                  RU
+                </button>
+
+                <button
+                  onClick={() => changeLanguage('en')}
+                  className={lang === 'en' ? Styles.active : ''}
+                >
+                  EN
+                </button>
+
+              </div>
+            </div>
           </div>
         </div>
       </header>
-      <nav className={`${isActiveMobileMenu ? Styles.active : ''} ${Styles.navSticky}`}>
-        <div className={Styles.menuToggle} id="mobile-menu" onClick={onToggleMobileMenu}>
-          {isActiveMobileMenu ? (
-            <img src={cross.src} alt="Крестик" className={Styles.menuIcon} />
-          ) : (
-            <img src={menu.src} alt="" className={Styles.menuIcon} />
-          )}
+
+      <nav className={`${Styles.navSticky} ${isActiveMobileMenu ? Styles.active : ''}`}>
+        <div className={Styles.menuToggle} onClick={onToggleMobileMenu}>
+          <img
+            src={isActiveMobileMenu ? cross.src : menuIcon.src}
+            alt=""
+          />
         </div>
 
-        <ul id="nav-menu" className={`${Styles.navMenu} ${isActiveMobileMenu ? Styles.active : ''}`}>
+        <ul className={`${Styles.navMenu} ${isActiveMobileMenu ? Styles.active : ''}`}>
           <li>
-            <a href={`/home`} className={pageType === 'home' ? Styles.active : ''}>
+            <a href="/home/" className={pageType === 'home' ? Styles.active : ''}>
               Home
             </a>
           </li>
+
           <li>
-            <a href={`/about`} className={pageType === 'about' ? Styles.active : ''}>
+            <a href="/about/" className={pageType === 'about' ? Styles.active : ''}>
               About us
             </a>
           </li>
+
+          {menuData.map((item, index) => (
+            <MenuItem key={index} item={item} pageType={pageType}/>
+          ))}
+
           <li>
-            <a href={`/products`} className={pageType === 'products' ? Styles.active : ''}>
-              Products
-            </a>
-          </li>
-          <li>
-            <a href={`/services`} className={pageType === 'services' ? Styles.active : ''}>
-              Services
-            </a>
-          </li>
-          <li>
-            <a href={`/documents`} className={pageType === 'documents' ? Styles.active : ''}>
+            <a href="/documents/" className={pageType === 'documents' ? Styles.active : ''}>
               Documents
             </a>
           </li>
+
           <li>
-            <a href={`/news`} className={pageType === 'news' ? Styles.active : ''}>
+            <a href="/news/" className={pageType === 'news' ? Styles.active : ''}>
               News
             </a>
           </li>
+
           <li>
-            <a href={`/careers`} className={pageType === 'careers' ? Styles.active : ''}>
+            <a href="/careers/" className={pageType === 'careers' ? Styles.active : ''}>
               Career
             </a>
           </li>
+
           <li>
-            <a href={`/contact`} className={pageType === 'contact' ? Styles.active : ''}>
+            <a href="/contact/" className={pageType === 'contact' ? Styles.active : ''}>
               Contacts
             </a>
           </li>

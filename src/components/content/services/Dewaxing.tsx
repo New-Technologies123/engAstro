@@ -1,41 +1,65 @@
-import Styles from './services.module.scss';
-import { BigPhoto } from '../../ui/big-photo/BigPhoto';
-import { useState } from 'react';
-import serves_5 from '../../../images/services/serves_5.webp';
-import { BackToTop } from '../../ui/back-to-top/BackToTop';
+import Styles from './services.module.scss'
+import { useState } from 'react'
 
+import serves_5 from '../../../images/services/serves_5.webp'
+
+import { BigPhoto } from '../../ui/big-photo/BigPhoto'
+import { BackToTop } from '../../ui/back-to-top/BackToTop'
+import { LayoutBack } from '../../layout/LayoutBack'
 
 export const Dewaxing = () => {
-  const [photoIsOpen, setPhotoIsOpen] = useState(false);
+  const [bigPhoto, setBigPhoto] = useState<string | null>(null)
+
+  const onBack = () => {
+    window.location.href = '/services'
+  }
 
   return (
-    <>
-      <div className={Styles.card}>
-        <div className={Styles.imageWrapper} onClick={() => setPhotoIsOpen(true)}>
-          <img src={serves_5.src} alt="сервис" className={Styles.serviceImage}/>
-          <div className={Styles.imageOverlay}>
-            <p>Zoom</p>
+    <LayoutBack
+      onBack={onBack}
+      title="Услуги депарафинизации нефтяных скважин"
+    >
+      <>
+        <div className={Styles.card}>
+          <div
+            className={Styles.imageWrapper}
+            onClick={() => setBigPhoto(serves_5.src)}
+          >
+            <img
+              src={serves_5.src}
+              alt="депарафинизация"
+              className={Styles.serviceImage}
+            />
+            <div className={Styles.imageOverlay}>
+              <p>Увеличить</p>
+            </div>
+          </div>
+
+          <div className={Styles.content}>
+            <ul>
+              {[
+                'Услуги оказываются экипажами на базе высокопроходимой спецтехники.',
+                'Основной задачей является полное удаление асфальтосмолопарафиновых отложений (АСПО) и других отложений механическим способом (скребкованием) в лифте НКТ скважин, а также обеспечение прохода в скважинах с НКТ.',
+                'Скребкование проводится с помощью фрезерных и лезвийных скребков различного диаметра в фонтанных нефтяных скважинах и скважинах, оборудованных установкой электроцентробежного насоса (УЭЦН).',
+                'Глубина спуска скребка в скважину 2000–3000 м.',
+                'Для выявления и удаления отложений на НКТ с внутренним покрытием используются неметаллические скребки/фрезы и лома-утяжелители с покрытием для предотвращения повреждения НКТ. Также применяются скребки-пробойники и «парафинорезки» для удаления АСПО при закупоривании (для НКТ черной и НКТ с покрытием).',
+                'Работы выполняются обученным персоналом с применением сертифицированного оборудования собственного производства в соответствии с действующими правилами безопасности в нефтяной и газовой промышленности.'
+              ].map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        <div className={Styles.content}>
-          <ul>
-            {['Services are provided by crews through the use of high-mobility special vehicles.', 
-              'The main objective of the services is to completely remove asphaltene-resin-paraffin and other deposits in the oil-well tubing string lift by mechanical means (scraping), to determine and to ensure a proper passage in wells with tubing.', 
-              'Scraping is performed using milling and blade scrapers of various diameters to remove asphaltene-resin-paraffin in gusher oil wells and wells equipped with an electrical submersible pump.', 
-              'Scraper running depth is 2000 - 3000 m.', 
-              'To identify and remove deposits from the tubing with an internal coating, we use non-metallic scrapers/cutters and sinker bars with a coating to prevent damage to the tubing coating. The company also provides puncher scrapers and “paraffin cutters” for the removal of asphaltene-resin-paraffin in case of plugging (for both bare and coated tubing).', 
-              'The service is performed by our highly-trained technicians using our own certified equipment. We operate in strict compliance with current safety regulations for the oil and gas industry.']
-              .map((item) => (
-              <li key={item}>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <BackToTop/>
-      {photoIsOpen && <BigPhoto src={serves_5.src} onClose={() => setPhotoIsOpen(false)} />}
-    </>
-  );
-};
+        <BackToTop />
+
+        {bigPhoto && (
+          <BigPhoto
+            src={bigPhoto}
+            onClose={() => setBigPhoto(null)}
+          />
+        )}
+      </>
+    </LayoutBack>
+  )
+}

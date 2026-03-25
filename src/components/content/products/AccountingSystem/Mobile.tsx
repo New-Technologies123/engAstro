@@ -1,56 +1,177 @@
-import Styles from '../products.module.scss'
-import { useState, useRef } from 'react'
+import { useEffect, useRef, useState } from "react";
+import Styles from "../products.module.scss";
+import back from '../../../../images/back.svg'
+import product from "../../../../images/products/product_1_2.webp";
 
-import product_1_1 from '../../../../images/products/product_1_2.webp'
-
-import { BigPhoto } from '../../../ui/big-photo/BigPhoto'
-import { BackToTop } from '../../../ui/back-to-top/BackToTop'
-import { LayoutBack } from '../../../layout/LayoutBack';
+import { BigPhoto } from "../../../ui/big-photo/BigPhoto";
+import { BackToTop } from "../../../ui/back-to-top/BackToTop";
 
 export const Mobile = () => {
-  const [bigPhoto, setBigPhoto] = useState<string | null>(null)
+  const [bigPhoto, setBigPhoto] = useState<string | null>(null);
+  const heroImageRef = useRef<HTMLDivElement>(null);
 
-  const onBackAccounting = () => {
-    window.location.href = '/products/accounting-system';
+  const onBack = () => {
+    window.location.href = "/products/accounting-system";
   };
 
+  const onDoc = () => {
+    window.location.href = "/documents/?type=accountingSystem";
+  };
+
+  /* ---------- 3D TILT ---------- */
+
+  useEffect(() => {
+    const el = heroImageRef.current;
+    if (!el) return;
+
+    const move = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = -(y - centerY) / 20;
+      const rotateY = (x - centerX) / 20;
+
+      el.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    };
+
+    const leave = () => {
+      el.style.transform = "rotateX(0) rotateY(0)";
+    };
+
+    el.addEventListener("mousemove", move);
+    el.addEventListener("mouseleave", leave);
+
+    return () => {
+      el.removeEventListener("mousemove", move);
+      el.removeEventListener("mouseleave", leave);
+    };
+  }, []);
+
   return (
-    <LayoutBack onBack={onBackAccounting} title="АГЗУ «Спутник — массомер НТ.1» (мобильный)">
-      <div className={Styles.container}>
-        {/* ===== CONTENT ===== */}
-        <section className={Styles.content}>
+    <>
+      <div className={Styles.page}>
+        <button className={Styles.backButton} onClick={onBack}>
+          <img src={back.src} alt=""/>
+        </button>
 
-          <div className={Styles.card}>
-            {/* Фото */}
-            <div className={Styles.cardImage}>
-              <div className={Styles.imageCard} onClick={() => setBigPhoto(product_1_1.src)}>
-                <img src={product_1_1.src} alt="" className={Styles.mainImage} />
-                <div className={Styles.imageOverlay}>
-                  <span className={Styles.zoomText}>
-                    Нажмите для увеличения
-                  </span>
-                </div>
+        <section className={Styles.hero}>
+          <div className={Styles.heroText}>
+            <h1>
+              "Sputnik-massomer NT.1" the <span> mobile </span> automated group metering skid 
+              
+            </h1>
+
+            <p>
+              The mobile skid for measuring mass and mass flow rate of the total well fluid and volume flow rate of free petroleum gas after separation.
+            </p>
+
+            <div className={Styles.heroButtons}>
+              <button
+                className={Styles.primaryBtn}
+                onClick={() => setBigPhoto(product.src)}
+              >
+                See images
+              </button>
+
+              <button className={Styles.secondaryBtn} onClick={onDoc}>
+                Files
+              </button>
+            </div>
+          </div>
+
+          <div className={Styles.heroImageWrap}>
+            <div
+              className={Styles.imageCard}
+              ref={heroImageRef}
+              onClick={() => setBigPhoto(product.src)}
+            >
+              <img src={product.src} alt="АГЗУ мобильная" className={Styles.mainImage} />
+              <div className={Styles.imageOverlay}>
+                <span className={Styles.zoomText}>
+                  Click to enlarge
+                </span>
               </div>
             </div>
+          </div>
+        </section>
 
-            {/* Текст (НЕСКОЛЬКО БЛОКОВ) */}
-            <div className={Styles.cardContent}>
-              <div className={Styles.features}>
-                <ul className={Styles.featuresList}>
-                  <li className={Styles.feature}>
-                    <div className={Styles.featureText}>
-                      <p>Блоки АГЗУ размещаются в кузове автомобиля или на шасси прицепа.</p>
-                    </div>
-                  </li>
-                  <li className={Styles.feature}>
-                    <div className={Styles.featureText}>
-                      <p>Измерение массы нефти и газа с учетом и без учета воды, после процесса сепарации.</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+        {/* FEATURES */}
 
+        <section className={Styles.features}>
+          <h2>Special features</h2>
+
+          <div className={Styles.featuresGrid}>
+            <div className={Styles.featureCard}>
+              <h3>Mobile configuration</h3>
+              <p>
+                The metering units are mounted on the vehicle body or on the chassis.
+              </p>
             </div>
+
+            <div className={Styles.featureCard}>
+              <h3>Precise metering</h3>
+              <p>
+                The unit performs mass and mass flow rate metering of crude oil (net and gross of water).
+              </p>
+            </div>
+
+            <div className={Styles.featureCard}>
+              <h3>Gas metering</h3>
+              <p>
+                The unit performs volume flow rate metering of free petroleum gas after separation.
+              </p>
+            </div>
+
+            <div className={Styles.featureCard}>
+              <h3>Standard conditions</h3>
+              <p>
+                The gas parameters are automatically converted to standard conditions.
+              </p>
+            </div>
+
+            <div className={Styles.featureCard}>
+              <h3>Быстрое развертывание</h3>
+              <p>
+                Ввод в эксплуатацию без капитального строительства и длительного монтажа.
+              </p>
+            </div>
+
+            <div className={Styles.featureCard}>
+              <h3>Снижение затрат</h3>
+              <p>
+                Отсутствие необходимости строительства стационарных узлов учета.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        {/* TECHNOLOGY */}
+
+        <section className={Styles.tech}>
+          <div className={Styles.techImage}>
+            <img src={product.src} alt="" />
+          </div>
+
+          <div className={Styles.techText}>
+            <h2>Operating principle</h2>
+            <p>
+              The operation of the unit is based on the separation of oil and gas mixure, followed 
+              by the measurement of the mass and mass flow rate of the total well fluid, as well as 
+              the volume of free petroleum gas. The obtained data is used for metering of well production.
+            </p>
+
+            <section className={Styles.related}>
+              <h1>See also:</h1>
+              <div className={Styles.relatedGrid}>
+                <a href="/products/accounting-system/stationary/">Stationary automated group metering skid</a>
+              </div>
+            </section>
           </div>
         </section>
 
@@ -60,11 +181,6 @@ export const Mobile = () => {
           <BigPhoto src={bigPhoto} onClose={() => setBigPhoto(null)} />
         )}
       </div>
-    </LayoutBack>
-  )
-}
-
-
-
-
-
+    </>
+  );
+};
