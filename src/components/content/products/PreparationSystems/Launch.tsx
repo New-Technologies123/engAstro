@@ -80,16 +80,15 @@ export const Launch = () => {
         <section className={`${Styles.hero} ${Styles.reveal}`}>
           <div className={Styles.heroText}>
             <h1>
-              Устройство запуска и приема внутритрубных средств <span>УЗПЗ, УЗПП</span>
+              Pig launcher and receiver of intratubal cleaning and diagnostic facilities<span></span>
             </h1>
 
             <p>
-              Предназначено для периодического запуска внутритрубных снарядов
-              — дефектоскопов, очистных скребков и других поточных средств.
+              Designed for periodic launching and receiving of pipeline tools, such as inspection pigs, cleaning scrapers, and other diagnostic devices.
             </p>
 
             <p>
-              Обеспечивает безопасную и надежную работу систем очистки и диагностики трубопроводов.
+              Ensures safe and reliable operation of pipeline cleaning and diagnostics systems.
             </p>
 
             <div className={Styles.heroButtons}>
@@ -97,11 +96,11 @@ export const Launch = () => {
                 className={Styles.primaryBtn}
                 onClick={() => setBigPhoto(product.src)}
               >
-                Смотреть фото
+                View image
               </button>
 
               <button className={Styles.secondaryBtn} onClick={onDoc}>
-                Документация
+                Files
               </button>
             </div>
           </div>
@@ -117,7 +116,7 @@ export const Launch = () => {
               </div>
               <div className={Styles.imageOverlay}>
                 <span className={Styles.zoomText}>
-                  Нажмите для увеличения
+                  Click to enlarge
                 </span>
               </div>
             </div>
@@ -126,20 +125,20 @@ export const Launch = () => {
 
         {/* FEATURES */}
         <section className={`${Styles.features} ${Styles.reveal}`}>
-          <h2>Преимущества оборудования</h2>
+          <h2>Advantages</h2>
           <div className={Styles.featuresGrid}>
             {[
-              ["Надежность", "Обеспечивает безопасный запуск и прием внутритрубных средств."],
-              ["Универсальность", "Подходит для нефтепроводов и газопроводов, разных диаметров и конфигураций."],
-              ["Автоматизация", "Минимизирует участие оператора, повышает эффективность и безопасность."],
-              ["Простота эксплуатации", "Легкая интеграция в существующие системы и минимальные требования к обслуживанию."],
+              ["Integrity", "Ensures safe launching and receiving of pipeline tools."],
+              ["Versatility", "Suitable for oil and gas pipelines of various diameters and configurations."],
+              ["Automation", "Minimizes operator involvement, increases efficiency and safety."],
+              ["Operational simplicity", "Easy integration into the existing systems and minimal maintenance requirements."],
               [
-                "Герметичность",
-                "Исключает утечки при запуске и приеме снарядов.",
+                "Sealing Integrity",
+                "Eliminates leaks during launching and receiving operations.",
               ],
               [
-                "Безопасность",
-                "Соответствует требованиям промышленной безопасности.",
+                "Safety",
+                "Complies with industrial safety requirements.",
               ],
             ].map(([title, text], i) => (
               <div key={i} className={Styles.featureCard}>
@@ -157,23 +156,23 @@ export const Launch = () => {
           </div>
 
           <div className={Styles.techText}>
-            <h2>Принцип работы</h2>
+            <h2>Operating principle</h2>
 
             <p>
-              Снаряды запускаются в трубопровод через устройство УЗПЗ, проходят очистку или диагностику,
-              после чего принимаются УЗПП.
+              Pigs are launched into the pipeline using a pig launcher, where they carry out cleaning or inspection operations 
+              before being retrieved by a pig receiver.
             </p>
 
             <p>
-              Позволяет проводить проверку состояния трубопроводов, выявлять дефекты и удалять отложения.
+              This process enables pipeline condition assessment, defect detection, and the removal of deposits.
             </p>
 
             <section className={`${Styles.related} ${Styles.reveal}`}>
-              <h1>Смотрите также</h1>
+              <h1>See also:</h1>
               <div className={Styles.relatedGrid}>
-                <a href="/products/preparation-systems/block">БГ</a>
-                <a href="/products/preparation-systems/cleaning">УОК-НКТ</a>
-                <a href="/products/preparation-systems/dosing">БДР</a>
+                <a href="/products/preparation-systems/block">Valve manifold</a>
+                <a href="/products/preparation-systems/cleaning">Tubing string clarifier</a>
+                <a href="/products/preparation-systems/dosing">Chemical injection skid</a>
               </div>
             </section>
           </div>

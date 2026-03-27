@@ -11,11 +11,11 @@ type TPumping = | 'internal' | 'multiphase';
 
 /* ---------------- component ---------------- */
 export const PumpingStations = () => {
-  const title = 'Насосные станции перекачки нефти, нефтепродуктов и воды';
+  const title = 'Oil, water and petroleum products pumping stations';
 
   const cardTitle: Record<TPumping, string> = {
-    internal: 'Блочная насосная станция внутренней и внешней перекачки нефти',
-    multiphase: 'Блочная мультифазная насосная станция',
+    internal: 'Modular internal and  external pumping station',
+    multiphase: 'Modular multiphase pump station',
   };
 
   /* открыть карточку */

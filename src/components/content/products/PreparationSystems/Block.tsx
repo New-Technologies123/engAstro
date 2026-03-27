@@ -80,12 +80,11 @@ export const Block = () => {
         <section className={`${Styles.hero} ${Styles.reveal}`}>
           <div className={Styles.heroText}>
             <h1>
-              Блок<span> гребенки</span>
+              Chemical injection skid<span></span>
             </h1>
 
             <p>
-              Для распределения потоков воды, подаваемой кустовыми насосными станциями,
-              в нагнетательные скважины с целью поддержания пластового давления.
+              Distribution of water by the cluster pump stations into injection wells for the purpose of maintaining the reservoir pressure.
             </p>
 
             <div className={Styles.heroButtons}>
@@ -93,11 +92,11 @@ export const Block = () => {
                 className={Styles.primaryBtn}
                 onClick={() => setBigPhoto(product.src)}
               >
-                Смотреть фото
+                View image
               </button>
 
               <button className={Styles.secondaryBtn} onClick={onDoc}>
-                Документация
+                Files
               </button>
             </div>
           </div>
@@ -112,7 +111,7 @@ export const Block = () => {
               
               <div className={Styles.imageOverlay}>
                 <span className={Styles.zoomText}>
-                  Нажмите для увеличения
+                  Click to enlarge
                 </span>
               </div>
             </div>
@@ -121,21 +120,21 @@ export const Block = () => {
 
         {/* FEATURES */}
         <section className={`${Styles.features} ${Styles.reveal}`}>
-          <h2>Назначение системы</h2>
+          <h2>Click to enlarge</h2>
 
           <div className={Styles.featuresGrid}>
             {[
               [
-                "Распределение потоков",
-                "Блок гребенки предназначен для распределения воды, подаваемой кустовыми насосными станциями, по нагнетательным скважинам."
+                "Flow Distribution",
+                "The manifold valve is designed to distribute water from cluster pumping stations to injection wells."
               ],
               [
-                "Поддержание давления",
-                "Обеспечивает стабильную подачу воды для поддержания пластового давления в системе разработки месторождения."
+                "Pressure Maintenance",
+                "Ensures stable water delivery to maintain reservoir pressure within the field development system."
               ],
               [
-                "Надежная работа",
-                "Рассчитан на эксплуатацию в условиях нефтегазовых промыслов и работу под высоким давлением."
+                "Reliable Operation",
+                "Engineered for service in oil and gas field environments and high pressure conditions."
               ]
             ].map(([title, text], i) => (
               <div key={i} className={Styles.featureCard}>
@@ -153,32 +152,32 @@ export const Block = () => {
           </div>
 
           <div className={Styles.techText}>
-            <h2>Особенности конструкции</h2>
+            <h2>Design Features</h2>
 
             <ul className={Styles.featuresList}>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Обеспечивает стабильное давление на выходе каждой линии;</p>
+                  <p>Provides stable outlet pressure for each line;</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Компактная и надежная конструкция для работы на кустовых площадках;</p>
+                  <p>Compact and robust design suitable for cluster sites;</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Минимальные требования к обслуживанию и техническому контролю;</p>
+                  <p>Minimal maintenance and inspection requirements;</p>
                 </div>
               </li>
             </ul>
 
             <section className={`${Styles.related} ${Styles.reveal}`}>
-              <h1>Смотрите также</h1>
+              <h1>See also:</h1>
               <div className={Styles.relatedGrid}>
-                <a href="/products/preparation-systems/launch">УЗПЗ, УЗПП</a>
-                <a href="/products/preparation-systems/cleaning">УОК-НКТ</a>
-                <a href="/products/preparation-systems/dosing">БДР</a>
+                <a href="/products/preparation-systems/launch">Pig launcher and receiver of intratubal cleaning and diagnostic facilities</a>
+                <a href="/products/preparation-systems/cleaning">Tubing String Clarifier</a>
+                <a href="/products/preparation-systems/dosing">Chemical Injection Skid</a>
               </div>
             </section>
           </div>

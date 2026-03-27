@@ -11,12 +11,12 @@ type TMeasuring = | 'oil' | 'gas' | 'water';
 
 /* ---------------- component ---------------- */
 export const MeasuringSystem = () => {
-  const title = 'Система учёта углеводородов и пластовой жидкости';
+  const title = 'Hydrocarbons and formation fluid metering system';
 
   const cardTitle: Record<TMeasuring, string> = {
-    oil: 'Система измерения количества и показателей качества нефти (СИКН)',
-    gas: 'Система измерения количества газа (СИКГ)',
-    water: 'Система измерения количества воды (СИКВ)',
+    oil: 'Сrude oil custody transfer metering system',
+    gas: 'Gas custody transfer metering system',
+    water: 'Water quantity metering system',
   };
 
   /* открыть карточку */

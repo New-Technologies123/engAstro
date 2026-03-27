@@ -79,13 +79,12 @@ export const Oil = () => {
         <section className={`${Styles.hero} ${Styles.reveal}`}>
           <div className={Styles.heroText}>
             <h1>
-              Система измерения количества и показателей качества нефти<span> СИКН</span>
+              Сrude oil custody transfer metering system<span></span>
             </h1>
 
             <p>
-              СИКН предназначена для автоматизированного измерения количества
-              нефти и нефтепродуктов, а также определения их основных
-              показателей качества.
+              Сrude oil custody transfer metering system  is designed for the automated metering of oil and petroleum 
+              products quantity, as well as determination of their key quality parameters.
             </p>
 
             <div className={Styles.heroButtons}>
@@ -93,11 +92,11 @@ export const Oil = () => {
                 className={Styles.primaryBtn}
                 onClick={() => setBigPhoto(product.src)}
               >
-                Смотреть фото
+                See image
               </button>
 
               <button className={Styles.secondaryBtn} onClick={onDoc}>
-                Документация
+                Files
               </button>
             </div>
           </div>
@@ -111,7 +110,7 @@ export const Oil = () => {
               <img src={product.src} alt="СИКН" className={Styles.mainImage} />
               <div className={Styles.imageOverlay}>
                 <span className={Styles.zoomText}>
-                  Нажмите для увеличения
+                  Click to enlarge
                 </span>
               </div>
             </div>
@@ -120,33 +119,33 @@ export const Oil = () => {
 
         {/* FEATURES */}
         <section className={`${Styles.features} ${Styles.reveal}`}>
-          <h2>Назначение системы</h2>
+          <h2>Equipment purpose</h2>
 
           <div className={Styles.featuresGrid}>
             {[
               [
-                "Измерение количества",
-                "Автоматизированное измерение количества нефти и нефтепродуктов.",
+                "Quantity metering",
+                "Automated metering of oil and petroleum products.",
               ],
               [
-                "Контроль качества",
-                "Определение плотности, вязкости и влагосодержания нефти.",
+                "Quality control",
+                "Determination of oil density, viscosity, and water content.",
               ],
               [
-                "Контроль параметров",
-                "Измерение давления и температуры рабочей среды.",
+                "Parameter monitoring",
+                "Pressure and temperature measurement of the working medium.",
               ],
               [
-                "Отбор проб",
-                "Отбор объединенной пробы нефти в соответствии с ГОСТ 2517.",
+                "Sample drawing",
+                "The drawing of oil samples in accordance with GOST 2517 (Russian National Standard).",
               ],
               [
-                "Передача данных",
-                "Передача информации в систему автоматизации и АРМ оператора.",
+                "Data transmission",
+                "The transmission of data into the automation system and operator workstation.",
               ],
               [
-                "Гибкость конфигурации",
-                "Система может изготавливаться на базе объемных, массовых или ультразвуковых расходомеров.",
+                "Configuration flexibility",
+                "The system is manufactured on the basis of volumetric, ultrasonic or mass flow transmitters.",
               ],
             ].map(([title, text], i) => (
               <div key={i} className={Styles.featureCard}>
@@ -164,20 +163,22 @@ export const Oil = () => {
           </div>
 
           <div className={Styles.techText}>
-            <h2>Принцип работы</h2>
+            <h2>Operating principle</h2>
 
             <p>
-              Система обеспечивает автоматический учет количества нефти и
-              контроль ее качества. Данные измерений передаются в систему
-              автоматизации, архивируются и отображаются на рабочем месте
-              оператора.
+              The system provides automatic metering of oil quantity and its quality inspection. The metering data is transmitted 
+              into the automation system, archived, and displayed at the operator's workstation.
+            </p>
+            <p>
+              Issuance of information transmitted by automation facilities and its subsequent archiving and displaying on the 
+              operator's automated workstation.
             </p>
 
             <section className={`${Styles.related} ${Styles.reveal}`}>
-              <h1>Смотрите также</h1>
+              <h1>See also:</h1>
               <div className={Styles.relatedGrid}>
-                <a href="/products/measuring-system/gas">СИКГ</a>
-                <a href="/products/measuring-system/water">СИКВ</a>
+                <a href="/products/measuring-system/gas">Gas custody transfer metering system</a>
+                <a href="/products/measuring-system/water">Water quantity metering system</a>
               </div>
             </section>
           </div>

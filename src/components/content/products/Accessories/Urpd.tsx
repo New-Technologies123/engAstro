@@ -150,7 +150,7 @@ export const Urpd = () => {
               rubber ensures longevity and reliability.
             </p>
             <section className={`${Styles.related} ${Styles.reveal}`}>
-              <h1>See also </h1>
+              <h1>See also:</h1>
               <div className={Styles.relatedGrid}>
                 <a href="/products/accessories/ervip">ERVIP flowmeter</a>
                 <a href="/products/accessories/psm">Multi-stream switching manifold</a>

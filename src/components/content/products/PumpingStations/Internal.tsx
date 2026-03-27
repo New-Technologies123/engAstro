@@ -80,16 +80,17 @@ export const Internal = () => {
         <section className={`${Styles.hero} ${Styles.reveal}`}>
           <div className={Styles.heroText}>
             <h1>
-              Блочная насосная станция <span>внутренней и внешней </span> перекачки нефти
+              Oil, water and petroleum products pumping stations<span></span>
             </h1>
 
             <p>
-              Предназначена для транспортировки нефти, нефтепродуктов и конденсата в системах сбора и подготовки,
-              внутрипарковой и внешней перекачки.
+              Designed for oil transportation into interfield pipelines within oil gathering, treatment systems, and tank farm systems, as well
+              as for external transfer of petroleum products and condensate pumping.
             </p>
 
             <p>
-              Основана на центробежных насосных агрегатах и современном автоматизированном оборудовании.
+              Pumping stations are manufactured on the basis of
+              centrifugal pumping equipment and modern automated equipment
             </p>
 
             <div className={Styles.heroButtons}>
@@ -97,10 +98,10 @@ export const Internal = () => {
                 className={Styles.primaryBtn}
                 onClick={() => setBigPhoto(product.src)}
               >
-                Смотреть фото
+                See image
               </button>
               <button className={Styles.secondaryBtn} onClick={onDoc}>
-                Документация
+                Files
               </button>
             </div>
           </div>
@@ -116,7 +117,7 @@ export const Internal = () => {
               </div>
               <div className={Styles.imageOverlay}>
                 <span className={Styles.zoomText}>
-                  Нажмите для увеличения
+                  Click to enlarge
                 </span>
               </div>
             </div>
@@ -125,20 +126,20 @@ export const Internal = () => {
 
         {/* FEATURES */}
         <section className={`${Styles.features} ${Styles.reveal}`}>
-          <h2>Преимущества оборудования</h2>
+          <h2>Advantages</h2>
           <div className={Styles.featuresGrid}>
             {[
-              ["Надежность", "Станция обеспечивает стабильную работу в системах сбора и перекачки нефти."],
-              ["Автоматизация", "Современные системы автоматизации и КИП минимизируют участие оператора."],
-              ["Безопасность", "Системы пожаротушения, сигнализации и контроля загазованности повышают безопасность."],
-              ["Универсальность", "Может работать с разными насосными агрегатами и в нескольких исполнениях."],
+              ["Reliability", "The station ensures stable operation in oil gathering and transfer systems."],
+              ["Automation", "Modern automation and instrumentation systems minimize operator involvement."],
+              ["Safety", "Fire suppression systems, alarm systems, and gas contamination monitoring enhance safety."],
+              ["Versatility", "It is available in multiple configurations and can operate with various pump units."],
               [
-                "Модульность",
-                "Блочное исполнение обеспечивает удобство транспортировки и монтажа.",
+                "Modularity",
+                "Skid-mounted design facilitates easy transportation and installation.",
               ],
               [
-                "Обслуживаемость",
-                "Удобный доступ к оборудованию для ремонта и обслуживания.",
+                "Maintainability",
+                "Convenient access to equipment for repair and maintenance.",
               ],
             ].map(([title, text], i) => (
               <div key={i} className={Styles.featureCard}>
@@ -156,41 +157,41 @@ export const Internal = () => {
           </div>
 
           <div className={Styles.techText}>
-            <h2>Типовой состав станции</h2>
+            <h2>Typical Station Components</h2>
             <ul className={Styles.featuresList}>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Насосные агрегаты</p>
+                  <p>Pumping equipment</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Приемный и нагнетательный коллекторы с запорной арматурой</p>
+                  <p>Intake and discharge manifolds with shut-off valves</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Трубопроводы дренажа и слива утечек</p>
+                  <p>Drainage and leakage drain pipelines</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Система пожарной сигнализации и контроля загазованности</p>
+                  <p>Fire alarm system and gas pollution control</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Система пенного пожаротушения</p>
+                  <p>Foam fire extinguishing system</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Средства автоматизации и КИП</p>
+                  <p>Automation and instrumentation equipment</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Грузоподъемные устройства для монтажа и демонтажа арматуры</p>
+                  <p>Hoisting equipment for mounting and dismantling of piping valve and connecting pipelines</p>
                 </div>
               </li>
               <li className={Styles.feature}>
@@ -200,25 +201,30 @@ export const Internal = () => {
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Система передачи информации на верхний уровень</p>
+                  <p>Jockey pump control system</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Система электроснабжения насосных агрегатов</p>
+                  <p>Upper level data-transmitting system</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Система жизнеобеспечения блок-бокса</p>
+                  <p>Power supply system of the pumping equipment</p>
+                </div>
+              </li>
+              <li className={Styles.feature}>
+                <div className={Styles.featureText}>
+                  <p>The life support system of the containerized module</p>
                 </div>
               </li>
             </ul>
 
             <section className={`${Styles.related} ${Styles.reveal}`}>
-              <h1>Смотрите также</h1>
+              <h1>See also:</h1>
               <div className={Styles.relatedGrid}>
-                <a href="/products/pumping-stations/multiphase">Блочная мультифазная насосная станция</a>
+                <a href="/products/pumping-stations/multiphase">Modular multiphase pump station</a>
               </div>
             </section>
           </div>

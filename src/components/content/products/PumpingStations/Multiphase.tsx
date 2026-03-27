@@ -76,22 +76,20 @@ export const Multiphase = () => {
 
         <section className={`${Styles.hero} ${Styles.reveal}`}>
           <div className={Styles.heroText}>
-            <h1>Блочная 
-              <span> мультифазная</span> насосная станция</h1>
+            <h1>Modular multiphase pump station  
+              <span> </span></h1>
             <p>
-              Для перекачивания газожидкостной смеси из скважин без
-              предварительной сепарации газа с содержанием газовой фазы до
-              100%.
+              Designed for pumping liquid-gas mixtures directly from wells without preliminary gas separation, handling gas content up to 100%
             </p>
             <div className={Styles.heroButtons}>
               <button
                 className={Styles.primaryBtn}
                 onClick={() => setBigPhoto(product.src)}
               >
-                Смотреть фото
+                See image
               </button>
               <button className={Styles.secondaryBtn} onClick={onDoc}>
-                Документация
+                Files
               </button>
             </div>
           </div>
@@ -106,7 +104,7 @@ export const Multiphase = () => {
               
               <div className={Styles.imageOverlay}>
                 <span className={Styles.zoomText}>
-                  Нажмите для увеличения
+                  Click to enlarge
                 </span>
               </div>
             </div>
@@ -115,20 +113,20 @@ export const Multiphase = () => {
 
         {/* ADVANTAGES */}
         <section className={`${Styles.features} ${Styles.reveal}`}>
-          <h2>Преимущества оборудования</h2>
+          <h2>Equipment advantages</h2>
           <div className={Styles.featuresGrid}>
             {[
               [
-                "Высокая точность",
-                "Стабильные показания и высокая точность измерения перекачиваемой смеси.",
+                "High Accuracy",
+                "Ensures stable readings and high-precision measurement of the pumped mixture.",
               ],
-              ["Надежность", "Простая эксплуатация и высокая надежность промышленного уровня."],
-              ["Долговечность", "Срок службы оборудования рассчитан на длительную эксплуатацию."],
-              ["Устойчивость", "Нечувствительность к перепадам давления и составу жидкости."],
-              ["Безопасность", "Система противоаварийной автоматической защиты ПАЗ."],
+              ["Reliability", "Provides straightforward operation and high, industrial-grade reliability."],
+              ["Durability", "Designed for an extended service life, supporting long-term continuous operation."],
+              ["Robustness", "Exhibits insensitivity to pressure fluctuations and changes in fluid composition."],
+              ["Safety", "Equipped with an automatic emergency protection system"],
               [
-                "Энергоэффективность",
-                "Оптимизация режимов работы насосных агрегатов.",
+                "Energy Efficiency",
+                "Enables optimization of pumping unit duty cycles.",
               ],
             ].map(([title, text], i) => (
               <div key={i} className={Styles.featureCard}>
@@ -145,21 +143,21 @@ export const Multiphase = () => {
             <img src={product.src} alt="Типовой состав" />
           </div>
           <div className={Styles.techText}>
-            <h2>Типовой состав</h2>
+            <h2>Standard configuration:</h2>
             <ul className={Styles.featuresList}>
               {[
-                "Мультифазные насосные агрегаты",
-                "Блок-бокс насосной станции",
-                "Запорная арматура",
-                "Технологические трубопроводы",
-                "Дренажные трубопроводы",
-                "Комплект КИПиА",
-                "Системы жизнеобеспечения блок-бокса насосной станции (отопление, вентиляция)",
-                "Система управления мультифазными насосными агрегатами",
-                "Система противоаварийной автоматической защиты ПАЗ",
-                "Блок частотных преобразователей",
-                "Система передачи информации на верхний уровень",
-                "Система электроснабжения насосных агрегатов",
+                "Multiphase pumping equipment",
+                "Containerized module of the pumping station",
+                "Shut-off valve",
+                "Technological pipelines",
+                "Drainage pipelines",
+                "Instrumentation and control equipment package",
+                "The life support system of the containerized module (heating and ventilation system)",
+                "Multiphase pumping equipment control system",
+                "Emergency shutdown system",
+                "Variable speed drive unit",
+                "Upper level data-transmitting system",
+                "Power supply system of the  pumping equipment",
               ].map((text, i) => (
                 <li key={i} className={Styles.feature}>
                   <p>{text}</p>
@@ -167,10 +165,10 @@ export const Multiphase = () => {
               ))}
             </ul>
             <section className={`${Styles.related} ${Styles.reveal}`}>
-              <h1>Смотрите также</h1>
+              <h1>See also:</h1>
               <div className={Styles.relatedGrid}>
                 <a href="/products/pumping-stations/internal">
-                  Блочная насосная станция внутренней и внешней перекачки нефти
+                  Modular internal and  external pumping station
                 </a>
               </div>
             </section>

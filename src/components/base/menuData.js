@@ -36,15 +36,15 @@ export const menuData = [
                 url: '/products/measuring-system/',
                 children: [
                     {
-                        title: 'System for measuring the quantity and quality of oil',
+                        title: 'Сrude oil custody transfer metering system',
                         url: '/products/measuring-system/oil/',
                     },
                     {
-                        title: 'Gas Measuring System',
+                        title: 'Gas custody transfer metering system',
                         url: '/products/measuring-system/gas/',
                     },
                     {
-                        title: 'Water quantity measurement system',
+                        title: 'Water quantity metering system',
                         url: '/products/measuring-system/water/',
                     },
                 ],
@@ -54,33 +54,33 @@ export const menuData = [
                 url: '/products/preparation-systems/',
                 children: [
                     {
-                        title: 'Device for launching and receiving in-line cleaning and diagnostic tools UZPZ, UZPP',
+                        title: 'Pig launcher and receiver of intratubal cleaning and diagnostic facilities',
                         url: '/products/preparation-systems/launch/',
                     },
                     {
-                        title: 'Comb block (BG)',
+                        title: 'Valve manifold',
                         url: '/products/preparation-systems/block/',
                     },
                     {
-                        title: 'Column cleaning device UOK-NKT',
+                        title: 'Tubing String Clarifier',
                         url: '/products/preparation-systems/cleaning/',
                     },
                     {
-                        title: 'Chemical reagent dosing unit',
+                        title: 'Chemical injection skid',
                         url: '/products/preparation-systems/dosing/',
                     },
                 ],
             },
             {
-                title: 'Pumping stations for pumping oil, petroleum products and water',
+                title: 'Oil, water and petroleum products pumping stations',
                 url: '/products/pumping-stations/',
                 children: [
                     {
-                        title: 'Block pumping station for internal and external oil pumping',
+                        title: 'Modular internal and  external pumping station',
                         url: '/products/pumping-stations/internal/',
                     },
                     {
-                        title: 'Block multiphase pumping station',
+                        title: 'Modular multiphase pump station',
                         url: '/products/pumping-stations/multiphase/',
                     },
                 ],

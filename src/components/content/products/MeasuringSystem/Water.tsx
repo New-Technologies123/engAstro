@@ -79,12 +79,12 @@ export const Water = () => {
         <section className={`${Styles.hero} ${Styles.reveal}`}>
           <div className={Styles.heroText}>
             <h1>
-              Система измерения количества воды<span> СИКВ</span>
+              Water quantity metering system<span></span>
             </h1>
 
             <p>
-              СИКВ представляет собой комплекс приборов и оборудования для
-              измерения массового или объемного расхода, давления и температуры воды.
+              Water quantity metering system is a package of devices and equipment for measuring mass 
+              and volume flow rate of water, as well as its pressure and temperature.
             </p>
 
             <div className={Styles.heroButtons}>
@@ -92,11 +92,11 @@ export const Water = () => {
                 className={Styles.primaryBtn}
                 onClick={() => setBigPhoto(product.src)}
               >
-                Смотреть фото
+                View image
               </button>
 
               <button className={Styles.secondaryBtn} onClick={onDoc}>
-                Документация
+                Files
               </button>
             </div>
           </div>
@@ -111,7 +111,7 @@ export const Water = () => {
               
               <div className={Styles.imageOverlay}>
                 <span className={Styles.zoomText}>
-                  Нажмите для увеличения
+                  Click to enlarge
                 </span>
               </div>
             </div>
@@ -120,33 +120,33 @@ export const Water = () => {
 
         {/* FEATURES */}
         <section className={`${Styles.features} ${Styles.reveal}`}>
-          <h2>Назначение системы</h2>
+          <h2>System purpose</h2>
 
           <div className={Styles.featuresGrid}>
             {[
               [
-                "Измерение воды",
-                "Комплекс приборов и оборудования для измерения массового или объемного расхода, давления и температуры.",
+                "Click to enlarge",
+                "The effective metering of water quantity and determination of its quality parameters.",
               ],
               [
-                "Контроль параметров",
-                "Непрерывный контроль технологических параметров потока.",
+                "Parameter monitoring",
+                "The continuous contol of technological flow parameters.",
               ],
               [
-                "Технологический учет",
-                "Применяется для учета воды в системах добычи, транспорта и подготовки.",
+                "Technological accounting",
+                "Used for water metering in the production, transportation, processing systems.",
               ],
               [
-                "Передача данных",
-                "Передача измеренных параметров в системы автоматизации.",
+                "Data transmission",
+                "The transmission of the metering data into the automation systems.",
               ],
               [
-                "Архивирование",
-                "Сохранение и хранение результатов измерений.",
+                "Archiving",
+                "Saving and archiving the measuring results.",
               ],
               [
-                "Мониторинг",
-                "Обеспечение контроля работы системы в реальном времени.",
+                "Monitoring",
+                "System supervision real-time.",
               ],
             ].map(([title, text], i) => (
               <div key={i} className={Styles.featureCard}>
@@ -164,16 +164,16 @@ export const Water = () => {
           </div>
 
           <div className={Styles.techText}>
-            <h2>Типовой состав системы</h2>
-            <p>Блок измерительных линий (БИЛ)</p>
-            <p>Система обработки информации (СОИ)</p>
-            <p>Технологические и дренажные трубопроводы</p>
+            <h2>Typical system composition</h2>
+            <p>Meter Run Assembly</p>
+            <p>Data-processing system</p>
+            <p>Process and drainage pipelines</p>
 
             <section className={`${Styles.related} ${Styles.reveal}`}>
-              <h1>Смотрите также</h1>
+              <h1>See also:</h1>
               <div className={Styles.relatedGrid}>
-                <a href="/products/measuring-system/gas">СИКГ</a>
-                <a href="/products/measuring-system/oil">СИКН</a>
+                <a href="/products/measuring-system/gas">Gas custody transfer metering system</a>
+                <a href="/products/measuring-system/oil">Crude oil custody transfer metering system</a>
               </div>
             </section>
           </div>

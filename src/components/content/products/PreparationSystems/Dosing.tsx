@@ -80,17 +80,18 @@ export const Dosing = () => {
         <section className={`${Styles.hero} ${Styles.reveal}`}>
           <div className={Styles.heroText}>
             <h1>
-              Установка дозирования <span>химического реагента</span>
+              Chemical injection skid <span></span>
             </h1>
 
             <p>
-              БДР предназначена для дозированного ввода жидких деэмульгаторов и
-              ингибиторов коррозии в трубопроводные системы транспорта и подготовки нефти и газа.
+              Chemical injection skid is designed for the metered injection
+              of liquid demulsifiers and corrosion inhibitors into the oil
+              transportation and treatment lines.
             </p>
 
             <p>
-              Установка используется на кустовых площадках, дожимных насосных станциях и комплексных
-              установках подготовки нефти, газа и воды.
+              This equipment can be used at cluster pads, booster pump
+              station pads and oil, gas and water complex treatment units.
             </p>
 
             <div className={Styles.heroButtons}>
@@ -98,10 +99,10 @@ export const Dosing = () => {
                 className={Styles.primaryBtn}
                 onClick={() => setBigPhoto(product.src)}
               >
-                Смотреть фото
+                See image
               </button>
               <button className={Styles.secondaryBtn} onClick={onDoc}>
-                Документация
+                Files
               </button>
             </div>
           </div>
@@ -116,7 +117,7 @@ export const Dosing = () => {
               
               <div className={Styles.imageOverlay}>
                 <span className={Styles.zoomText}>
-                  Нажмите для увеличения
+                  Click to enlarge
                 </span>
               </div>
             </div>
@@ -125,21 +126,21 @@ export const Dosing = () => {
 
         {/* FEATURES */}
         <section className={`${Styles.features} ${Styles.reveal}`}>
-          <h2>Назначение и функции</h2>
+          <h2>Purpose</h2>
 
           <div className={Styles.featuresGrid}>
             {[
               [
-                "Дозирование реагентов",
-                "Ввод жидких деэмульгаторов и ингибиторов коррозии для защиты трубопроводов и оборудования.",
+                "Click to enlarge",
+                "Injection of liquid demulsifiers and corrosion inhibitors to protect pipelines and equipment.",
               ],
               [
-                "Химическая обработка",
-                "Обработка продукции нефтяных и газовых скважин в системах сбора, транспорта и подготовки нефти и газа.",
+                "Chemical Treatment",
+                "Treatment of oil and gas well production in oil and gas gathering, transport, and processing systems.",
               ],
               [
-                "Применение",
-                "Используется на кустовых площадках, дожимных насосных станциях и комплексных установках подготовки нефти, газа и воды.",
+                "Application",
+                "Used at cluster sites, booster pumping stations, and integrated oil, gas, and water treatment facilities.",
               ],
             ].map(([title, text], i) => (
               <div key={i} className={Styles.featureCard}>
@@ -157,42 +158,42 @@ export const Dosing = () => {
           </div>
 
           <div className={Styles.techText}>
-            <h2>Типовой состав системы</h2>
+            <h2>Typical System Components</h2>
 
             <ul className={Styles.featuresList}>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Блок дозирования химических реагентов;</p>
+                  <p>Chemical injection skid;</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Насосное оборудование для подачи реагентов;</p>
+                  <p>Pumping equipment for chemical injection;</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Система управления и контроля (АППС);</p>
+                  <p>Control and monitoring system;</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Трубопроводы для подвода реагентов и их распределения;</p>
+                  <p>Reagent supply and distribution pipelines;</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Датчики давления и расхода для контроля параметров потока;</p>
+                  <p>Pressure and flow sensors for flow parameter monitoring;</p>
                 </div>
               </li>
             </ul>
 
             <section className={`${Styles.related} ${Styles.reveal}`}>
-              <h1>Смотрите также</h1>
+              <h1>See also:</h1>
               <div className={Styles.relatedGrid}>
-                <a href="/products/preparation-systems/launch">УЗПЗ, УЗПП</a>
-                <a href="/products/preparation-systems/block">БГ</a>
-                <a href="/products/preparation-systems/cleaning">УОК-НКТ</a>
+                <a href="/products/preparation-systems/launch">Pig launcher and receiver of intratubal cleaning and diagnostic facilities</a>
+                <a href="/products/preparation-systems/block">Valve manifold</a>
+                <a href="/products/preparation-systems/cleaning">Tubing String Clarifier</a>
               </div>
             </section>
           </div>

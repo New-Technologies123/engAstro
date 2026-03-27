@@ -79,13 +79,12 @@ export const Gas = () => {
         <section className={`${Styles.hero} ${Styles.reveal}`}>
           <div className={Styles.heroText}>
             <h1>
-              Система измерения количества газа<span> СИКГ</span>
+              Gas custody transfer metering system<span></span>
             </h1>
 
             <p>
-              СИКГ предназначена для автоматизированного учета количества
-              природного и нефтяного газа, включая определение компонентного
-              состава при транспортировке, хранении и переработке.
+              Gas custody transfer metering system is designed for the automated metering of associated and non-associated 
+              gas, as well as their compositional analysis during storage, transportation, processing.
             </p>
 
             <div className={Styles.heroButtons}>
@@ -93,11 +92,11 @@ export const Gas = () => {
                 className={Styles.primaryBtn}
                 onClick={() => setBigPhoto(product.src)}
               >
-                Смотреть фото
+                See image
               </button>
 
               <button className={Styles.secondaryBtn} onClick={onDoc}>
-                Документация
+                Files
               </button>
             </div>
           </div>
@@ -112,7 +111,7 @@ export const Gas = () => {
               
               <div className={Styles.imageOverlay}>
                 <span className={Styles.zoomText}>
-                  Нажмите для увеличения
+                  Click to enlarge
                 </span>
               </div>
             </div>
@@ -121,33 +120,33 @@ export const Gas = () => {
 
         {/* FEATURES */}
         <section className={`${Styles.features} ${Styles.reveal}`}>
-          <h2>Назначение системы</h2>
+          <h2>Click to enlarge</h2>
 
           <div className={Styles.featuresGrid}>
             {[
               [
-                "Учет газа",
-                "Автоматизированный учет количества природного и нефтяного газа.",
+                "Gas metering",
+                "Automated metering of associated and non-associated gas.",
               ],
               [
-                "Коммерческий учет",
-                "Используется при проведении расчетных операций между предприятиями.",
+                "Commercial metering",
+                "Used for settlement operations between enterprises.",
               ],
               [
-                "Контроль состава",
-                "Определение компонентного состава газа.",
+                "Compositional control",
+                "Gas composition analysis.",
               ],
               [
-                "Применение",
-                "Используется на УКПГ и на границах газодобывающих и газотранспортных предприятий.",
+                "Application",
+                "Used at gas treatment units and between gas producing enterprises and gas transmission operators.",
               ],
               [
-                "Контроль параметров",
-                "Измерение давления, температуры и других параметров газа.",
+                "Parameter monitoring",
+                "Pressure and temperature measurement of the working medium.",
               ],
               [
-                "Передача данных",
-                "Передача информации в системы диспетчерского и технологического контроля.",
+                "Data transmission",
+                "The transmission of data into the systems of centralized control and in-process monitoring.",
               ],
             ].map(([title, text], i) => (
               <div key={i} className={Styles.featureCard}>
@@ -165,19 +164,18 @@ export const Gas = () => {
           </div>
 
           <div className={Styles.techText}>
-            <h2>Типовой состав системы</h2>
+            <h2>Typical system composition</h2>
 
             <p>
-              Система включает расходомеры газа, вычислители расхода,
-              регуляторы давления, анализаторы состава газа и
-              аппаратно-программные средства управления.
+              The system consists of flow meters, flow computers, pressure regulators, gas composition analyzers, 
+              and hardware-software control means.
             </p>
 
             <section className={`${Styles.related} ${Styles.reveal}`}>
-              <h1>Смотрите также</h1>
+              <h1>See also:</h1>
               <div className={Styles.relatedGrid}>
-                <a href="/products/measuring-system/oil">СИКН</a>
-                <a href="/products/measuring-system/water">СИКВ</a>
+                <a href="/products/measuring-system/oil">Crude oil custody transfer metering system</a>
+                <a href="/products/measuring-system/water">Water quantity metering system</a>
               </div>
             </section>
           </div>

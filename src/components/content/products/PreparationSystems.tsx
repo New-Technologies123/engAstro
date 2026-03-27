@@ -13,13 +13,13 @@ type TPreparation = | 'launch' | 'block' | 'cleaning' | 'dosing';
 
 /* ---------------- component ---------------- */
 export const PreparationSystems = () => {
-  const title = 'Системы подготовки нефти, газа и воды';
+  const title = 'Oil, gas and water treatment systems';
 
   const cardTitle: Record<TPreparation, string> = {
-    launch: 'Устройство запуска и приема внутритрубных средств очистки и диагностики УЗПЗ, УЗПП',
-    block: 'Блок гребенки (БГ)',
-    cleaning: 'Устройство очистки колонны УОК-НКТ',
-    dosing: 'Установка дозирования химического реагента (БДР)',
+    launch: 'Pig launcher and receiver of intratubal cleaning and diagnostic facilities',
+    block: 'Valve manifold',
+    cleaning: 'Tubing String Clarifier',
+    dosing: 'Chemical injection skid',
   };
 
   /* открыть карточку */

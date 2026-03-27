@@ -80,12 +80,12 @@ export const Cleaning = () => {
         <section className={`${Styles.hero} ${Styles.reveal}`}>
           <div className={Styles.heroText}>
             <h1>
-              Устройство очистки <span>колонны НКТ</span>
+              Tubing String Clarifier<span></span>
             </h1>
 
             <p>
-              Предназначено для автоматической непрерывной очистки внутренней поверхности
-              колонны НКТ нефтяной скважины путём срезания слоя парафина со стенок.
+              For automatic continuous cleaning of the inner surface of a well's tubing string by cutting a 
+              layer of paraffin wax from the walls.
             </p>
 
             <div className={Styles.heroButtons}>
@@ -93,10 +93,10 @@ export const Cleaning = () => {
                 className={Styles.primaryBtn}
                 onClick={() => setBigPhoto(product.src)}
               >
-                Смотреть фото
+                View image
               </button>
               <button className={Styles.secondaryBtn} onClick={onDoc}>
-                Документация
+                Files
               </button>
             </div>
           </div>
@@ -110,7 +110,7 @@ export const Cleaning = () => {
               <img src={product.src} alt="УОК-НКТ" className={Styles.mainImage} />
               <div className={Styles.imageOverlay}>
                 <span className={Styles.zoomText}>
-                  Нажмите для увеличения
+                  Click to enlarge
                 </span>
               </div>
             </div>
@@ -119,21 +119,21 @@ export const Cleaning = () => {
 
         {/* FEATURES */}
         <section className={`${Styles.features} ${Styles.reveal}`}>
-          <h2>Назначение</h2>
+          <h2>Purpose</h2>
 
           <div className={Styles.featuresGrid}>
             {[
               [
-                "Очистка колонны",
-                "Автоматическая очистка внутренней поверхности колонны НКТ от парафиновых и механических отложений."
+                "String Cleaning",
+                "Automatic removal of paraffin and mechanical deposits from the inner surface of the tubing string."
               ],
               [
-                "Предотвращение образования пробок",
-                "Снижает риск образования парафиновых пробок и засорения трубопроводов в процессе эксплуатации скважины."
+                "Paraffin plug prevention",
+                "Reduces the risk of paraffin plug formation and pipeline clogging during well operation."
               ],
               [
-                "Стабильная работа скважины",
-                "Обеспечивает поддержание пропускной способности колонны НКТ и стабильную добычу нефти."
+                "Stable Well Performance",
+                "Helps to maintain the flow capacity of the tubing string and ensures stable oil production."
               ],
             ].map(([title, text], i) => (
               <div key={i} className={Styles.featureCard}>
@@ -151,42 +151,46 @@ export const Cleaning = () => {
           </div>
 
           <div className={Styles.techText}>
-            <h2>Преимущества перед аналогами</h2>
+            <h2>Advantages</h2>
 
             <ul className={Styles.featuresList}>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Подпружинный подвижный ролик с датчиком веса предотвращает сматывание проволоки с барабана;</p>
+                  <p>Wire spooling problems are prevented through the use of a spring-loaded movable roller with a weight sensor;</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Полностью автоматизированный процесс ликвидации пробок;</p>
+                  <p>A fully automated process for eliminating wax plugs;</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Колибровка положения скребка с точностью до 40 см;</p>
+                  <p>Calibration of the scraper's position with an accuracy of up to 40 cm.;</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Различные исполнения скребка: раздвижной, кольцевой, фрезерный, лезвийный, шнековый и др.;</p>
+                  <p>The scraper is available in several basic designs: telescopic, annular, milling, blade-type, auger-type, and others.;</p>
                 </div>
               </li>
               <li className={Styles.feature}>
                 <div className={Styles.featureText}>
-                  <p>Магниты на ролике и герконовые датчики обеспечивают последовательное срабатывание по направлению вращения ролика.</p>
+                  <p>The scraper is available in several basic designs: telescopic, annular, milling, blade-type, auger-type, and others.</p>
                 </div>
               </li>
             </ul>
 
+            <p>
+              Magnets are installed on the roller, and reed sensors ensure the sequential activation of the reed switches in the direction of the roller's rotation.
+            </p>
+
             <section className={`${Styles.related} ${Styles.reveal}`}>
-              <h1>Смотрите также</h1>
+              <h1>See also:</h1>
               <div className={Styles.relatedGrid}>
-                <a href="/products/preparation-systems/launch">УЗПЗ, УЗПП</a>
-                <a href="/products/preparation-systems/block">БГ</a>
-                <a href="/products/preparation-systems/dosing">БДР</a>
+                <a href="/products/preparation-systems/launch">Pig launcher and receiver of intratubal cleaning and diagnostic facilities</a>
+                <a href="/products/preparation-systems/block">Valve manifold</a>
+                <a href="/products/preparation-systems/dosing">Chemical Injection Skid</a>
               </div>
             </section>
           </div>

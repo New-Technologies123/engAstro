@@ -178,7 +178,7 @@ export const Separation = () => {
             </p>
 
             <section className={`${Styles.related} ${Styles.reveal}`}>
-              <h1>Смотрите также</h1>
+              <h1>See also:</h1>
               <div className={Styles.relatedGrid}>
                 <a href="/products/accessories/ervip">ERVIP flowmeter</a>
                 <a href="/products/accessories/urpd">Differential pressure adjusting device</a>
