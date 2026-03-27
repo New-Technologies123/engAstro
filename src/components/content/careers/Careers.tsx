@@ -59,7 +59,7 @@ export const Careers = () => {
                     <Title text="Открытые вакансии"></Title>
                     <div className={Styles.ramca}>                                           
                         <div className={Styles.vacancies}>
-                            <p>Заки Валиди 32/2</p>
+                            <p>Zaki Validi 32/2</p>
                             <div className={Styles.team}>
                                 <Vacancy
                                     header="Metrologist"
@@ -106,7 +106,7 @@ export const Careers = () => {
                             </div>
                         </div>
                         <div className={Styles.vacancies}>
-                            <p>Благоварская 16/2</p>
+                            <p>Blagovarskaya 16/2</p>
                             <div className={Styles.team}>
                                 <Vacancy
                                     header="Electric and gas welder TT"
@@ -153,7 +153,7 @@ export const Careers = () => {
                             </div>
                         </div>
                         <div className={Styles.vacancies}>
-                            <p>Вахта</p>
+                            <p>Watch</p>
                             <div className={Styles.team}>
                                 <Vacancy
                                     header="Welder (Nizhnevartovsk)"
