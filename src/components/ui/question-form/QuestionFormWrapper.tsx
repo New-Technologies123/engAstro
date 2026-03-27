@@ -85,7 +85,7 @@ export const QuestionFormWrapper: React.FC = () => {
       {isOpen && (
         <div className={Styles.chatWindow}>
           <div className={Styles.chatHeader}>
-            <span>Задать вопрос</span>
+            <span>Send an inquiry</span>
             <button onClick={handleClose}>✕</button>
           </div>
 
@@ -97,7 +97,7 @@ export const QuestionFormWrapper: React.FC = () => {
 
           {submitted && (
             <div className={Styles.successMessage}>
-              ✅ Запрос принят!
+              ✅ Request accepted!
             </div>
           )}
         </div>

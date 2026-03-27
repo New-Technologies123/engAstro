@@ -41,12 +41,12 @@ export const Repair = () => {
         <motion.div className={Styles.hero} initial="hidden" animate="visible" variants={fadeUp}>
           <div className={Styles.heroText}>
             <h1>
-              Обслуживание, капитальный ремонт и модернизация
-              <span> АГЗУ</span>
+              Maintenance, overhaul services and technical upgrade of the «SPUTNIK» 
+              <span> AUTOMATED GROUP METERING SKID</span>
             </h1>
             <p>
-              Обеспечиваем бесперебойную работу АГЗУ: регулярное обслуживание, капитальный ремонт и модернизация
-              оборудования в соответствии с современными стандартами и ГОСТ.
+              We ensure safe and continuous operation of the automated group metering skid providing regular maintenance, 
+              overhaul services and technical upgrade in accordance with the up-to-date standards and GOST (Russian National Standard).
             </p>
           </div>
           <div
@@ -59,7 +59,7 @@ export const Repair = () => {
               className={Styles.serviceImage}
             />
             <div className={Styles.imageOverlay}>
-              <p>Увеличить</p>
+              <p>Increase</p>
             </div>
           </div>          
         </motion.div>
@@ -74,16 +74,16 @@ export const Repair = () => {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h3>Капитальный ремонт</h3>
+            <h3>Overhaul services</h3>
             <ul>
               {listItems([
-                'Ремонт или замена сепарационной ёмкости, фланцев, клапанов',
-                'Ремонт или замена переключателя скважин ПСМ',
-                'Ремонт или замена счётчика ТОР 1-50',
-                'Замена задвижек и трубопроводов',
-                'Реставрация днища и корпуса',
-                'Замена гидропривода и комплектующих',
-                'Электромонтажные работы'
+                'Repair of separation tanks, flanges, and pressure safety valves',
+                'Multi-stream switching manifold repair',
+                'Repair of 1–50 TOR flow meters',
+                'Replacement of flow rate controllers and process piping',
+                'Restoration of the Bottom and Casing',
+                'Replacement of hydraulic drives and completing parts',
+                'Electrical installation works'
               ])}
             </ul>
           </motion.div>
@@ -95,13 +95,13 @@ export const Repair = () => {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h3>Обслуживание</h3>
+            <h3>Maintenance</h3>
             <ul>
               {listItems([
-                'Регламентное обслуживание по инструкции',
-                'Замена расходных материалов',
-                'Диагностика и тестовые замеры',
-                'Выдача заключения об исправности'
+                'Performance of scheduled maintenance in accordance with the manual',
+                'Replacement of consumables',
+                'Diagnostics and test measurements',
+                'Issuance of a report on serviceability'
               ])}
             </ul>
           </motion.div>
@@ -113,13 +113,13 @@ export const Repair = () => {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h3>Модернизация</h3>
+            <h3>Technical upgrade</h3>
             <ul>
               {listItems([
-                'Приведение к ГОСТ Р 8.1016-2022',
-                'Замена средств измерения',
-                'Обновление шкафов управления',
-                'Модификация ПО и оборудования'
+                'Bringing equipment into compliance with GOST R 8.1016 2022',
+                'Replacement of measuring instruments',
+                'Upgrading of control cabinets',
+                'Modification of software and hardware'
               ])}
             </ul>
           </motion.div>

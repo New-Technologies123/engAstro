@@ -66,7 +66,7 @@ export const Services = () => {
       <>
         <Card
           imgSrc={serves_12.src}
-          title="Overhaul, maintenance and modernization of the automated group metering skid"
+          title="Maintenance, overhaul services and technical upgrade of the «SPUTNIK» Automated group metering skid"
           onClick={() => goTo('/services/repair')}
         />
 

@@ -82,13 +82,13 @@ export const News = () => {
               ]}
             />
             <p>
-              ООО ИПП «Новые Технологии» успешно приняли участие в международной выставке ADIPEC-2025, прошедшей в
-              Абу-Даби, ОАЭ с 3 по 6 ноября 2025 года. Наше предприятие успешно провело переговоры с представителями
-              ADNOC, Aramco и других глобальных игроков, обсудив потенциальные контракты на поставку оборудования и
-              совместные проекты. Участие нашего предприятия позволило укрепить наши позиции в регионе MENA, где спрос
-              на российские технологии остаётся неизменно высоким. Участие в данном международном мероприятии открывает
-              путь для успешного глобального сотрудничества и экспорта высокотехнологического оборудования, производимого
-              нашим предприятием.
+              «New Technologies» Engineering and Production Enterprise LLC successfully took part in the international exhibition ADIPEC 
+              2025, held in Abu Dhabi, UAE, from November 3–6, 2025. The company conducted productive negotiations with representatives of
+              ADNOC, Aramco, and other global industry leaders, discussing potential equipment supply contracts and joint projects. Our 
+              participation strengthened our position in the MENA region, where demand for Russian technology remains consistently strong. 
+              Engaging in this international event paves the way for successful global cooperation and the export of high technology equipment
+              manufactured by our company.
+
             </p>
           </div>
           <div className={Styles.newsItem}>
@@ -99,10 +99,10 @@ export const News = () => {
               ]}
             />
             <p>
-              2-4 июня 2025 года ООО ИПП «Новые Технологии» успешно приняли участие в 30-ой Международной Выставке «Нефть
-              и Газ Каспия» - Caspian oil & gas 2025, г. Баку. В рамках выставки были проведены несколько десятков переговоров
-              и презентаций, в результате которых был выявлен интерес к высокотехнологичной продукции нашего предприятия, что
-              открывает нам новые экспортные возможности
+              From June 2–4, 2025,«New Technologies» Engineering and Production Enterprise LLC successfully participated in the 
+              30th Anniversary International Exhibition Caspian Oil & Gas 2025 in Baku. During the event, the company held dozens 
+              of negotiations and presentations, resulting in significant interest in our high technology products and opening up 
+              new export opportunities.
             </p>
           </div>
           <div className={Styles.newsItem}>
@@ -112,11 +112,17 @@ export const News = () => {
                 { id: 2, src: news_6.src, alt: '' },
               ]}
             />
-            <p>
-              В рамках 30-ой Международной Выставке «Нефть и Газ Каспия» - Caspian oil & gas 2025, г. Баку сотрудники ООО
-              ИПП «Новые Технологии» приняли участие в посадке деревьев и цветов на территории Баку Экспо Центра. Эта акция,
-              приуроченная к юбилею выставки, направлена на поддержку принципов устойчивого развития и охрану окружающей среды.
-            </p>
+            <div>
+              <p>
+                As part of the 30th Anniversary International Exhibition Caspian Oil & Gas 2025 in Baku, employees of «New Technologies»
+              </p>
+              <p>                
+                Engineering and Production Enterprise LLC took part in a tree and flower planting ceremony on the grounds of the Baku Expo Center. 
+                The initiative, held in celebration of the exhibition's anniversary, was aimed at supporting sustainable development principles and 
+                environmental protection.dd
+              </p>
+            </div>
+            
           </div>
           <div className={Styles.newsItem}>
             <img src={news_4.src} className={Styles.thumbnail} onClick={() => { setPhotoTwoIsOpen(true); }} />

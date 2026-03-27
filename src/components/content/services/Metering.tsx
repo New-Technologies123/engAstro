@@ -33,27 +33,27 @@ export const Metering = () => {
 
   const blocks: MeteringBlock[] = [
     {
-      title: 'Подготовка и доставка установки',
+      title: 'Preparation and delivery of the skid',
       points: [
-        'Доставка измерительной установки к месту проведения замера;',
-        'Проверка комплектности оборудования;',
-        'Монтаж и подключение трубной обвязки МЗУ к запорной арматуре скважины.'
+        'Delivery of the metering unit to the measurement site;',
+        'Equipment completeness check;',
+        'Installation and connection of the mobile metering unit  piping to the wellhead valves.'
       ]
     },
     {
-      title: 'Проведение замеров и обработка данных',
+      title: 'Measurements and Data Processing',
       points: [
-        'Выполнение замера дебита скважины;',
-        'Сброс давления и дренирование жидкости из измерительной ёмкости и трубопроводов МЗУ;',        
-        'Формирование и ведение базы данных по результатам замеров.'
+        'Measurements and Data Processing;',
+        'Pressure relief and draining of liquid from the measuring tank and pipelines;',        
+        'Creation and maintenance of a database based on measurement results.'
       ]
     },
     {
-      title: 'Документация и контроль',
+      title: 'Documentation and Control',
       points: [
-        'Оформление результатов замера в круглосуточном режиме;',
-        'Контроль корректности данных и калибровки установки;',
-        'Обеспечение безопасности персонала при проведении работ.'
+        'Documentation of measurement results on a 24/7 basis;',
+        'Verification of data accuracy and unit calibration;',
+        'Ensuring personnel safety during operations.'
       ]
     }
   ]
@@ -68,11 +68,11 @@ export const Metering = () => {
         <motion.div className={Styles.hero} initial="hidden" animate="visible" variants={fadeUp}>
           <div className={Styles.heroText}>
             <h1>
-              Замер дебита <span>нефтяных скважин </span>
-              с помощью мобильной установки
+              Well flow rate <span>measurement </span> with a mobile metering skid 
             </h1>
             <p>
-              Мобильная замерная установка обеспечивает полный цикл измерения дебита нефтяных скважин: доставка, монтаж, проведение замеров и оформление результатов.
+              The mobile metering unit provides a complete cycle of oil well flow rate measurement: delivery, installation, 
+              measurements, and documentation of results.
             </p>
           </div>
           
@@ -86,7 +86,7 @@ export const Metering = () => {
               className={Styles.serviceImage}
             />
             <div className={Styles.imageOverlay}>
-              <p>Увеличить</p>
+              <p>Increase</p>
             </div>
           </div>
 

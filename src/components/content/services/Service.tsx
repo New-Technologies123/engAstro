@@ -40,10 +40,10 @@ export const Service = () => {
         <motion.div className={Styles.hero} initial="hidden" animate="visible" variants={fadeUp}>
           <div className={Styles.heroText}>
             <h1>
-              Обслуживание устройства очистки <span>колонны УОК-НКТ</span>
+              Tubing String <span>Clarifier</span> Maintenance
             </h1>
             <p>
-              Полное техническое обслуживание смонтированного устройства очистки колонны УОК-НКТ с проверкой всех узлов и компонентов.
+              Complete technical maintenance of the installed tubing string clarifier, including inspection of all assemblies and components.
             </p>
           </div>
           <div
@@ -56,7 +56,7 @@ export const Service = () => {
               className={Styles.serviceImage}
             />
             <div className={Styles.imageOverlay}>
-              <p>Увеличить</p>
+              <p>Increase</p>
             </div>
           </div>          
         </motion.div>
@@ -70,13 +70,13 @@ export const Service = () => {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h3>Проверка и обслуживание механических узлов</h3>
+            <h3>Inspection and Maintenance of Mechanical Components</h3>
             <ul>
               {listItems([
-                'Внешний осмотр на предмет изгиба стойки подвижного ролика, состояния сварных швов;',
-                'Проверка крепежных соединений;',
-                'Проверка и доливка масла в редуктор, при необходимости;',
-                'Визуальный осмотр состояния проволоки и замена при износе.'
+                'Visual inspection for bending of the traveling roller stand and condition of welds;',
+                'Check of bolted connections;',
+                'Inspection and top-up of gearbox oil as required;',
+                'Visual inspection of wire condition and replacement if worn.'
               ])}
             </ul>
           </motion.div>
@@ -88,13 +88,13 @@ export const Service = () => {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h3>Проверка и обслуживание электроники</h3>
+            <h3>Inspection and Maintenance of Electronic Components</h3>
             <ul>
               {listItems([
-                'Проверка срабатывания датчиков минимального веса;',
-                'Калибровка устройства;',
-                'Ревизия редуктора и электродвигателя;',
-                'Проверка и обслуживание шкафа управления.'
+                'Verification of minimum weight sensor actuation;',
+                'Unit calibration;',
+                'Inspection of gearbox and electric motor;',
+                'Check and maintenance of the control cabinet.'
               ])}
             </ul>
           </motion.div>
@@ -106,13 +106,13 @@ export const Service = () => {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h3>Безопасность и документация</h3>
+            <h3>Safety and Documentation</h3>
             <ul>
               {listItems([
-                'Осмотр и проверка заземления устройства;',
-                'Обновление знаков заземления;',
-                'Проверка работоспособности обогрева шкафа;',
-                'Проверка на сбои программного обеспечения.'
+                'Inspection and verification of unit grounding;',
+                'Replacement of grounding labels;',
+                'Verification of control cabinet heater functionality;',
+                'Software error check.'
               ])}
             </ul>
           </motion.div>

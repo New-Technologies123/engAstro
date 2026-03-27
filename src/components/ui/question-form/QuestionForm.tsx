@@ -17,26 +17,26 @@ export const QuestionForm: React.FC<QuestionFormProps> = ({
     <form className={Styles.questionForm} onSubmit={onSubmit}>
       <input
         type="text"
-        placeholder="Ваше имя"
+        placeholder="Name"
         value={formData.name}
         onChange={e => onChange('name', e.target.value)}
         required
       />
       <input
         type="email"
-        placeholder="Email для ответа"
+        placeholder="Email"
         value={formData.email}
         onChange={e => onChange('email', e.target.value)}
         required
       />
       <textarea
-        placeholder="Ваш вопрос"
+        placeholder="Message"
         value={formData.message}
         onChange={e => onChange('message', e.target.value)}
         rows={4}
         required
       />
-      <button type="submit">Отправить вопрос</button>
+      <button type="submit">Submit inquiry</button>
     </form>
   );
 };

@@ -41,11 +41,10 @@ export const Dewaxing = () => {
         <motion.div className={Styles.hero} initial="hidden" animate="visible" variants={fadeUp}>
           <div className={Styles.heroText}>
             <h1>
-              Услуги <span>депарафинизации </span> нефтяных скважин
+              Oil Well <span>Dewaxing </span> Services
             </h1>
             <p>
-              Полное удаление асфальтосмолопарафиновых отложений и обеспечение прохода в скважинах с НКТ с помощью
-              специализированной техники и обученного персонала.
+              Complete removal of asphalt–resin–paraffin deposits and restoration of passage in wells with tubing string using specialized equipment and trained personnel.
             </p>
           </div>
           <div
@@ -58,7 +57,7 @@ export const Dewaxing = () => {
               className={Styles.serviceImage}
             />
             <div className={Styles.imageOverlay}>
-              <p>Увеличить</p>
+              <p>Increase</p>
             </div>
           </div>          
         </motion.div>
@@ -72,13 +71,13 @@ export const Dewaxing = () => {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h3>Скребкование и удаление АСПО</h3>
+            <h3>Scraping and asphalt–resin–paraffin deposits removal</h3>
             <ul>
               {listItems([
-                'Использование фрезерных и лезвийных скребков различного диаметра.',
-                'Применение неметаллических скребков для НКТ с покрытием.',
-                'Скребки-пробойники и парафинорезки при закупоривании.',
-                'Глубина спуска скребка: 2000–3000 м.'
+                'Use of milling and blade scrapers in various diameters.',
+                'Application of non-metallic scrapers for coated tubing string.',
+                'Use of piercing scrapers and paraffin cutters in case of plugging.',
+                'Scraping depth: 2,000–3,000 meters.'
               ])}
             </ul>
           </motion.div>
@@ -90,12 +89,12 @@ export const Dewaxing = () => {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h3>Оборудование и техника</h3>
+            <h3>Equipment and Machinery</h3>
             <ul>
               {listItems([
-                'Высокопроходимая специализированная техника для работы на скважинах.',
-                'Установка электроцентробежного насоса (УЭЦН) для фонтанных скважин.',
-                'Лома-утяжелители с покрытием для предотвращения повреждений НКТ.'
+                'High mobility specialized vehicles for well site operations.',
+                'Electric submersible pump unit for flowing wells.',
+                'Sinker bars with coating to prevent tubing string damage.'
               ])}
             </ul>
           </motion.div>
@@ -107,12 +106,12 @@ export const Dewaxing = () => {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h3>Персонал и безопасность</h3>
+            <h3>Personnel and Safety</h3>
             <ul>
               {listItems([
-                'Обученный персонал с опытом работы на нефтяных скважинах.',
-                'Использование сертифицированного оборудования собственного производства.',
-                'Соблюдение всех правил безопасности в нефтяной и газовой промышленности.'
+                'Trained personnel with experience in oil well operations.',
+                'Use of certified equipment manufactured in house.',
+                'Compliance with all oil and gas industry safety regulations.'
               ])}
             </ul>
           </motion.div>

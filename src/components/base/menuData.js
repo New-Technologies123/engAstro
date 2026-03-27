@@ -92,8 +92,8 @@ export const menuData = [
         url: '/services/',
         pageType: 'services',
         children: [
-            { title: 'Overhaul, maintenance and modernization of the automated group metering skid', url: '/services/repair', },
-            { title: 'Measurement of oil well flow rates by the mobile metering unit', url: '/services/metering' },
+            { title: 'Maintenance, overhaul services and technical upgrade of the «SPUTNIK» Automated group metering skid', url: '/services/repair', },
+            { title: 'Well flow rate measurement with a mobile metering skid', url: '/services/metering' },
             { title: 'Tubing String Clarifier Maintenance', url: '/services/service' },
             { title: 'Oil Well Dewaxing Services', url: '/services/dewaxing' },
         ],
