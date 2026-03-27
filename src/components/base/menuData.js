@@ -92,10 +92,10 @@ export const menuData = [
         url: '/services/',
         pageType: 'services',
         children: [
-            { title: 'Обслуживание, капитальный ремонт и модернизация АГЗУ', url: '/services/repair', },
-            { title: 'Замер дебита нефтяных скважин с помощью мобильной замерной установки', url: '/services/metering' },
-            { title: 'Обслуживание устройства очистки колонны УОК-НКТ', url: '/services/service' },
-            { title: 'Услуги депарафинизации нефтяных скважин', url: '/services/dewaxing' },
+            { title: 'Overhaul, maintenance and modernization of the automated group metering skid', url: '/services/repair', },
+            { title: 'Measurement of oil well flow rates by the mobile metering unit', url: '/services/metering' },
+            { title: 'Tubing String Clarifier Maintenance', url: '/services/service' },
+            { title: 'Oil Well Dewaxing Services', url: '/services/dewaxing' },
         ],
     },
 ];

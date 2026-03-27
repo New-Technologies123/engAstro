@@ -8,7 +8,7 @@ import { Service } from './Service';
 import { Dewaxing } from './Dewaxing';
 
 import serves_12 from '../../../images/services/serves_12.png';
-import serves_3 from '../../../images/services/serves_3.png';
+import serves_3 from '../../../images/services/serves_3.webp';
 import serves_4 from '../../../images/services/serves_4.webp';
 import serves_5 from '../../../images/services/serves_5.webp';
 
@@ -32,20 +32,13 @@ export const Services = () => {
   const goTo = (path: string) => {
     window.history.pushState({}, '', path);
     setCurrentPage(pathnameToService(path));
-  };
-
-  const goBack = () => {
-    window.history.pushState({}, '', '/services');
-    setCurrentPage(null);
+    window.scrollTo({ top: 0, behavior: 'smooth', });
   };
 
   useEffect(() => {
-    const sync = () =>
-      setCurrentPage(pathnameToService(window.location.pathname));
-
-    sync(); // синхронизация при монтировании
+    const sync = () => setCurrentPage(pathnameToService(window.location.pathname));
+    sync(); // синхронизируем при монтировании
     window.addEventListener('popstate', sync);
-
     return () => window.removeEventListener('popstate', sync);
   }, []);
 
@@ -67,31 +60,31 @@ export const Services = () => {
 
   return (
     <Layout
-      title="Сервисные услуги"
-      description="ООО Инженерно-Производственное предприятие «Новые Технологии» имеет многолетний опыт оказания услуг по ремонту нефтепромыслового оборудования, а также по депарафинизации и замеру дебита скважин"
+      title="Services"
+      description="Besides equipment manufacturing, «New Technologies» Engineering and Production Enterprise LLC also specializes on well dewaxing and repairing services, maintenance of automation equipment for oil production and treatment."
     >
       <>
         <Card
           imgSrc={serves_12.src}
-          title="Обслуживание, капитальный ремонт и модернизация АГЗУ"
+          title="Overhaul, maintenance and modernization of the automated group metering skid"
           onClick={() => goTo('/services/repair')}
         />
 
         <Card
           imgSrc={serves_3.src}
-          title="Замер дебита нефтяных скважин с помощью мобильной замерной установки"
+          title="Measurement of oil well flow rates by the mobile metering unit"
           onClick={() => goTo('/services/metering')}
         />
 
         <Card
           imgSrc={serves_4.src}
-          title="Обслуживание устройства очистки колонны УОК-НКТ"
+          title="Tubing String Clarifier Maintenance"
           onClick={() => goTo('/services/service')}
         />
 
         <Card
           imgSrc={serves_5.src}
-          title="Услуги депарафинизации нефтяных скважин"
+          title="Oil Well Dewaxing Services"
           onClick={() => goTo('/services/dewaxing')}
         />
       </>
