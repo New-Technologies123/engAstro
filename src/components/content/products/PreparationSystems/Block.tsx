@@ -80,7 +80,7 @@ export const Block = () => {
         <section className={`${Styles.hero} ${Styles.reveal}`}>
           <div className={Styles.heroText}>
             <h1>
-              Chemical injection skid<span></span>
+              Chemical <span>injection </span>skid
             </h1>
 
             <p>

@@ -80,7 +80,7 @@ export const Dosing = () => {
         <section className={`${Styles.hero} ${Styles.reveal}`}>
           <div className={Styles.heroText}>
             <h1>
-              Chemical injection skid <span></span>
+              <span>Chemical</span> injection skid 
             </h1>
 
             <p>

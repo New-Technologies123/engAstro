@@ -80,7 +80,7 @@ export const Cleaning = () => {
         <section className={`${Styles.hero} ${Styles.reveal}`}>
           <div className={Styles.heroText}>
             <h1>
-              Tubing String Clarifier<span></span>
+              Tubing String <span>Clarifier</span>
             </h1>
 
             <p>
