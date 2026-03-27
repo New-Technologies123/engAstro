@@ -1,63 +1,96 @@
-import Styles from './documents.module.scss';
-import { Select } from '../../ui/select/Select';
-import { useState} from 'react';
+import { useState, useEffect } from 'react';
 import { Cards } from './Cards';
 import { Title } from '../../ui/title/Title';
-import { BackToTop } from '../../ui/back-to-top/BackToTop';
+import { LayoutBack } from '../../layout/LayoutBack';
+
+import { AccountingSystem } from './AccountingSystem';
+import { Accessories } from './Accessories';
+import { MeasuringSystem } from './MeasuringSystem';
+import { PreparationSystems } from './PreparationSystems';
+import { PumpingStations } from './PumpingStations';
+
+import Styles from './documents.module.scss';
+
+type TDocumentType = | 'accountingSystem' | 'accessories' | 'measuringSystem' | 'preparationSystems' | 'pumpingStations';
+
+const documentsConfig: Record<
+  TDocumentType,
+  { title: string; component: JSX.Element }
+> = {
+  accountingSystem: {
+    title: 'Документация автоматизированной замерной установки (АГЗУ)',
+    component: <AccountingSystem />,
+  },
+  accessories: {
+    title:
+      'Документация комплектующих для автоматизированной групповой замерной установки',
+    component: <Accessories />,
+  },
+  measuringSystem: {
+    title:
+      'Документация системы учёта углеводородов и пластовой жидкости',
+    component: <MeasuringSystem />,
+  },
+  preparationSystems: {
+    title: 'Документация системы подготовки нефти, газа и воды',
+    component: <PreparationSystems />,
+  },
+  pumpingStations: {
+    title:
+      'Документация насосных станции перекачки нефти, нефтепродуктов и воды',
+    component: <PumpingStations />,
+  },
+};
 
 export const Documents = () => {
-  const [selectedId, setSelectedId] = useState<TTitleOptions>('all');
-  const [showId, setShowId] = useState<TTitleOptions>('all');
+  const [activeType, setActiveType] = useState<TDocumentType | null>(null);
 
-  type TTitleOptions = 'all' | 'accountingSystem' | 'components' | 'measurementSystem' | 'trainingSystem' | 'pumpingStations';
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const type = queryParams.get('type') as TDocumentType | null;
 
-  const options: { id: TTitleOptions; title: string }[] = [
-    {
-      id: 'all',
-      title: 'All products',
-    },
-    {
-      id: 'accountingSystem',
-      title: 'Automated Group Metering Skid',
-    },
-    {
-      id: 'components',
-      title: 'Components for automated group metering skid',
-    },
-    {
-      id: 'measurementSystem',
-      title: 'System for measuring quantity and quality indicators',
-    },
-    { 
-      id: 'trainingSystem',
-      title: 'Oil, gas and water treatment systems',
-    },
-    {
-      id: 'pumpingStations',
-      title: 'Pumping stations for oil, petroleum products and water',
-    },
-  ];
+    if (type && documentsConfig[type]) {
+      setActiveType(type);
+    }
+  }, []);
 
-  const onShowClick = () => {
-    setShowId(selectedId);
+  const onBack = () => {
+    setActiveType(null);
+
+    const newUrl = `${window.location.origin}${window.location.pathname}`;
+    window.history.pushState({}, '', newUrl);
   };
+
+  const onClickCard = (type: TDocumentType) => {
+    setActiveType(type);
+
+    const newUrl = `${window.location.origin}${window.location.pathname}?type=${type}`;
+    window.history.pushState({}, '', newUrl);
+  };
+
+  if (activeType) {
+    const document = documentsConfig[activeType];
+
+    return (
+      <LayoutBack onBack={onBack} title={document.title}>
+        {document.component}
+      </LayoutBack>
+    );
+  }
 
   return (
     <>
-      <Title text={'Documents'}></Title>
-      
-      <div className={Styles.documentList}>
-        <p>Select product type:</p>
-        <div className={Styles.list}>
-          <Select options={options} selectedId={selectedId} onSelect={(id) => setSelectedId(id as TTitleOptions)}/>
+      <Title text="Документы" />
 
-          <div className={Styles.documentButton}>
-            <button onClick={onShowClick}>Show</button>
-          </div>
-        </div>
+      <div className={Styles.team}>
+        {Object.entries(documentsConfig).map(([type, data]) => (
+          <Cards
+            key={type}
+            title={data.title}
+            onClick={() => onClickCard(type as TDocumentType)}
+          />
+        ))}
       </div>
-      <Cards selectId={showId} key={showId}/>
-      <BackToTop/>
     </>
   );
 };
