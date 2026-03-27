@@ -164,7 +164,7 @@ export const Water = () => {
           </div>
 
           <div className={Styles.techText}>
-            <h2>Typical system composition</h2>
+            <h2>Standard configuration:</h2>
             <p>Meter Run Assembly</p>
             <p>Data-processing system</p>
             <p>Process and drainage pipelines</p>

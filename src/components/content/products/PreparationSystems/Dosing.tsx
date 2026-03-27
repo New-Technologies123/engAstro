@@ -158,7 +158,7 @@ export const Dosing = () => {
           </div>
 
           <div className={Styles.techText}>
-            <h2>Typical System Components</h2>
+            <h2>Standard configuration:</h2>
 
             <ul className={Styles.featuresList}>
               <li className={Styles.feature}>

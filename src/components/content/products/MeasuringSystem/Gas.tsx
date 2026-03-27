@@ -164,8 +164,7 @@ export const Gas = () => {
           </div>
 
           <div className={Styles.techText}>
-            <h2>Typical system composition</h2>
-
+            <h2>Standard configuration:</h2>
             <p>
               The system consists of flow meters, flow computers, pressure regulators, gas composition analyzers, 
               and hardware-software control means.
