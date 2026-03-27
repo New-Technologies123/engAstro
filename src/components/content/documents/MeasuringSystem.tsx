@@ -11,11 +11,11 @@ export const MeasuringSystem = () => {
 
   const cards = [
     {
-      title: 'Сертификат на тпи продукции  СИКН',
+      title: 'Certificate for technical specifications of SIKN products',
       docType: '3-1',
     },
     {
-      title: 'Декларация-СИСТЕМЫ ИЗМЕРЕНИЙ',
+      title: 'Declaration of Measurement Systems',
       docType: '3-2',
     }
   ];

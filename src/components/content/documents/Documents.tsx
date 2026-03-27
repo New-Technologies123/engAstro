@@ -18,26 +18,26 @@ const documentsConfig: Record<
   { title: string; component: JSX.Element }
 > = {
   accountingSystem: {
-    title: 'Документация автоматизированной замерной установки (АГЗУ)',
+    title: 'Documentation of the Automated Metering Unit',
     component: <AccountingSystem />,
   },
   accessories: {
     title:
-      'Документация комплектующих для автоматизированной групповой замерной установки',
+      'Documentation of components for an automated group measuring installation',
     component: <Accessories />,
   },
   measuringSystem: {
     title:
-      'Документация системы учёта углеводородов и пластовой жидкости',
+      'Documentation of the hydrocarbon and reservoir fluid accounting system',
     component: <MeasuringSystem />,
   },
   preparationSystems: {
-    title: 'Документация системы подготовки нефти, газа и воды',
+    title: 'Documentation of the oil, gas, and water treatment system',
     component: <PreparationSystems />,
   },
   pumpingStations: {
     title:
-      'Документация насосных станции перекачки нефти, нефтепродуктов и воды',
+      'Documentation of oil, petroleum products, and water pumping stations',
     component: <PumpingStations />,
   },
 };
@@ -80,7 +80,7 @@ export const Documents = () => {
 
   return (
     <>
-      <Title text="Документы" />
+      <Title text="Documents" />
 
       <div className={Styles.team}>
         {Object.entries(documentsConfig).map(([type, data]) => (

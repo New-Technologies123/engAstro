@@ -11,15 +11,15 @@ export const PumpingStations = () => {
 
   const cards = [
     {
-      title: 'Декларация соответствия насосные установки',
+      title: 'Declaration of Conformity for Pumping Units',
       docType: '5-1',
     },
     {
-      title: 'Сертификат соответсвия КНС',
+      title: 'Certificate of conformity of the KNS',
       docType: '5-2',
     },
     {
-      title: 'Сертификат соответствия БКНС',
+      title: 'Certificate of Conformity of the BKNS',
       docType: '5-3',
     }
   ];

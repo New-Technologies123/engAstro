@@ -11,51 +11,51 @@ export const Accessories = () => {
 
   const cards = [
     {
-      title: 'Декларация ТР ТС 020 2022г. расходомер-счетчики вихривые ЭРВИП.НТ',
+      title: 'Declaration of TR CU 020 2022 for the ERVIP.NT vortex flowmeter/counters',
       docType: '2-1',
     },
     {
-      title: 'Сертификат ТР ТС 012 № ЕАЭС RU C-RU.АЖ58.В.04794_23',
+      title: 'Certificate TR TS 012 No. EAES RU C-RU.AZh58.V.04794_23',
       docType: '2-2',
     },
     {
-      title: 'Декларации о соответсвии ТР ТС  010-2011  и 032-2013 УРПД 2020г.',
+      title: 'Declarations of conformity with TR CU 010-2011 and 032-2013 URPD 2020.',
       docType: '2-4',
     },
     {
-      title: 'Сертификат № ЕАЭС RU C-RU.АЖ58.В.04522_23',
+      title: 'Certificate No. EAEU RU C-RU.Аж58.В.04522_23',
       docType: '2-5',
     },
     {
-      title: 'Сертификат СТ-1 УРПД',
+      title: 'Certificate ST-1 URPD',
       docType: '2-3',
     },    
     {
-      title: 'Декларация ТР ТС 032 от 2023 г.',
+      title: 'Declaration TR CU 032 of 2023',
       docType: '2-6',
     },
     {
-      title: 'Сертификат на тип  продукции  ТР ТС 010',
+      title: 'Product Type Certificate TR CU 010',
       docType: '2-7',
     },
     {
-      title: 'Сертификат ТР ТС 012 2023 г.',
+      title: 'Certificate TR CU 012 2023',
       docType: '2-8',
     },
     {
-      title: 'ЕАЭС RU C-RU.АВ29.В.02346-24 ТР ТС 012',
+      title: 'EAEU RU C-RU.AB29.B.02346-24 TR CU 012',
       docType: '2-9',
     },
     {
-      title: 'С-RU.НВ54.В.05918',
+      title: 'C-RU.NV54.V.05918',
       docType: '2-10',
     },
     {
-      title: 'Декларация ТР ТС 032 2024г.',
+      title: 'Declaration TR CU 032 2024.',
       docType: '2-11',
     },
     {
-      title: 'Декларация ТР ТС 010 2024г.',
+      title: 'Declaration TR CU 010 2024',
       docType: '2-12',
     },
   ];

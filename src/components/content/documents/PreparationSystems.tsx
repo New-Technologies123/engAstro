@@ -11,43 +11,43 @@ export const PreparationSystems = () => {
 
   const cards = [
     {
-      title: 'ТР ТС 032 ЕАЭС RU C-RU.НА19.В.00123-2024',
+      title: 'TR CU 032 EAEU RU C-RU.NA19.V.00123-2024',
       docType: '4-1',
     },
     {
-      title: 'Декларация ТР ТС 010 5д',
+      title: 'Declaration TR TS 010 5d',
       docType: '4-2',
     },
     {
-      title: 'Декларация ТР ТС 032 для камер Ду до 150 мм',
+      title: 'Declaration TR TS 032 for chambers DN up to 150 mm',
       docType: '4-3',
     },
     {
-      title: 'Сертфикат на тип ТР ТС 010 5д',
+      title: 'Certificate for type TR TS 010 5d',
       docType: '4-4',
     },
     {
-      title: 'Декларация ТР ТС 010 5 д',
+      title: 'Declaration TR TS 010 5 d',
       docType: '4-5',
     },
     {
-      title: 'Декларация ТР ТС 032 на ттрубопроводы',
+      title: 'Declaration TR CU 032 for pipelines',
       docType: '4-6',
     },
     {
-      title: 'Декларация ТР ТС 032',
+      title: 'Declaration TR TS 032',
       docType: '4-7',
     },
     {
-      title: 'СС на тип № ЕАЭС RU СТ-RU.НВ94.00258',
+      title: 'SS for type No. EAES RU ST-RU.NV94.00258',
       docType: '4-8',
     },
     {
-      title: 'Сертификат ТР ТС 012',
+      title: 'Certificate TR TS 012',
       docType: '4-9',
     },
     {
-      title: 'Сертификат ТР ТС 012 ЕАЭС RU С-RU.ПБ98.В.00504.24',
+      title: 'Certificate TR TS 012 EAEU RU S-RU.PB98.V.00504.24',
       docType: '4-10',
     }
   ];

@@ -15,15 +15,15 @@ export const AccountingSystem = () => {
       docType: '1-1',
     },
     {
-      title: 'Декларация ТР ТС 010 от 2024г.',
+      title: 'Declaration TR CS 010 of 2024.',
       docType: '1-2',
     },
     {
-      title: 'Заключение по произведственной площадке INTI.QS.PS.90-06-2024-244',
+      title: 'Conclusion INTI.QS.PS.90-06-2024-244 Metering Skid',
       docType: '1-3',
     },
     {
-      title: 'Сертификат соответствия установки «Спутник - Массомер НТ.1',
+      title: 'Certificate for Sputnik-Massomer NT. 1 Metering System',
       docType: '1-4',
     },
   ];
