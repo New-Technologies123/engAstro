@@ -35,7 +35,7 @@ export const News = () => {
 
   return (
     <>
-      <Title text="Новости"></Title>
+      <Title text="News"></Title>
       <div className={`${isLoaded ? Styles.loaded : ''}`}>
         <div className={Styles.newsContent}>
           <div className={Styles.newsItem}>

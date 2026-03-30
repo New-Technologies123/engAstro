@@ -12,7 +12,7 @@ import item_8 from '../../../images/home/cas.webp';
 import item_9 from '../../../images/home/luc.png';
 import item_10 from '../../../images/home/luc_ysb.webp';
 
-import homeItem from '../../../images/home/geog.webp';
+import homeItem from '../../../images/home/geog_1.png';
 
 export const Home = () => {
 

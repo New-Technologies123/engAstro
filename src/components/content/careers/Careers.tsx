@@ -12,18 +12,18 @@ export const Careers = () => {
 
     const vacancyLinks: Record<TCareers, string> = {
         vacancy1: "https://ufa.hh.ru/vacancy/130706340?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
-        vacancy2: "https://ufa.hh.ru/vacancy/129985800?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
+        vacancy2: "https://ufa.hh.ru/vacancy/130602170?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy3: "https://ufa.hh.ru/vacancy/130527326?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy4: "https://ufa.hh.ru/vacancy/131034876?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",        
-        vacancy5: "https://ufa.hh.ru/vacancy/131593254?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",        
+        vacancy5: "https://ufa.hh.ru/vacancy/130775738?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",        
         vacancy6: "https://ufa.hh.ru/vacancy/130552730?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy7: "https://ufa.hh.ru/vacancy/131234015?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
         vacancy8: "https://ufa.hh.ru/vacancy/130461562?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
-        vacancy9: "https://ufa.hh.ru/vacancy/131562534?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
-        vacancy10: "https://ufa.hh.ru/vacancy/130996614?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
-        vacancy11: "https://ufa.hh.ru/vacancy/130775224?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
-        vacancy12: "https://ufa.hh.ru/vacancy/130775738?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
-        vacancy13: "https://ufa.hh.ru/vacancy/130602170?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",        
+        vacancy9: "https://ufa.hh.ru/vacancy/130996614?hhtmFromLabel=employer_vacancy_tab&hhtmFrom=employer",
+        vacancy10: "",
+        vacancy11: "",
+        vacancy12: "",
+        vacancy13: "",        
         vacancy14: "", 
         vacancy15: "",
     };
@@ -56,7 +56,7 @@ export const Careers = () => {
         <>
             {typeLayoutBackOpen === null && (
                 <>
-                    <Title text="Открытые вакансии"></Title>
+                    <Title text="Open vacancies"></Title>
                     <div className={Styles.ramca}>                                           
                         <div className={Styles.vacancies}>
                             <p>Zaki Validi 32/2</p>
@@ -73,7 +73,7 @@ export const Careers = () => {
                                     title="Work experience: 3-6 years"
                                     experience="Full employment"
                                     employmentType="Schedule: 5/2"
-                                    onClick={() => window.open(vacancyLinks.vacancy10, "_blank")}
+                                    onClick={() => window.open(vacancyLinks.vacancy9, "_blank")}
                                 />                                
                                 <Vacancy
                                     header="Electronics engineer"
@@ -88,13 +88,6 @@ export const Careers = () => {
                                     experience="Full employment"
                                     employmentType="Schedule: 5/2"
                                     onClick={() => window.open(vacancyLinks.vacancy1, "_blank")}
-                                />
-                                <Vacancy
-                                    header="Office cleaner"
-                                    title="Work experience: 1-3 years"
-                                    experience="Full employment"
-                                    employmentType="Schedule: 5/2"
-                                    onClick={() => window.open(vacancyLinks.vacancy9, "_blank")}
                                 />
                                 <Vacancy
                                     header="Deputy Chief Accountant"
@@ -113,7 +106,7 @@ export const Careers = () => {
                                     title="Work experience: 1-3 years"
                                     experience="Full employment"
                                     employmentType="Schedule: 5/2"
-                                    onClick={() => window.open(vacancyLinks.vacancy13, "_blank")}
+                                    onClick={() => window.open(vacancyLinks.vacancy2, "_blank")}
                                 />
                                 <Vacancy
                                     header="Electrician"
@@ -130,40 +123,19 @@ export const Careers = () => {
                                     onClick={() => window.open(vacancyLinks.vacancy4, "_blank")}
                                 />
                                 <Vacancy
-                                    header="CNC machine setter"
-                                    title="Work experience: 1-3 years"
-                                    experience="Full employment"
-                                    employmentType="Schedule: 5/2"
-                                    onClick={() => window.open(vacancyLinks.vacancy11, "_blank")}
-                                />
-                                <Vacancy
-                                    header="Driver with category C,E"
-                                    title="Work experience: 1-3 years"
-                                    experience="Full employment"
-                                    employmentType="Schedule: 5/2"
-                                    onClick={() => window.open(vacancyLinks.vacancy5, "_blank")}
-                                />
-                                <Vacancy
                                     header="CNC milling machine operator"
                                     title="Work experience: 1-3 years"
                                     experience="Full employment"
                                     employmentType="Schedule: 2/2"
-                                    onClick={() => window.open(vacancyLinks.vacancy12, "_blank")}
+                                    onClick={() => window.open(vacancyLinks.vacancy5, "_blank")}
                                 />                                
                             </div>
                         </div>
-                        <div className={Styles.vacancies}>
+                        {/* <div className={Styles.vacancies}>
                             <p>Watch</p>
                             <div className={Styles.team}>
-                                <Vacancy
-                                    header="Welder (Nizhnevartovsk)"
-                                    title="Work experience: 1-3 years"
-                                    experience="Вахта на 30 или 60 смен"
-                                    employmentType=""
-                                    onClick={() => window.open(vacancyLinks.vacancy2, "_blank")}
-                                />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </> 
             )}

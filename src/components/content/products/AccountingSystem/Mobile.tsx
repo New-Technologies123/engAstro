@@ -135,16 +135,16 @@ export const Mobile = () => {
             </div>
 
             <div className={Styles.featureCard}>
-              <h3>Быстрое развертывание</h3>
+              <h3>Rapid Deployment</h3>
               <p>
-                Ввод в эксплуатацию без капитального строительства и длительного монтажа.
+                Commissioning without the need for permanent construction or lengthy installation.
               </p>
             </div>
 
             <div className={Styles.featureCard}>
-              <h3>Снижение затрат</h3>
+              <h3>Cost Reduction</h3>
               <p>
-                Отсутствие необходимости строительства стационарных узлов учета.
+                No requirement to build stationary metering facilities.
               </p>
             </div>
 
