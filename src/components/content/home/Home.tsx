@@ -45,7 +45,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <Title text="Completed projects on the map"></Title>
+      <Title text="Our projects on the map"></Title>
       <div className={Styles.Img}>
         <img src={homeItem.src} alt="Карта поставок" className={Styles.homeImg} />
       </div>

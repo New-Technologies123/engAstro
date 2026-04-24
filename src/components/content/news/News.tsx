@@ -10,6 +10,7 @@ import news_9 from '../../../images/news/news_9.webp';
 import news_10 from '../../../images/news/news_10.webp';
 import news_11 from '../../../images/news/news_11.webp';
 import news_12 from '../../../images/news/news_12.webp';
+import news_13 from '../../../images/news/news_13.webp';
 import Styles from './news.module.scss';
 import { Gallery } from '../../ui/gallery/Gallery';
 import { useState, useEffect } from 'react';
@@ -39,20 +40,37 @@ export const News = () => {
       <div className={`${isLoaded ? Styles.loaded : ''}`}>
         <div className={Styles.newsContent}>
           <div className={Styles.newsItem}>
-            <img src={news_12.src} className={Styles.thumbnail} onClick={() => { setPhotoFourIsOpen(true); }} />
+            <Gallery
+              photos={[
+                { id: 1, src: news_12.src, alt: '' },
+                { id: 2, src: news_13.src, alt: '' },
+              ]}
+            />
             <div>
               <p>
-                "New Technologies" Engineering and Production Enterprise LLC is excited to announce our participation 
-                in the Egypt Energy Show (EGYPES) 2026!
+                We are pleased to announce that “New Technologies” Engineering and Production Enterprise LLC has successfully taken part in the Egypt Energy Show (EGYPES) 2026, held recently in Cairo.
               </p>
               <p>
-                Visit us at Stand 1D64 – New Technologies from March 30 to April 1.
+                Over the course of the exhibition, our team:
               </p>
               <p>
-                We will be happy to showcase our cutting-edge technologies and discuss cooperation opportunities.
+                Presented our latest engineering and production solutions for the energy sector
               </p>
               <p>
-                See you at EGYPES!
+                Held productive meetings with industry professionals and potential partners
+              </p>
+              <p>
+                Strengthened existing business ties and established new strategic contacts
+              </p>
+              <p>
+                Received positive feedback on our innovative approach and technological capabilities
+              </p>
+              <p>
+                We thank the organizers of EGYPES for a high-level event and all the visitors who stopped by our stand. Your interest in 
+                our solutions confirms that we are moving in the right direction.
+              </p>
+              <p>
+                We look forward to new projects and continued cooperation within the global energy industry!
               </p>
             </div>
               
