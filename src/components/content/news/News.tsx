@@ -79,7 +79,7 @@ export const News = () => {
             <img src={news_11.src} className={Styles.thumbnail} onClick={() => { setPhotoThreeIsOpen(true); }} />
             <div>
               <p>
-                "New Technologies" LLC Added to SOCAR’s Approved Vendor List
+                "New Technologies" EPE LLC in SOCAR’s Approved Vendor List
               </p>
               <p>                
                 On December 29, 2025, our company successfully completed the pre-qualification process and was officially 
