@@ -1,46 +1,54 @@
 .footer {
-  background-color: #1a1a1a;
-  color: #ffffff;
-  padding-top: 42px;
+  background: #1f1f1f;
+  color: #fff;
   font-family: 'Inter', sans-serif;
-  margin-top: 25px;
+  // margin-top: 25px;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #00aaff;
+    }
+  }
 }
 
 .container {
-  margin: 0 auto;
-  padding: 0 155px;
-  display: flex;
-  gap: 48px;
+  display: grid;
+  padding: 30px 60px;
+  // max-width: 1200px;
+  margin: auto;
+  
 }
 
-.contactSection {
-  display: grid;
-  gap: 25px;
+.topSection {
+  display: flex;
+}
+
+.infa{
+  display: flex;
 }
 
 .logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
   img {
-    width: 165px;
+    max-width: 160px;
+    margin-bottom: 12px;
   }
 }
+
 
 .contactInfo {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  p{
-    font-size: 15px;
-    line-height: 1.5;
-    a {
-      color: #b3b3b3;
-      text-decoration: none;
-      transition: color 0.2s ease;
-      
-      &:hover {
-        color: #ffffff;
-      }
-    }
-  }
+  margin-left: 25px;
+  gap: 5px;
 }
 
 .navSections {
@@ -50,7 +58,6 @@
 }
 
 .navColumn {
-  // flex: 1;
   h3{
     font-size: 16px;
     font-weight: 600;
@@ -116,14 +123,74 @@
   }
 }
 
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+// Блок с файлами
+.filesBlock {
+  
+  ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    
+    li {
+      position: relative;
+      
+      a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #b3b3b3;
+        text-decoration: none;
+        font-size: 13px;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 6px 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        
+        // Иконки через псевдоэлементы
+        &::before {
+          content: '📄';
+          font-size: 14px;
+          transition: transform 0.3s ease;
+        }
+        
+        &:hover {
+          color: #ffffff;
+          background: rgba(0, 170, 255, 0.1);
+          border-color: rgba(0, 170, 255, 0.3);
+          transform: translateY(-2px);
+          
+          &::before {
+            transform: translateY(-2px);
+          }
+        }
+        
+        &:active {
+          transform: translateY(0);
+        }
+      }
+      
+      Разные иконки для разных документов
+      &:nth-child(1) a::before { content: '📋'; }
+      &:nth-child(2) a::before { content: '🔒'; }
+      &:nth-child(3) a::before { content: '📝'; }
+      &:nth-child(4) a::before { content: '🔄'; }
+    }
+  }
+}
+
 @media (max-width: 1400px){
-  .container{
-    gap: 32px;
-    padding: 0 105px;
-  }  
   .logoContainer{
     img{
-      width: 150px;
+      width: 160px;
     }
   }
   .contactInfo{
@@ -138,6 +205,7 @@
     h3{
       font-size: 15px;
       margin-bottom: 6px;
+      padding-bottom: 5px;
       &::after{
         width: 77px;
       }
@@ -153,17 +221,9 @@
   }  
 }
 
-@media (max-width: 1200px){
-  .logoContainer{
-    img{
-      width: 140px;
-    }
-  }
-}
-
 @media (max-width: 1100px){
   .container{
-    padding: 0 80px;
+    padding: 25px 45px;
   }
   .footerBottom{
     margin-top: 10px;
@@ -181,14 +241,17 @@
   .container{
     padding: 0 40px;
   }
+  .topSection{
+    display: grid;
+  }
   .contactSection{
     gap: 15px;
   }
-  // .logoContainer{
-  //   img{
-  //     width: 150px;
-  //   }
-  // }
+  .logoContainer{
+    img{
+      width: 150px;
+    }
+  }
   .contactInfo{
     p{
       font-size: 13px;
@@ -197,7 +260,8 @@
   .navColumn{
     h3{
       font-size: 14px;
-      margin-bottom: 6px;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
       &::after{
         width: 74px;
       }
@@ -211,10 +275,47 @@
       }
     }
   }
+  .navSections{
+    margin-left: 0;
+    margin-top: 15px;
+  }
   .footerBottom{
     padding: 10px 0;
     p{
       font-size: 12px;
+    }
+  }
+  .leftSection{
+    gap: 10px;
+  }
+
+  .filesBlock {
+    
+    ul {
+      gap: 10px;
+      flex-direction: column;
+      align-items: stretch;
+      
+      li {
+        width: 100%;
+        
+        a {
+          width: 100%;
+          justify-content: flex-start;
+          padding: 10px 14px;
+          font-size: 13px;
+          border-radius: 12px;
+          
+          &::before {
+            font-size: 16px;
+          }
+          
+          &:hover {
+            transform: translateX(5px);
+            background: rgba(0, 170, 255, 0.15);
+          }
+        }
+      }
     }
   }
 }
@@ -229,6 +330,9 @@
 }
 
 @media (max-width: 500px){
+  .footer{
+    margin-top: 28px;
+  }
   .container{
     padding: 0 25px;
     gap: 25px;
@@ -239,7 +343,7 @@
   }
   .logoContainer{
     img{
-      width: 130px;
+      width: 125px;
     }
   }
   .contactInfo{
