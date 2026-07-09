@@ -1,6 +1,6 @@
 import { Layout } from '../../layout/Layout';
 import { Card } from '../../ui/card/Card';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { AccountingSystem } from './AccountingSystem';
 import { Accessories } from './Accessories';
 import { MeasuringSystem } from './MeasuringSystem';
@@ -13,6 +13,7 @@ import product_3 from '../../../images/products/product_3.webp';
 import product_4 from '../../../images/products/product_4.webp';
 import product_5 from '../../../images/products/product_5.webp';
 import { BackToTop } from '../../ui/back-to-top/BackToTop'
+import styles from './scroll.module.scss';
 
 type TProducts = | 'accounting-system' | 'accessories' | 'measuring-system' | 'preparation-systems' | 'pumping-stations';
 
@@ -26,26 +27,172 @@ const pathnameToProduct = (pathname: string): TProducts | null => {
   return null;
 };
 
+// Ключи для хранения данных в sessionStorage
+const SCROLL_POSITION_KEY = 'products_scroll_position';
+const SELECTED_CARD_KEY = 'products_selected_card';
+const FROM_PRODUCT_KEY = 'from_product_page';
+
 export const Products = () => {
   const [currentPage, setCurrentPage] = useState<TProducts | null>(null);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  const trackRef = useRef<HTMLDivElement>(null);
+  const prevBtnRef = useRef<HTMLButtonElement>(null);
+  const nextBtnRef = useRef<HTMLButtonElement>(null);
+  const [isInitialized, setIsInitialized] = useState(false);
 
-  const goTo = (path: string) => {
-  window.history.pushState({}, '', path);
-  setCurrentPage(pathnameToProduct(path));
-};
+  // Проверка мобильного устройства
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 720);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
-const goBack = () => {
-  window.history.pushState({}, '', '/products');
-  setCurrentPage(null);
-};
+  const goTo = (path: string, cardIndex?: number) => {
+    if (cardIndex !== undefined) {
+      sessionStorage.setItem(SELECTED_CARD_KEY, String(cardIndex));
+      sessionStorage.setItem(FROM_PRODUCT_KEY, 'true');
+    }
+    if (trackRef.current) {
+      sessionStorage.setItem(SCROLL_POSITION_KEY, String(trackRef.current.scrollLeft));
+    }
+    window.history.pushState({}, '', path);
+    setCurrentPage(pathnameToProduct(path));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const track = trackRef.current;
+    const cards = track?.querySelectorAll('.card');
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+
+    if (!track || !cards?.length || !prevBtn || !nextBtn) return;
+
+    let current = 0;
+
+    const updateArrows = () => {
+      if (current <= 0) {
+        prevBtn.classList.remove('visible');
+        prevBtn.style.visibility = 'hidden';
+      } else {
+        prevBtn.classList.add('visible');
+        prevBtn.style.visibility = 'visible';
+      }
+      
+      if (current >= cards.length - 1) {
+        nextBtn.classList.remove('visible');
+        nextBtn.style.visibility = 'hidden';
+      } else {
+        nextBtn.classList.add('visible');
+        nextBtn.style.visibility = 'visible';
+      }
+    };
+
+    const updateDots = (index: number) => {
+      setCurrentCardIndex(index);
+    };
+
+    const cardStep = () => {
+      return cards.length > 1
+        ? (cards[1] as HTMLElement).offsetLeft - (cards[0] as HTMLElement).offsetLeft
+        : (cards[0] as HTMLElement).offsetWidth;
+    };
+
+    const goToCard = (index: number, smooth: boolean = true) => {
+      current = Math.max(0, Math.min(cards.length - 1, index));
+      const card = cards[current] as HTMLElement;
+      const left = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
+      track.scrollTo({ left, behavior: smooth ? 'smooth' : 'auto' });
+      updateArrows();
+      updateDots(current);
+    };
+
+    const handleScroll = () => {
+      const step = cardStep();
+      if (step > 0) {
+        current = Math.round(track.scrollLeft / step);
+        current = Math.max(0, Math.min(cards.length - 1, current));
+        updateArrows();
+        updateDots(current);
+      }
+    };
+
+    const getTargetCardIndex = (): number => {
+      const fromProduct = sessionStorage.getItem(FROM_PRODUCT_KEY);
+      
+      if (fromProduct === 'true') {
+        const savedCardIndex = sessionStorage.getItem(SELECTED_CARD_KEY);
+        sessionStorage.removeItem(FROM_PRODUCT_KEY);
+        sessionStorage.removeItem(SELECTED_CARD_KEY);
+        sessionStorage.removeItem(SCROLL_POSITION_KEY);
+        
+        if (savedCardIndex !== null) {
+          const index = parseInt(savedCardIndex, 10);
+          if (!isNaN(index) && index >= 0 && index < cards.length) {
+            return index;
+          }
+        }
+        return 0;
+      }
+
+      sessionStorage.removeItem(SELECTED_CARD_KEY);
+      sessionStorage.removeItem(SCROLL_POSITION_KEY);
+      return 0;
+    };
+
+    const targetIndex = getTargetCardIndex();
+    goToCard(targetIndex, false);
+
+    setIsInitialized(true);
+
+    // Сохраняем ссылки на обработчики для правильного удаления
+    const handleNextClick = () => {
+      goToCard(current + 1);
+      setTimeout(() => {
+        if (trackRef.current) {
+          sessionStorage.setItem(SCROLL_POSITION_KEY, String(trackRef.current.scrollLeft));
+        }
+      }, 100);
+    };
+    
+    const handlePrevClick = () => {
+      goToCard(current - 1);
+      setTimeout(() => {
+        if (trackRef.current) {
+          sessionStorage.setItem(SCROLL_POSITION_KEY, String(trackRef.current.scrollLeft));
+        }
+      }, 100);
+    };
+
+    const handleScrollEvent = () => {
+      handleScroll();
+      if (trackRef.current) {
+        sessionStorage.setItem(SCROLL_POSITION_KEY, String(trackRef.current.scrollLeft));
+      }
+    };
+
+    nextBtn.addEventListener('click', handleNextClick);
+    prevBtn.addEventListener('click', handlePrevClick);
+    track.addEventListener('scroll', handleScrollEvent, { passive: true });
+
+    return () => {
+      nextBtn.removeEventListener('click', handleNextClick);
+      prevBtn.removeEventListener('click', handlePrevClick);
+      track.removeEventListener('scroll', handleScrollEvent);
+    };
+  }, []);
 
   useEffect(() => {
     const sync = () => setCurrentPage(pathnameToProduct(window.location.pathname));
-    sync(); // синхронизируем при монтировании
+    sync();
     window.addEventListener('popstate', sync);
     return () => window.removeEventListener('popstate', sync);
   }, []);
-
 
   if (currentPage === 'accounting-system') {
     return <AccountingSystem/>;
@@ -70,35 +217,97 @@ const goBack = () => {
   return (
     <Layout title="Products" 
       description="The quality of products provided by «New Technologies» Engineering and Production Enterprise LLC complies with all 
-        safety and quality standards, confirmed by the relevant Russian and Eurasian Economic Union (EAEU) certificates. The company has 
-        certificates of conformity to the international standards, quality management systems, environmental management systems and occupational 
-        health and safety management systems: ISO 9001:2015, ISO 14001:2016, ISO 45001-2018, ISO 29001:2020.">
+      safety and quality standards, confirmed by the relevant Russian and Eurasian Economic Union (EAEU) certificates. The company 
+      has certificates of conformity to the international standards, quality management systems, environmental management systems and 
+      occupational health and safety management systems: ISO 9001:2015, ISO 14001:2016, ISO 45001-2018, ISO 29001:2020.">
       <>
-        <Card
-          imgSrc={product_1.src} 
-          title="Automated group metering skids"
-          onClick={() => goTo('/products/accounting-system')}
-        />
-        <Card
-        imgSrc={product_2.src} 
-          title="Component parts for automated group metering skids"
-          onClick={() => goTo('/products/accessories')}
-        />
-        <Card
-        imgSrc={product_3.src} 
-          title="Hydrocarbons and formation fluid metering systems"
-          onClick={() => goTo('/products/measuring-system')}
-        />
-        <Card
-        imgSrc={product_4.src} 
-          title="Oil, gas and water treatment systems"
-          onClick={() => goTo('/products/preparation-systems')}
-        />
-        <Card
-        imgSrc={product_5.src} 
-          title="Oil, water and petroleum products pumping stations"
-          onClick={() => goTo('/products/pumping-stations')}
-        />
+        <div className={styles.productsWrapper}>
+          <div className={styles.cardsTrack} ref={trackRef}>
+            <div className="card">
+              <Card
+                imgSrc={product_1.src} 
+                title="Automated group metering unit"
+                onClick={() => goTo('/products/accounting-system', 0)}
+              />
+            </div>
+            <div className="card">
+              <Card
+                imgSrc={product_2.src} 
+                title="Components for automated group metering system"
+                onClick={() => goTo('/products/accessories', 1)}
+              />
+            </div>
+            <div className="card">
+              <Card
+                imgSrc={product_3.src} 
+                title="Hydrocarbons and formation fluid metering systems"
+                onClick={() => goTo('/products/measuring-system', 2)}
+              />
+            </div>
+            <div className="card">
+              <Card
+                imgSrc={product_4.src} 
+                title="Oil, gas and water treatment systems"
+                onClick={() => goTo('/products/preparation-systems', 3)}
+              />
+            </div>
+            <div className="card">
+              <Card
+                imgSrc={product_5.src} 
+                title="Oil, water and petroleum products pumping stations"
+                onClick={() => goTo('/products/pumping-stations', 4)}
+              />
+            </div>
+          </div>
+          
+          <div className={styles.mobileNav}>
+            <button 
+              className={`${styles.prevBtn}`} 
+              ref={prevBtnRef}
+              aria-label="Предыдущий продукт"
+            >
+              ←
+            </button>
+            <button 
+              className={`${styles.nextBtn}`} 
+              ref={nextBtnRef}
+              aria-label="Следующий продукт"
+            >
+              →
+            </button>
+          </div>
+
+          {/* Индикаторы пагинации (только на мобильных) */}
+          {isMobile && (
+            <div className={styles.paginationDots} role="tablist" aria-label="Навигация по продуктам">
+              {Array.from({ length: 5 }).map((_, index) => {
+                const cards = trackRef.current?.querySelectorAll('.card');
+                const total = cards?.length || 5;
+                if (index >= total) return null;
+                
+                return (
+                  <button
+                    key={index}
+                    className={`${styles.dot} ${currentCardIndex === index ? styles.active : ''}`}
+                    onClick={() => {
+                      const track = trackRef.current;
+                      const cards = track?.querySelectorAll('.card');
+                      if (!track || !cards) return;
+                      
+                      const card = cards[index] as HTMLElement;
+                      const left = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
+                      track.scrollTo({ left, behavior: 'smooth' });
+                      setCurrentCardIndex(index);
+                    }}
+                    role="tab"
+                    aria-selected={currentCardIndex === index}
+                    aria-label={`Перейти к продукту ${index + 1}`}
+                  />
+                );
+              })}
+            </div>
+          )}
+        </div>
       </>
       <BackToTop />
     </Layout>

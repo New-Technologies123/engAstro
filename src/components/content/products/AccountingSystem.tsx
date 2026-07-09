@@ -1,16 +1,21 @@
+// accounting.tsx
 import { LayoutBack } from '../../layout/LayoutBack';
 import { Card } from '../../ui/card/Card';
 import Styles from './accounting.module.scss';
 import product_1_1 from '../../../images/products/product_1.webp';
 import product_1_2 from '../../../images/products/product_1_2.webp';
 import { BackToTop } from '../../ui/back-to-top/BackToTop';
+import { useState } from 'react';
 
 type TAccounting = 'stationary' | 'mobile' | 'calculator';
 
 export const AccountingSystem = () => {
+  const title = 'Automated group metering unit';
+  // const [activeTab, setActiveTab] = useState<'info' | 'specs'>('info');
+
   const cardTitle: Record<TAccounting, string> = {
-    stationary: '"Sputnik-massomer NT.1" the stationary automated group metering skid',
-    mobile: '"Sputnik-massomer NT.1" the mobile automated group metering skid',
+    stationary: 'AGMU "Sputnik — Mass Meter NT.1" (Stationary)',
+    mobile: 'AGMU "Sputnik — Mass Meter NT.1" (Mobile)',
     calculator: 'Calculator',
   };
 
@@ -23,30 +28,60 @@ export const AccountingSystem = () => {
   };
 
   return (
-    <LayoutBack onBack={onBackProducts} title='Automated group metering unit'>
+    <LayoutBack onBack={onBackProducts} title={title}>
       <div className={Styles.container}>
-        {/* Левая часть — текст */}
         <div className={Styles.textColumn}>
-          <p>
-            The automated group metering skid is designed to measure mass and mass flow rate of the total well fluid, the mass and mass 
-            flow rate of crude oil (net of water), and the volume and volume flow rate of free petroleum gas, corrected to standard conditions.
-          </p>
-          <p><strong>Functional Purpose:</strong></p>
-          <ul>
-            <li>To meter and quantify well liquids and gas.</li>
-            <li>To transmit all metering data to a central control unit or Human-Machine Interface (HMI) for monitoring and analysis.</li>
-          </ul>
-          <p><strong>Operational Purpose:</strong></p>
-          <ul>
-            <li>To perform calculations for the mass of total liquid and dehydrated (dry) oil, the volume of free petroleum gas.</li>
-            <li>To determine daily flow rates for liquid mass, dehydrated oil mass, and gas volume for monitoring and optimizing the processing regimes of oil wells.</li>
-          </ul>
-          <p>
-            <strong>Scope of Application:</strong> This skid is designed for use in pressurized oil well product gathering systems and as a component of automated control systems for oil production processes.
-          </p>
+          
+          <div className={Styles.contentWrapper}>
+            <div className={Styles.fadeIn}>
+              <p>
+                The measuring unit (MU) is designed for measuring the mass and mass flow rate of well fluid 
+                as part of the oil and gas mixture, as well as the mass and mass flow rate of well fluid 
+                minus the mass of water and associated petroleum gas, reduced to standard conditions.
+              </p>
+
+              <div className={Styles.featureGrid}>
+                <div className={Styles.featureItem}>
+                  <div className={Styles.iconWrapper}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="2">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                      <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Quantity Control</h4>
+                    <p>Of well fluid and gas with results output to the control unit</p>
+                  </div>
+                </div>
+                <div className={Styles.featureItem}>
+                  <div className={Styles.iconWrapper}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="2">
+                      <circle cx="12" cy="12" r="10"/>
+                      <path d="M12 6v6l4 2"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Operational Purpose</h4>
+                    <p>Measurement of fluid mass, dehydrated oil, and gas volume</p>
+                  </div>
+                </div>
+                <div className={Styles.featureItem}>
+                  <div className={Styles.iconWrapper}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4>Application Area</h4>
+                    <p>Pressure collection systems and automated control systems</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>          
         </div>
 
-        {/* Правая часть — карточки */}
         <div className={Styles.cardsColumn}>
           <Card
             imgSrc={product_1_1.src}

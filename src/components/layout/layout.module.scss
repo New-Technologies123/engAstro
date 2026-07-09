@@ -1,14 +1,30 @@
+.bloc{
+  display: block;
+  justify-items: center;
+}
+
 .companyInfo {
+  width: 1100px;  
   padding: 0 20px;
   padding-bottom: 20px;  
   text-align: center;
   background-color: #f1f1f1;
   margin: 25px 20px;
-  p{
+  border-radius: 17px;
+  p{    
     margin-top: 20px;
     font-size: 20px;
     animation: softFocus 1.2s ease-in-out both;
   }
+}
+
+.team {
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+  padding: 50px;
+  background-color: #e6f7ff;
+  flex-wrap: wrap;
 }
 
 @keyframes softFocus {
@@ -22,17 +38,9 @@
   }
 }
 
-.team {
-  display: flex;
-  justify-content: center;
-  gap: 120px;
-  padding: 50px;
-  background-color: #e6f7ff;
-  flex-wrap: wrap;
-}
-
 @media (max-width: 1400px){
   .companyInfo{
+    width: 900px;
     margin: 20px 15px;
     p{
       font-size: 19px;
@@ -46,6 +54,7 @@
 
 @media (max-width: 1200px){
   .companyInfo{
+    width: 800px;
     padding: 0px 15px;
     padding-bottom: 15px;
     margin: 15px 10px;
@@ -57,38 +66,51 @@
 
 @media (max-width: 1030px) {
   .companyInfo {
+    width: 650px;
+    p{
+      margin-top: 15px;
+      font-size: 17px;
+    }
+  }
+  .team {
+    gap: 65px;
+    padding: 0;
+  }
+}
+
+@media (max-width: 790px) {
+  .companyInfo {
+    width: 500px;
+    p{
+      font-size: 16px;
+    }
+  }
+  .team {
+    display: block !important;
+    padding: 0 !important;
+    width: 100%;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 550px) {
+  .companyInfo {
+    width: 400px;
     p{
       margin-top: 15px;
       font-size: 16px;
     }
   }
-  .team {
-    gap: 65px;
-    padding: 30px;
-  }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 440px) {
   .companyInfo {
+    width: 320px;
     padding: 0 10px;
     padding-bottom: 10px;
-    margin: 10px;
   }
   .team {
-    gap: 60px;
+    gap: 40px;
     padding: 20px;
   }
 }
-
-// @media (max-width: 375px) {
-//   .companyInfo {
-//     margin: 8px;
-//     p {
-//       font-size: 14px;
-//     }
-//   }
-//   .team {
-//     gap: 20px;
-//     padding: 15px 0;
-//   }
-// }
