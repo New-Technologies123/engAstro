@@ -1,7 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import { QuestionEntry } from '../components/ui/question-form/QuestionEntry';
-
+import CookieBanner from '../components/ui/CookieBanner.astro';
 
 const {
   title = 'Engineering and Production Enterprise «New Technologies» LLC',
@@ -101,6 +101,9 @@ const {
 
     <!-- ПЛАВАЮЩАЯ КНОПКА -->
     <QuestionEntry client:visible />
+
+    <!-- COOKIE БАННЕР -->
+    <CookieBanner />
 
     <script is:inline>
   if (typeof window !== 'undefined') {

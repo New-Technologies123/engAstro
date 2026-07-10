@@ -10,34 +10,99 @@ import { menuData } from './menuData';
 
 import { useState, useEffect } from 'react';
 
-/* ===== РЕКУРСИВНЫЙ ПУНКТ МЕНЮ ===== */
-const MenuItem = ({ item, pageType }) => {
+/* ===== RECURSIVE MENU ITEM ===== */
+interface MenuItemProps {
+  item: any;
+  pageType: any;
+  isMobile: boolean;
+  openItems: any[];
+  setOpenItems: any;
+  parentId?: string; // ← Made optional
+}
+
+const MenuItem = ({ item, pageType, isMobile, openItems, setOpenItems, parentId }: MenuItemProps) => {
   const [open, setOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+
+  // Create a unique ID for the menu item
+  const itemId = item.url || item.title;
+  
+  // Create full path for identification (for nested items)
+  const fullId = parentId ? `${parentId}-${itemId}` : itemId;
+
+  // Check if this item is open (mobile only)
+  const isOpen = isMobile ? openItems.includes(fullId) : open;
 
   const hasChildren = item.children && item.children.length > 0;
 
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 1000);
-    };
+  // Click handler for the arrow (mobile only)
+  const handleToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    e.preventDefault();
+    
+    if (!isMobile) return; // Ignore on desktop
+    
+    if (isOpen) {
+      // If already open - close only this item
+      setOpenItems((prev: string[]) => prev.filter((id: string) => id !== fullId));
+    } else {
+      // If closed - open this item and close all others at this level
+      const newOpenItems: string[] = [];
+      
+      // Add all parent items (if any)
+      if (parentId) {
+        const parentParts = parentId.split('-');
+        let currentPath = '';
+        for (const part of parentParts) {
+          currentPath = currentPath ? `${currentPath}-${part}` : part;
+          if (!newOpenItems.includes(currentPath)) {
+            newOpenItems.push(currentPath);
+          }
+        }
+      }
+      
+      // Add the current item
+      newOpenItems.push(fullId);
+      
+      setOpenItems(newOpenItems);
+    }
+  };
 
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  // 🔹 Check if active: current item OR any child
+  const isActive = (() => {
+    if (item.pageType === pageType) return true;
+    
+    if (item.children) {
+      for (const child of item.children) {
+        if (child.pageType === pageType) return true;
+        if (child.children) {
+          for (const grandchild of child.children) {
+            if (grandchild.pageType === pageType) return true;
+          }
+        }
+      }
+    }
+    
+    return false;
+  })();
 
-  // 🔹 активен ли пункт
-  const isActive =
-    item.pageType === pageType ||
-    item.children?.some(child => child.pageType === pageType);
+  // For desktop use hover
+  const handleMouseEnter = () => {
+    if (!isMobile && hasChildren) {
+      setOpen(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isMobile && hasChildren) {
+      setOpen(false);
+    }
+  };
 
   return (
     <li
       className={Styles.menuItem}
-      onMouseEnter={!isMobile && hasChildren ? () => setOpen(true) : undefined}
-      onMouseLeave={!isMobile && hasChildren ? () => setOpen(false) : undefined}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div className={Styles.menuRow}>
         <a
@@ -50,12 +115,8 @@ const MenuItem = ({ item, pageType }) => {
         {hasChildren && (
           <button
             type="button"
-            className={`${Styles.arrow} ${open ? Styles.arrowOpen : ''}`}
-            onClick={(e) => {
-              e.stopPropagation();
-              e.preventDefault();
-              setOpen(prev => !prev);
-            }}
+            className={`${Styles.arrow} ${isOpen ? Styles.arrowOpen : ''}`}
+            onClick={handleToggle}
           >
             ▸
           </button>
@@ -63,12 +124,16 @@ const MenuItem = ({ item, pageType }) => {
       </div>
 
       {hasChildren && (
-        <ul className={`${Styles.subMenu} ${open ? Styles.open : ''}`}>
-          {item.children.map((child, index) => (
+        <ul className={`${Styles.subMenu} ${isOpen ? Styles.open : ''}`}>
+          {item.children.map((child: any, index: number) => (
             <MenuItem
               key={index}
               item={child}
               pageType={pageType}
+              isMobile={isMobile}
+              openItems={openItems}
+              setOpenItems={setOpenItems}
+              parentId={fullId} // Pass parent ID for child items
             />
           ))}
         </ul>
@@ -77,53 +142,74 @@ const MenuItem = ({ item, pageType }) => {
   );
 };
 
-
 export default MenuItem;
 
-/* ===== ОСНОВНОЙ ХЭДЕР ===== */
-export const Header = ({ pageType }) => {
+/* ===== MAIN HEADER ===== */
+export const Header = ({ pageType }: { pageType: string }) => {
   const [isActiveMobileMenu, setIsActiveMobileMenu] = useState(false);
   const [closeAllSubMenus, setCloseAllSubMenus] = useState(false);
+  const [openItems, setOpenItems] = useState<string[]>([]); // Array of open items (mobile only)
+  const [isMobile, setIsMobile] = useState(false);
 
   const onToggleMobileMenu = () => {
-     setIsActiveMobileMenu(prev => {
+     setIsActiveMobileMenu((prev: boolean) => {
       const next = !prev;
 
-      // если закрываем бургер → закрываем всё внутри
       if (!next) {
-        setCloseAllSubMenus(prev => !prev);
+        setCloseAllSubMenus((prev: boolean) => !prev);
+        setOpenItems([]); // Close all submenus when burger is closed
       }
 
       return next;
     });
   };
 
- const [lang, setLang] = useState('en');
-
-const changeLanguage = (newLang) => {
-  setLang(newLang);
-
-  if (newLang === 'en') {
-    window.location.href = 'https://eng.tech-new.ru';
-  } else {
-    window.location.href = 'https://tech-new.ru';
-  }
-};
-
-  /* Закрытие меню при клике вне */
+  // Detect mobile version
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    if (typeof window === 'undefined') return;
+    const checkMobile = () => {
+      const mobile = window.innerWidth <= 1000;
+      setIsMobile(mobile);
+      
+      // If desktop - reset openItems
+      if (!mobile) {
+        setOpenItems([]);
+      }
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const [lang, setLang] = useState('en');
+
+  // Добавляем тип для параметра newLang
+  const changeLanguage = (newLang: string) => {
+    setLang(newLang);
+
+    if (newLang === 'en') {
+      window.location.href = 'https://eng.tech-new.ru';
+    } else {
+      window.location.href = 'https://tech-new.ru';
+    }
+  };
+
+  /* Close menu when clicking outside */
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
       const nav = document.querySelector(`.${Styles.navMenu}`);
       const toggle = document.querySelector(`.${Styles.menuToggle}`);
 
       if (
         isActiveMobileMenu &&
         nav &&
-        !nav.contains(event.target) &&
+        !nav.contains(event.target as Node) &&
         toggle &&
-        !toggle.contains(event.target)
+        !toggle.contains(event.target as Node)
       ) {
         setIsActiveMobileMenu(false);
+        setOpenItems([]); // Close all submenus
       }
     };
 
@@ -135,13 +221,13 @@ const changeLanguage = (newLang) => {
     <>
       <header>
         <div className={Styles.headerContainer}>
-          <img src={logoRu.src} alt="Новые Технологии" />
+          <img src={logoRu.src} alt="New Technologies" />
 
           <div className={Styles.contactBloc}>
             <div className={Styles.contactInfo}>
               <p>
                 <img src={location.src} alt="" />
-                Address: 32/2, Zeki Velidi St., Ufa, Republic of Bashkortostan
+                Address: 450076, Ufa, Zaki Validi St. 32/2
               </p>
               <p>
                 <img src={email.src} alt="" />
@@ -204,12 +290,20 @@ const changeLanguage = (newLang) => {
 
           <li>
             <a href="/about/" className={pageType === 'about' ? Styles.active : ''}>
-              About us
+              About Us
             </a>
           </li>
 
           {menuData.map((item, index) => (
-            <MenuItem key={index} item={item} pageType={pageType}/>
+            <MenuItem 
+              key={index} 
+              item={item} 
+              pageType={pageType}
+              isMobile={isMobile}
+              openItems={openItems}
+              setOpenItems={setOpenItems}
+              // parentId not passed for root items
+            />
           ))}
 
           <li>
@@ -226,13 +320,13 @@ const changeLanguage = (newLang) => {
 
           <li>
             <a href="/careers/" className={pageType === 'careers' ? Styles.active : ''}>
-              Career
+              Careers
             </a>
           </li>
 
           <li>
             <a href="/contact/" className={pageType === 'contact' ? Styles.active : ''}>
-              Contacts
+              Contact
             </a>
           </li>
         </ul>
