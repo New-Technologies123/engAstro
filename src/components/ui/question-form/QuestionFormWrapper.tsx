@@ -13,7 +13,8 @@ export const QuestionFormWrapper: React.FC = () => {
     email: '',
     phone: '',
     message: '',
-    agreement: false,
+    agreement: false,        // consent to data processing
+    privacyAgreement: false, // consent to privacy policy
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -43,15 +44,23 @@ export const QuestionFormWrapper: React.FC = () => {
   const handleChange = (field: string, value: string | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }));
 
-    if (field === 'agreement' && value === true) {
-      setAgreementError(false);
+    // Reset error if both checkboxes are checked
+    if ((field === 'agreement' || field === 'privacyAgreement') && value === true) {
+      // Check both checkboxes after the change
+      const newAgreement = field === 'agreement' ? value : formData.agreement;
+      const newPrivacyAgreement = field === 'privacyAgreement' ? value : formData.privacyAgreement;
+      
+      if (newAgreement && newPrivacyAgreement) {
+        setAgreementError(false);
+      }
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.agreement) {
+    // Check both checkboxes
+    if (!formData.agreement || !formData.privacyAgreement) {
       setAgreementError(true);
       return;
     }
@@ -73,8 +82,15 @@ export const QuestionFormWrapper: React.FC = () => {
           phone: '',
           message: '',
           agreement: false,
+          privacyAgreement: false,
         });
         setTimeout(() => setSubmitted(false), 3000);
+        
+        // Close the window 1 second after successful submission
+        setTimeout(() => {
+          setIsOpen(false);
+          localStorage.setItem(STORAGE_KEY, Date.now().toString());
+        }, 1000);
       } else {
         alert('Send error: ' + result.error);
       }
@@ -100,7 +116,7 @@ export const QuestionFormWrapper: React.FC = () => {
       {isOpen && (
         <div className={Styles.chatWindow}>
           <div className={Styles.chatHeader}>
-            <span>Send an inquiry</span>
+            <span>Ask a question</span>
             <button onClick={handleClose}>✕</button>
           </div>
 
@@ -113,7 +129,7 @@ export const QuestionFormWrapper: React.FC = () => {
 
           {submitted && (
             <div className={Styles.successMessage}>
-              ✅ Request accepted!
+              ✅ Request received! We will contact you shortly.
             </div>
           )}
         </div>

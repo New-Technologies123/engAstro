@@ -290,7 +290,7 @@ export const Header = ({ pageType }: { pageType: string }) => {
 
           <li>
             <a href="/about/" className={pageType === 'about' ? Styles.active : ''}>
-              About Us
+              About us
             </a>
           </li>
 
@@ -302,7 +302,7 @@ export const Header = ({ pageType }: { pageType: string }) => {
               isMobile={isMobile}
               openItems={openItems}
               setOpenItems={setOpenItems}
-              // parentId not passed for root items
+              // parentId не передаем для корневых элементов
             />
           ))}
 

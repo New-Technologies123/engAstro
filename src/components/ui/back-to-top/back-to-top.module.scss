@@ -71,7 +71,7 @@
 }
 
 /* mobile */
-@media (max-width: 500px) {
+@media (max-width: 850px) {
   .backToTop {
     offset: 15px;
     left: 20px;
@@ -86,19 +86,15 @@
   }
 }
 
-// @media (max-width: 500px){
-//     .backToTop{
-//         bottom: 25px;
-//         right: 17px;
-//         width: 50px;
-//         height: 50px;
-//         border: 3px solid rgb(3, 12, 143);
-//         &:hover{
-//             background: #467ffa;
-//         }
-//     }
-//     .upIcon{
-//         width: 15px;
-//         height: 15px;
-//     }
-// }
+@media (max-width: 500px){
+    .backToTop{
+        offset: 10px;
+        left: 15px;
+        width: 40px;
+        height: 40px;
+    }
+    .upIcon{
+        width: 14px;
+        height: 14px;
+    }
+}

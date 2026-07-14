@@ -104,16 +104,6 @@ const {
 
     <!-- COOKIE БАННЕР -->
     <CookieBanner />
-
-    <script is:inline>
-  if (typeof window !== 'undefined') {
-    if (!sessionStorage.getItem('cartCleared')) {
-      localStorage.removeItem('cart');
-      window.dispatchEvent(new Event('cartUpdated'));
-      sessionStorage.setItem('cartCleared', 'true');
-    }
-  }
-</script>
   </body>
 </html>
 

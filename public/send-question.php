@@ -1,107 +1,105 @@
 <?php
-header("Content-Type: application/json");
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Content-Type");
-
-if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
-    http_response_code(200);
-    exit();
-}
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Получаем данные из тела запроса
-    $json = file_get_contents("php://input");
-    $data = json_decode($json, true);
-    
-    if (!$data) {
-        echo json_encode([
-            "success" => false,
-            "error" => "Invalid data format"
-        ]);
-        exit();
-    }
-    
-    // Санитизация данных
-    $name = htmlspecialchars(trim($data['name'] ?? ''), ENT_QUOTES, 'UTF-8');
-    $email = htmlspecialchars(trim($data['email'] ?? ''), ENT_QUOTES, 'UTF-8');
-    $phone = htmlspecialchars(trim($data['phone'] ?? ''), ENT_QUOTES, 'UTF-8');
-    $messageText = htmlspecialchars(trim($data['message'] ?? ''), ENT_QUOTES, 'UTF-8');
-    
-    // Проверка обязательных полей
-    if (empty($name) || empty($email) || empty($phone) || empty($messageText)) {
-        echo json_encode([
-            "success" => false,
-            "error" => "Please fill in all required fields"
-        ]);
-        exit();
-    }
-    
-    // Проверка email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo json_encode([
-            "success" => false,
-            "error" => "Invalid email format"
-        ]);
-        exit();
-    }
-    
-    // Проверка согласия
-    $agreement = !empty($data['agreement']) && $data['agreement'] === true ? 'YES' : 'NO';
-    
-    if ($agreement !== 'YES') {
-        echo json_encode([
-            "success" => false,
-            "error" => "Please confirm your consent to the processing of personal data"
-        ]);
-        exit();
-    }
-    
-    // Метаданные
-    $date = gmdate("c");
-    $policyVersion = 'v1.0 (from 01.04.2024)';
+
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    $name = htmlspecialchars($data['name'] ?? '');
+    $email = htmlspecialchars($data['email'] ?? '');
+    $phone = htmlspecialchars($data['phone'] ?? '');
+    $messageText = htmlspecialchars($data['message'] ?? '');
+
+    // ✅ Получаем состояние чекбоксов
+    $agreement = !empty($data['agreement']) ? '✅ ДА' : '❌ НЕТ';
+    $privacyAgreement = !empty($data['privacyAgreement']) ? '✅ ДА' : '❌ НЕТ';
+
+    // ✅ Метаданные
+    $date = date("d.m.Y H:i:s"); // Локальное время
+    $dateISO = gmdate("c"); // ISO 8601 (UTC)
+    $policyVersion = 'v1.0 (от 01.04.2024)';
     $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
     $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'unknown';
+    $referer = $_SERVER['HTTP_REFERER'] ?? 'Прямой переход';
     
-    // Формирование письма
-    $message = "New inquiry received:\n\n";
-    $message .= "Name: $name\n";
+    // ✅ Формирование красивого письма
+    $message = "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
+    $message .= "📨 НОВОЕ ОБРАЩЕНИЕ С САЙТА\n";
+    $message .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n";
+    
+    $message .= "👤 ИНФОРМАЦИЯ О ПОЛЬЗОВАТЕЛЕ:\n";
+    $message .= "────────────────────────────────────────\n";
+    $message .= "Имя: $name\n";
     $message .= "Email: $email\n";
-    $message .= "Phone: $phone\n";
-    $message .= "Message: $messageText\n\n";
-    $message .= "---\n";
-    $message .= "Consent confirmation: $agreement\n";
-    $message .= "Date and time: $date\n";
-    $message .= "Privacy policy version: $policyVersion\n";
-    $message .= "User IP: $ip\n";
+    $message .= "Телефон: $phone\n\n";
+    
+    $message .= "💬 СООБЩЕНИЕ:\n";
+    $message .= "────────────────────────────────────────\n";
+    $message .= "$messageText\n\n";
+    
+    $message .= "✅ СОГЛАСИЯ:\n";
+    $message .= "────────────────────────────────────────\n";
+    $message .= "Согласие на обработку персональных данных: $agreement\n";
+    $message .= "Ознакомление с политикой конфиденциальности: $privacyAgreement\n\n";
+    
+    $message .= "📊 ТЕХНИЧЕСКАЯ ИНФОРМАЦИЯ:\n";
+    $message .= "────────────────────────────────────────\n";
+    $message .= "Дата и время: $date\n";
+    $message .= "Временная метка (UTC): $dateISO\n";
+    $message .= "Версия политики конфиденциальности: $policyVersion\n";
+    $message .= "IP-адрес: $ip\n";
+    $message .= "Источник: $referer\n";
     $message .= "User-Agent: $userAgent\n";
-    
-    // Настройки отправки
+    $message .= "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
+
+    // Email получателя
     $to = "nt@tech-new.ru";
-    $subject = "=?UTF-8?B?" . base64_encode("New inquiry from website") . "?=";
-    
+    $subject = "=?UTF-8?B?" . base64_encode("📨 Новое обращение с сайта") . "?=";
+
+    // Заголовки письма
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/plain; charset=UTF-8\r\n";
     $headers .= "From: no-reply@tech-new.ru\r\n";
     $headers .= "Reply-To: $email\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
+
+    // Логирование для отладки
+    $logData = [
+        'timestamp' => date('Y-m-d H:i:s'),
+        'to' => $to,
+        'subject' => $subject,
+        'from' => $email,
+        'name' => $name,
+        'agreement' => $agreement,
+        'privacyAgreement' => $privacyAgreement,
+        'ip' => $ip
+    ];
     
+    // Сохраняем лог (опционально)
+    $logFile = 'form-submissions.log';
+    file_put_contents($logFile, json_encode($logData) . PHP_EOL, FILE_APPEND);
+
     // Отправка письма
     if (mail($to, $subject, $message, $headers)) {
         echo json_encode([
             "success" => true,
-            "message" => "Message sent successfully"
+            "message" => "Сообщение успешно отправлено"
         ]);
     } else {
+        error_log("Mail send failed to: $to");
         echo json_encode([
             "success" => false,
-            "error" => "Failed to send message. Please try again later."
+            "error" => "Не удалось отправить письмо. Пожалуйста, попробуйте позже."
         ]);
     }
+
 } else {
-    http_response_code(405);
     echo json_encode([
         "success" => false,
-        "error" => "Invalid request method. Use POST."
+        "error" => "Неверный метод запроса. Используйте POST."
     ]);
 }
 ?>

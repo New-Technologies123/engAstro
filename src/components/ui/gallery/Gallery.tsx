@@ -60,7 +60,7 @@ export const Gallery = ({ photos = [] }: TProps) => {
         />
         
         <div className={Styles.imageOverlay}>
-          <span className={Styles.zoomText}>🔍 Increase</span>
+          <span className={Styles.zoomText}>🔍 Увеличить</span>
         </div>
 
         {photos.length > 1 && (

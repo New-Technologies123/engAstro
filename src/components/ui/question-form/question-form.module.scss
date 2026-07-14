@@ -62,7 +62,7 @@
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2),
               inset 0 0 0 1px rgba(255, 255, 255, 0.25);
   animation: slideUp 0.25s ease-out;
-  z-index: 1000;
+  z-index: 9999;
   overflow: hidden;
   border: 1px solid rgba(59, 130, 246, 0.3);
 }
@@ -113,7 +113,6 @@
   background: #fff;
   transition: all 0.25s ease;
   box-shadow: 0 2px 6px rgba(13, 43, 212, 0.3);
-  font-family: inherit;
 }
 
 .questionForm input::placeholder,
@@ -171,6 +170,17 @@
   font-size: 13px;
 }
 
+/* Контейнер для email и телефона в одну строку */
+.contactRow {
+  display: flex;
+  gap: 12px;
+  
+  .contactInput {
+    flex: 1;
+    min-width: 0; /* Чтобы инпуты не вылезали за пределы */
+  }
+}
+
 /* ☑️ Чекбоксы */
 .checkbox {
   display: flex;
@@ -178,7 +188,7 @@
   gap: 10px;
   cursor: pointer;
   font-size: 12px;
-  margin-top: 10px;
+  transition: all 0.2s ease;
 }
 
 .checkbox input {
@@ -192,7 +202,7 @@
   border-radius: 6px;
   position: relative;
   transition: 0.2s;
-  background: white;
+  margin-top: 2px;
 }
 
 .checkbox input:checked + .customCheckbox {
@@ -217,84 +227,59 @@
   opacity: 1;
 }
 
-.error .customCheckbox {
+.checkbox.error .customCheckbox {
   border-color: #ff1111;
+  animation: shake 0.3s ease-in-out;
 }
 
 .errorText {
   color: #fc0000;
+  font-size: 11px;
+  margin-bottom: 8px;
+  margin-left: 28px;
+  animation: fadeIn 0.3s ease;
+}
+
+.errorTextGeneral {
+  color: #fc0000;
   font-size: 12px;
-  margin-top: 4px;
+  margin-top: 8px;
+  padding: 8px;
+  background: rgba(252, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
 }
 
 .checkboxText {
-  flex: 1;
   line-height: 1.4;
+  
+  a {
+    margin: 0 3px;
+    color: #1d5fc9;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
-.checkboxText a {
-  margin: 0 3px;
-  color: #3b82f6;
-  text-decoration: none;
-}
-
-.checkboxText a:hover {
-  text-decoration: underline;
-}
-
-/* 🟥 Стили для полей с ошибкой - красный ободок */
-.errorInput {
-  border: 2px solid #ff1111 !important;
-  outline: none;
-  animation: shakeField 0.3s ease-in-out;
-}
-
-.errorInput:focus {
-  border-color: #ff1111 !important;
-  box-shadow: 0 0 0 3px rgba(255, 17, 17, 0.15);
-}
-
-/* 🌐 Глобальное сообщение об ошибке сверху */
-.globalError {
-  background: linear-gradient(135deg, rgba(255, 17, 17, 0.1), rgba(255, 17, 17, 0.05));
-  border-left: 4px solid #ff1111;
-  border-radius: 12px;
-  padding: 12px;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  animation: shakeError 0.3s ease-in-out;
-}
-
-.globalErrorIcon {
-  font-size: 20px;
-  animation: pulseError 1s infinite;
-}
-
-.globalErrorText {
-  color: #d32f2f;
-  font-size: 13px;
-  font-weight: 500;
-  flex: 1;
-}
-
-/* Анимация для сообщения об ошибке */
-@keyframes shakeError {
+@keyframes shake {
   0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-4px); }
-  75% { transform: translateX(4px); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
 }
 
-@keyframes pulseError {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-@keyframes shakeField {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-2px); }
-  75% { transform: translateX(2px); }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ✨ Анимация появления окна */
@@ -305,40 +290,10 @@
 
 /* 📱 Адаптив */
 @media (max-width: 500px) {
-  .chatButton { 
-    bottom: 18px; 
-    right: 18px; 
-    width: 50px; 
-    height: 50px; 
-  }
-  
-  .chatWindow { 
-    width: 90%; 
-    right: 5%; 
-  }
-  
-  .chatHeader { 
-    font-size: 14px; 
-    padding: 10px 8px; 
-  }
-  
-  .questionForm { 
-    padding: 14px; 
-    gap: 7px; 
-  }
-  
+  .chatButton { bottom: 18px; right: 18px; width: 50px; height: 50px; }
+  .chatWindow { width: 90%; right: 5%; }
+  .chatHeader { font-size: 14px; padding: 10px 8px; padding-left: 17px;}
+  .questionForm { padding: 14px; gap: 7px; }
   .questionForm input,
-  .questionForm textarea { 
-    padding: 9px; 
-    font-size: 13px; 
-  }
-  
-  .globalError {
-    padding: 10px;
-    margin-bottom: 12px;
-  }
-  
-  .globalErrorText {
-    font-size: 12px;
-  }
+  .questionForm textarea { padding: 9px; font-size: 13px; }
 }
