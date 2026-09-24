@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Styles from './question-form.module.scss';
 import { QuestionForm } from './QuestionForm';
 
@@ -13,8 +13,8 @@ export const QuestionFormWrapper: React.FC = () => {
     email: '',
     phone: '',
     message: '',
-    agreement: false,        // consent to data processing
-    privacyAgreement: false, // consent to privacy policy
+    agreement: false,
+    privacyAgreement: false,
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -32,24 +32,40 @@ export const QuestionFormWrapper: React.FC = () => {
 
     if (diff >= REOPEN_DELAY) {
       setIsOpen(true);
-    } else {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, REOPEN_DELAY - diff);
-
-      return () => clearTimeout(timer);
+      return;
     }
+
+    const timer = window.setTimeout(() => {
+      setIsOpen(true);
+    }, REOPEN_DELAY - diff);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
-  const handleChange = (field: string, value: string | boolean) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const handleChange = (
+    field: string,
+    value: string | boolean
+  ) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value,
+    }));
 
-    // Reset error if both checkboxes are checked
-    if ((field === 'agreement' || field === 'privacyAgreement') && value === true) {
-      // Check both checkboxes after the change
-      const newAgreement = field === 'agreement' ? value : formData.agreement;
-      const newPrivacyAgreement = field === 'privacyAgreement' ? value : formData.privacyAgreement;
-      
+    if (
+      (field === 'agreement' ||
+        field === 'privacyAgreement') &&
+      value === true
+    ) {
+      const newAgreement =
+        field === 'agreement'
+          ? Boolean(value)
+          : formData.agreement;
+
+      const newPrivacyAgreement =
+        field === 'privacyAgreement'
+          ? Boolean(value)
+          : formData.privacyAgreement;
+
       if (newAgreement && newPrivacyAgreement) {
         setAgreementError(false);
       }
@@ -59,8 +75,10 @@ export const QuestionFormWrapper: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Check both checkboxes
-    if (!formData.agreement || !formData.privacyAgreement) {
+    if (
+      !formData.agreement ||
+      !formData.privacyAgreement
+    ) {
       setAgreementError(true);
       return;
     }
@@ -68,7 +86,9 @@ export const QuestionFormWrapper: React.FC = () => {
     try {
       const response = await fetch('/send-question.php', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(formData),
       });
 
@@ -76,6 +96,7 @@ export const QuestionFormWrapper: React.FC = () => {
 
       if (result.success) {
         setSubmitted(true);
+
         setFormData({
           name: '',
           email: '',
@@ -84,15 +105,24 @@ export const QuestionFormWrapper: React.FC = () => {
           agreement: false,
           privacyAgreement: false,
         });
-        setTimeout(() => setSubmitted(false), 3000);
-        
-        // Close the window 1 second after successful submission
-        setTimeout(() => {
+
+        window.setTimeout(() => {
+          setSubmitted(false);
+        }, 3000);
+
+        window.setTimeout(() => {
           setIsOpen(false);
-          localStorage.setItem(STORAGE_KEY, Date.now().toString());
+
+          localStorage.setItem(
+            STORAGE_KEY,
+            Date.now().toString()
+          );
         }, 1000);
       } else {
-        alert('Send error: ' + result.error);
+        alert(
+          'Submission error: ' +
+          (result.error || 'Unknown error')
+        );
       }
     } catch {
       alert('Server connection error');
@@ -101,39 +131,187 @@ export const QuestionFormWrapper: React.FC = () => {
 
   const handleClose = () => {
     setIsOpen(false);
-    localStorage.setItem(STORAGE_KEY, Date.now().toString());
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      Date.now().toString()
+    );
   };
 
   return (
-    <>
+    <div className={Styles.questionWidget}>
+
+      {/* =====================================================
+          FLOATING CHAT BUTTON
+      ====================================================== */}
+
       <button
-        className={`${Styles.chatButton} ${Styles.attention}`}
+        type="button"
+        className={`${Styles.chatButton} ${isOpen ? Styles.chatButtonOpen : ''
+          }`}
         onClick={() => setIsOpen(prev => !prev)}
+        aria-label={
+          isOpen
+            ? 'Close question form'
+            : 'Ask a question'
+        }
+        aria-expanded={isOpen}
       >
-        <span className={Styles.shake}>💬</span>
+        <span className={Styles.buttonGlow} />
+
+        <span className={Styles.buttonIcon}>
+          {isOpen ? (
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M6 6l12 12M18 6L6 18"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+          ) : (
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M20 11.5a7.5 7.5 0 01-8 7.5
+                   8.2 8.2 0 01-3.2-.7L4 20l1.5-4.1
+                   A7.4 7.4 0 014 11.5
+                   7.5 7.5 0 0112 4a7.5 7.5 0 018 7.5z"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinejoin="round"
+              />
+
+              <path
+                d="M8 11.5h.01M12 11.5h.01M16 11.5h.01"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+              />
+            </svg>
+          )}
+        </span>
+
+        {!isOpen && (
+          <span className={Styles.buttonDot} />
+        )}
       </button>
 
+      {/* =====================================================
+          CHAT WINDOW
+      ====================================================== */}
+
       {isOpen && (
-        <div className={Styles.chatWindow}>
+        <div
+          className={Styles.chatWindow}
+          role="dialog"
+          aria-label="Ask a question"
+        >
+
+          {/* HEADER */}
+
           <div className={Styles.chatHeader}>
-            <span>Ask a question</span>
-            <button onClick={handleClose}>✕</button>
+
+            <div className={Styles.headerIcon}>
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20 11.5a7.5 7.5 0 01-8 7.5
+                     8.2 8.2 0 01-3.2-.7L4 20l1.5-4.1
+                     A7.4 7.4 0 014 11.5
+                     7.5 7.5 0 0112 4a7.5 7.5 0 018 7.5z"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinejoin="round"
+                />
+
+                <path
+                  d="M8 11.5h.01M12 11.5h.01M16 11.5h.01"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+
+            <div className={Styles.headerText}>
+              <h3>Ask a question</h3>
+
+              <p>
+                Tell us how we can help
+              </p>
+            </div>
+
+            <button
+              type="button"
+              className={Styles.closeButton}
+              onClick={handleClose}
+              aria-label="Close"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6 6l12 12M18 6L6 18"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </button>
+
           </div>
 
-          <QuestionForm
-            formData={formData}
-            onChange={handleChange}
-            onSubmit={handleSubmit}
-            agreementError={agreementError}
-          />
+          {/* BODY */}
 
-          {submitted && (
-            <div className={Styles.successMessage}>
-              ✅ Request received! We will contact you shortly.
-            </div>
-          )}
+          <div className={Styles.chatBody}>
+
+            <QuestionForm
+              formData={formData}
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+              agreementError={agreementError}
+            />
+
+            {submitted && (
+              <div className={Styles.successMessage}>
+
+                <div className={Styles.successIcon}>
+                  ✓
+                </div>
+
+                <div>
+                  <strong>
+                    Your question has been sent
+                  </strong>
+
+                  <span>
+                    We will get back to you shortly.
+                  </span>
+                </div>
+
+              </div>
+            )}
+
+          </div>
+
         </div>
       )}
-    </>
+
+    </div>
   );
 };

@@ -32,7 +32,7 @@ export const NEWS_DATA: TNewsItem[] = [
   {
     id: 1,
     category: 'Exhibition',
-    date: 'February 2026',
+    date: 'March 2026',
     title: 'Participation in EGYPES 2026',
     description: 'Successful participation in the Egypt Energy Show in Cairo',
     photos: [
